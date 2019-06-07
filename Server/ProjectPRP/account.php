@@ -75,7 +75,7 @@ $user=$_SESSION["loggedUser"];
 <div class="menuacc3">
     <br>
     <a class="namemenu3" href="ChooseS.html">Обрані Спеціалності</a>
-</div>
+</div><div class="container m-auto">
 <form id="form">
 
     <div class="info">
@@ -160,7 +160,7 @@ $user=$_SESSION["loggedUser"];
         </div>
     </div>
 </form>
-
+<?php require "footer.php";?></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/do.js"></script>
 
