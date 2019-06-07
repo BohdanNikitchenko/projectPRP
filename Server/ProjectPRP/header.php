@@ -46,7 +46,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
 
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Особистий кабінет</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick='location.href="account.php"'>Особистий кабінет</button>
             </form>
         </div>
     </nav>
