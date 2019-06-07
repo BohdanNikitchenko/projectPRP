@@ -19,7 +19,8 @@ $user=$_SESSION["loggedUser"];
     <script type="text/javascript" src="js/bootstrap.min.js.map"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/account.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/code.js"></script>
     <script type="text/javascript" src="js/acc.js"></script>
 
@@ -68,7 +69,7 @@ $user=$_SESSION["loggedUser"];
 <div class="menuacc3">
     <br>
     <a class="namemenu3" href="ChooseS.html">Обрані Спеціалності</a>
-</div>
+</div><div class="container m-auto">
 <form id="form">
 
     <div class="info">
@@ -153,7 +154,7 @@ $user=$_SESSION["loggedUser"];
         </div>
     </div>
 </form>
-
+<?php require "footer.php";?></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/do.js"></script>
 
