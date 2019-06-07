@@ -1,0 +1,140 @@
+.namemenu2:hover,.namemenu3:hover {text-decoration: underline;}
+#ex{
+    font-family: Herical;
+    font-size: 17pt;
+    background: #f93;
+    color: #ffffff;
+    border-radius: 80px;
+    height: 80px;
+    width: 80px;
+}
+#exit{
+    margin: -50px 900px;
+}
+#ex:hover{
+    background: #666666;
+    color: #f90;
+}
+.menuacc1, .menuacc2, .menuacc3{
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+.menuacc1{
+    margin: 20px 10% ;
+    background: #eeeeee;
+    color: #888888;
+    width: 250px;
+    text-decoration: underline;
+}
+.menuacc2{
+    margin: 20px -10%;
+    background: #f93;
+    width: 160px;
+    text-decoration: none;
+}
+.menuacc3{
+    margin: 20px 30px;
+    background: #f93;
+    width: 250px;
+    text-decoration: none;
+}
+.namemenu1,.namemenu2,.namemenu3{
+    font-family: Herical;
+    font-size: 17pt;
+    text-align: center;
+}
+.namemenu1{
+    color: #666666;
+}
+.namemenu2{
+    color: #ffffff;
+    text-decoration: none;
+}
+.namemenu3{
+    color: #ffffff;
+    text-decoration: none;
+}
+.info{
+    margin: 64px 10% 0 10%;
+    background: #eeeeee;
+    height: 680px;
+}
+#photo{
+    margin: 10px 10px 0 0;
+    display: inline-block;
+    width: 175px;
+    height: 175px;
+    padding-right: 20px;
+}
+.phio{
+    display: inline-block;
+}
+.phio a,.phio input{
+    font-size: 16pt;
+}
+.div{
+    margin: 10px 30px;
+    display: inline-block;
+}
+.down, .down1{
+    margin: 10px 30px;
+}
+#downloadphoto,#save,#change{
+    height: 30px;
+    width: 180px;
+    font-size: 14pt;
+    border-radius: 7px;
+    background: #666;
+    color: #ffffff;
+    visibility: hidden;
+}
+#change{
+    visibility: visible;
+}
+h2{
+    text-align: center;
+}
+#button{
+    height: 35px;
+    width: 35px;
+    border-width: 0px;
+    vertical-align: middle;
+}
+#zn2,#zn3,#zn4{
+    padding-left: 30px;
+}
+#zn1{
+    padding-left: 30px;
+    font-size: 16pt;
+}
+#zno2{
+    font-size: 15pt;
+    border-radius: 5px;
+}
+#zno3{
+    font-size: 15pt;
+    border-radius: 5px;
+}
+#zno4{
+    font-size: 15pt;
+    border-radius: 5px;
+}
+#numzno a{
+    padding-left: 30px;
+    font-size: 16pt;
+}
+#numzno{
+    visibility: hidden;
+}
+#numpredm{
+    font-size: 14pt;
+    border-radius: 5px;
+}
+.bal{
+    width:40px ;
+    font-size: 14pt;
+    border-radius: 5px;
+}
