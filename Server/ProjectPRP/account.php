@@ -160,7 +160,11 @@ $user=$_SESSION["loggedUser"];
         </div>
     </div>
 </form>
-<?php require "footer.php";?></div>
+
+    <footer>
+        <?php require "footer.php";?></div>
+    </footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/do.js"></script>
 
