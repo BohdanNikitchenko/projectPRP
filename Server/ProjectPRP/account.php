@@ -5,10 +5,24 @@ $user=$_SESSION["loggedUser"];
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+    <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js.map"></script>
+    <script type="text/javascript" src="js/bootstrap.js.map"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js.map"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js.map"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/account.css">
-    <!--<script type="text/javascript" src="code.js"></script>-->
-    <!--<script type="text/javascript" src="acc.js"></script>-->
+
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/acc.js"></script>
+
 
     <title>Особистий кабінет</title>
     <link rel="shortcut icon" href="photo_2019-05-24_00-38-31.png" type="image/png">
@@ -56,14 +70,21 @@ $user=$_SESSION["loggedUser"];
     <a class="namemenu3" href="ChooseS.html">Обрані Спеціалності</a>
 </div>
 <form id="form">
+
     <div class="info">
         <div class="div">
             <img id="photo" src="img/user-account-box.png">
-            <div class="phio">
-                <a><br>Прізвище : </a><br>
-                <a><br>Ім'я : </a><br>
-                <a><br>По-батькові : </a><br>
-                <a><br>Електронна пошта : </a><br>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
             </div>
             <div class="phio">
                 <?php
@@ -132,6 +153,7 @@ $user=$_SESSION["loggedUser"];
         </div>
     </div>
 </form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/do.js"></script>
 
