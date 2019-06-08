@@ -72,6 +72,7 @@ $("#SaveEditBtn").on("click",function () {
     let name =$("#name").val().trim();
     let ThirdName=$("#ThirdName").val().trim();
     let email=$("#email").val().trim();
+    let phone=$("#phone").val().trim();
     let password=$("#password").val().trim();
     let NewPassword=$("#NewPassword").val().trim();
     let selectSubj1=$("#selectSubj1").val().trim();
@@ -83,7 +84,7 @@ $("#SaveEditBtn").on("click",function () {
         url: 'ajax/Edition.php',
         type: 'POST',
         cache: false,
-        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3},
+        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3},
         beforeSend: function () {
             $("#sendBtn").prop("disabled",true);
         },

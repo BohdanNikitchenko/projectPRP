@@ -1,13 +1,18 @@
 <?php
 session_start();
+$user=$_SESSION["loggedUser"];
 $SerName = $_POST['SerName'];
-$pass = md5($_POST['pass']);
 $name = ($_POST['name']);
-$surname= ($_POST['surname']);
-$thirdname = ($_POST['thirdname']);
-$phone = ($_POST['phone']);
+$thirdname = ($_POST['ThirdName']);
+$email=($_POST['email']);
+$phone=($_POST['phone']);
+$password=($_POST['password']);
+$newpassword=($_POST['NewPassword']);
+$subj1=($_POST['selectSubj1']);
+$subj2=($_POST['selectSubj2']);
+$subj3=($_POST['selectSubj3']);
 
-
+ $id=$user['Id'];
 
 $mysql = new mysqli("localhost","root","","users");
 if ($mysql->connect_errno) {
@@ -15,12 +20,12 @@ if ($mysql->connect_errno) {
     exit();
 }
 $mysql->query("SET NAMES 'utf-8");
-$result = $mysql->query("INSERT INTO users(Email,Password,Name,SurName,ThierdName,PHONE) VALUES('$email','$pass','$name','$surname','$thirdname','$phone');");
-
+$result = $mysql->query("UPDATE users SET Email='$email', Password='$newpassword', Name='$name', SurName ='$SerName', ThierdName='$thirdname', PHONE='$phone', Subj1='$subj1',Subj2='$subj2', Subj3='$subj3' WHERE Id ='$id';");
+$_SESSION["loggedUser"] = $user;
 if($result == false){
     echo "fail";
 }else{
-    echo"http://localhost/projectPRP/autorization.php";
+    echo"http://localhost/projectPRP/account1.php";
 }
 
 ?>

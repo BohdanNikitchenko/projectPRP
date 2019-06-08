@@ -198,7 +198,7 @@ $user=$_SESSION["loggedUser"];
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <?php
-                                echo "<input type=\"text\" class=\"form-control\" name=\"name\"  id=\"SurName\" value=\"".$user["SurName"]."\"placeholder='Прізвище'/>";
+                                echo "<input type=\"text\" class=\"form-control\" name=\"name\"  id=\"SerName\" value=\"".$user["SurName"]."\"placeholder='Прізвище'/>";
                                 ?>
                             </div>
                         </div>
@@ -242,6 +242,18 @@ $user=$_SESSION["loggedUser"];
                     </div>
 
                     <div class="form-group">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <label for="email" class="cols-sm-2 control-label ml-1">Телефон:</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <?php
+                                echo "<input type=\"text\" class=\"form-control\" name=\"phone\"  id=\"phone\" value=\"".$user["PHONE"]."\"placeholder='Телефон'/>";
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                         <label for="password" class="cols-sm-2 control-label ml-1">Пароль:</label>
                         <div class="cols-sm-10">
@@ -256,7 +268,7 @@ $user=$_SESSION["loggedUser"];
                         <label for="confirm" class="cols-sm-2 control-label ml-1">Новий пароль:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <input type="password" class="form-control" name="confirm" id="confirm" id="NewPassword"  placeholder="Confirm your Password"/>
+                                <input type="password" class="form-control" name="confirm"  id="NewPassword"  placeholder="Confirm your Password"/>
                             </div>
                         </div>
                     </div>
