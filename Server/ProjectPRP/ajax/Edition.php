@@ -12,6 +12,7 @@ $subj1=($_POST['selectSubj1']);
 $subj2=($_POST['selectSubj2']);
 $subj3=($_POST['selectSubj3']);
 
+
  $id=$user['Id'];
 
 $mysql = new mysqli("localhost","root","","users");
