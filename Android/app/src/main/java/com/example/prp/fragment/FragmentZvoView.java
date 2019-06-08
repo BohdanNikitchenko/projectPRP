@@ -41,12 +41,10 @@ public class FragmentZvoView extends Fragment {
             {"Київ", "Бориспіль"},
             {"Дніпро", "ААА"}};
 
-    Spinner areaSpinner, townSpinner;
-    ArrayAdapter<String> areaAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, areaValues);
+    Spinner areaSpinner;
+    Spinner townSpinner;
+    ArrayAdapter<String> areaAdapter;
     ArrayAdapter<String> townAdapter; /* = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, townValues);*/
-
-
-
 
 
 
@@ -91,9 +89,32 @@ public class FragmentZvoView extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //a
-        View v = inflater.inflate(R.layout.fragment_fragment_zvo_view, container, false);
+        final View v = inflater.inflate(R.layout.fragment_fragment_zvo_view, container, false);
 
         areaSpinner = (Spinner)v.findViewById(R.id.areaSpinner);
+
+        areaAdapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, areaValues);
+        areaAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        areaSpinner.setAdapter(areaAdapter);
+
+        areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                townSpinner = (Spinner)v.findViewById(R.id.townSpinner);
+                townAdapter = new ArrayAdapter<>(v.getContext(), android.R.layout.simple_spinner_item, townValues[position]);
+                townAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+                townSpinner.setAdapter(townAdapter);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        /*areaSpinner = (Spinner)v.findViewById(R.id.areaSpinner);
         townSpinner = (Spinner)v.findViewById(R.id.townSpinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, areaValues);
