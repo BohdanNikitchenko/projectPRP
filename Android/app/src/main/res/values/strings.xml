@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">АбітPROмощник</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_zvo">ЗВО</string>
+    <string name="nav_zvo_view">Перегляд</string>
+    <string name="nav_zvo_rate">Рейтинг ЗВО</string>
+    <string name="nav_spec">Спеціальності</string>
+    <string name="nav_spec_view">Перегляд</string>
+    <string name="nav_spec_rate">Рейтинги</string>
+    <string name="nav_spec_select">Підбір</string>
+    <string name="nav_zno">ЗНО</string>
+    <string name="nav_zno_total_info">Загальна інформація</string>
+    <string name="nav_zno_subj">Предмети</string>
+    <string name="nav_zno_test">Тести</string>
+    <string name="nav_settings">Налаштування</string>
+    <string name="nav_exit">Вийти</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="spec_rate">Рейтинг спеціальностей</string>
+    <string name="zvo_view">Перегляд ЗВО</string>
+    <string name="filters">Фільтри:</string>
+
+    <string-array name="fragments">
+        <item>FragmentZvoView</item>
+        <item>FragmentZvoRate</item>
+    </string-array>
+</resources>
