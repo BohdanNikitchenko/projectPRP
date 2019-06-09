@@ -33,7 +33,7 @@ $user=$_SESSION["loggedUser"];
             <div class="col-md-6">
                 <div class="profile-head">
                     <?php
-                    echo"<h4>";
+                    echo"<h4 id='SurNameh'>";
                     echo $user["SurName"];
                     echo "</h4>";
 
@@ -62,17 +62,17 @@ $user=$_SESSION["loggedUser"];
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label>ФІО:</label>
+                                <label>ФІО</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo"<p>".$user["SurName"]." ".$user["Name"]." ".$user["ThierdName"]."</p>";
+                                echo"<p id='p1'>".$user["SurName"]." ".$user["Name"]." ".$user["ThierdName"]."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <label>Email</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
@@ -82,7 +82,7 @@ $user=$_SESSION["loggedUser"];
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Телефон:</label>
+                                <label>Телефон</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
@@ -92,31 +92,37 @@ $user=$_SESSION["loggedUser"];
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj1']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj1Mark']."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj2']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj2Mark']."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj3']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj3Mark']."</p>";
                                 ?>
                             </div>
                         </div>
@@ -291,7 +297,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj1Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
@@ -314,7 +320,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj2Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
@@ -338,7 +344,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj3Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
