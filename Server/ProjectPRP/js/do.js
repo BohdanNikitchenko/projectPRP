@@ -108,14 +108,12 @@ $("#SaveEditBtn").on("click",function () {
 
 //Редактирования фото
 var files; // переменная. будет содержать данные файлов
-
+files = this.files;
 // заполняем переменную данными, при изменении значения поля file
-$('input[type=file]').on('change', function(){
-    files = this.files;
-});
-
 // обработка и отправка AJAX запроса при клике на кнопку upload_files
-$('#ChangePhotoBtn').on( 'click', function( event ){
+$('input[type=file]').on('change', function( event ){
+
+    files = this.files;
 
     event.stopPropagation(); // остановка всех текущих JS событий
     event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
@@ -173,6 +171,66 @@ $('#ChangePhotoBtn').on( 'click', function( event ){
 
     });
 });
+
+
+/*$('#ChangePhotoBtn').on( 'click', function( event ){
+
+    event.stopPropagation(); // остановка всех текущих JS событий
+    event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+
+    // ничего не делаем если files пустой
+    if( typeof files == 'undefined' ) return;
+
+    // создадим объект данных формы
+    var data = new FormData();
+
+    // заполняем объект данных файлами в подходящем для отправки формате
+    $.each( files, function( key, value ){
+        data.append( key, value );
+    });
+    let filePath;
+    // добавим переменную для идентификации запроса
+    data.append( 'my_file_upload', 1 );
+
+    // AJAX запрос
+    $.ajax({
+        url         : 'ajax/changePhoto.php',
+        type        : 'POST', // важно!
+        data        : data,
+        cache       : false,
+        dataType    : 'json',
+        // отключаем обработку передаваемых данных, пусть передаются как есть
+        processData : false,
+        // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+        contentType : false,
+        // функция успешного ответа сервера
+        success     : function( respond, status, jqXHR ){
+
+            // ОК - файлы загружены
+            if( typeof respond.error === 'undefined' ){
+                // выведем пути загруженных файлов в блок '.ajax-reply'
+                var files_path = respond.files;
+                filePath = files_path;
+                var html = '';
+                $.each( files_path, function( key, val ){
+                    html += val +'<br>';
+                } )
+                $('.ajax-reply').html( html );
+                window.location.reload();
+            }
+
+            // ошибка
+            else {
+                console.log('ОШИБКА: ' + respond.error );
+            }
+        },
+        // функция ошибки ответа сервера
+        error: function( jqXHR, status, errorThrown ){
+            console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
+        }
+
+    });
+});*/
 
 
 

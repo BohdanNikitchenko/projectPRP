@@ -32,9 +32,9 @@ $user=$_SESSION["loggedUser"];
                         Виберіть фото
                         <input type="file" name="user_image" accept="image/jpeg,image/png"/>
                     </button>
-                    <button class="file btn-lg btn-primary" id="ChangePhotoBtn">
+                    <!--<button class="file btn-lg btn-primary" id="ChangePhotoBtn">
                         Змінити фото
-                    </button>
+                    </button>-->
                 </div>
             </div>
             <div class="col-md-6">
