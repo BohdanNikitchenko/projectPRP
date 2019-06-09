@@ -12,6 +12,7 @@ $user=$_SESSION["loggedUser"];
     <link rel="stylesheet" href="css/account.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 </head>
 <header>
     <?php require "header.php";?>
@@ -24,10 +25,13 @@ $user=$_SESSION["loggedUser"];
             <div class="col-md-4">
                 <div class="profile-img">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                    <div class="file btn btn-lg btn-primary">
-                        Змінити фото
-                        <input type="file" name="file"/>
-                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <button class="file btn btn-lg btn-primary" type="submit"  id="PhotoBtn">
+                            Змінити фото
+                            <input type="file" name="file"/>
+                        </button>
+                    </form>
+
                 </div>
             </div>
             <div class="col-md-6">

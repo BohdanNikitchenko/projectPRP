@@ -63,10 +63,7 @@ $("#ex").on("click",function(){
     document.location.href = "http://localhost/dashboard/projectPRP/autorization.php";
 });
 //Редактирование
-$("#EditBtn").on("click",function () {
 
-document.getElementById("SubjL").style.visibility='visible';
-});
 $("#SaveEditBtn").on("click",function () {
     let SerName=$("#SerName").val().trim();
     let name =$("#name").val().trim();

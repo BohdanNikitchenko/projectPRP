@@ -10,7 +10,6 @@ $pass = md5($_POST['password']);
     }
     $mysql->query("SET NAMES 'utf-8");
     $result = $mysql->query("SELECT * FROM users");
-
     $flag=false;
     foreach ($result as $user){
     if($email==$user['Email']&&$pass==$user['Password']){
