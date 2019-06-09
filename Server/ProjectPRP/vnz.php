@@ -5,7 +5,6 @@ $user=$_SESSION["loggedUser"];
 <!DOCTYPE html>
 <html>
 <head>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,11 +18,58 @@ $user=$_SESSION["loggedUser"];
     <?php require "header.php";?>
 </header>
 <body>
+<div class="container emp-search">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group" id="adv-search">
+                    <input type="text" class="form-control" placeholder="Search for snippets" />
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            <div class="dropdown dropdown-lg">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="filter">Filter by</label>
+                                            <select class="form-control">
+                                                <option value="0" selected>All Snippets</option>
+                                                <option value="1">Most popular</option>
+                                                <option value="2">Top rated</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option value="0" selected>All Snippets</option>
+                                                <option value="1">Count specialties</option>
+                                                <option value="2">Just do it!!!</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contain">Contains the words</label>
+                                            <input class="form-control" type="text" />
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Search</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
 <div class="container emp-profile">
     <div class="card mb-4 shadow-sm">
         <div class="card-header">
-
-    <form>
+        <form>
         <div class="form-row">
             <div class="form-group col-md-6 ">
                 <div class="teg">
