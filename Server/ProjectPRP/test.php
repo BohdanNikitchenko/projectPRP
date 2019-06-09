@@ -52,11 +52,11 @@ $array = array(
                 <td>
                     <fieldset class="rating">
                         <div class="rating__group">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="1" aria-label="Ужасно" checked>
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="2" aria-label="Сносно">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="3" aria-label="Нормально">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="4" aria-label="Хорошо">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="5" aria-label="Отлично">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="1" aria-label="Ужасно" >
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="2" aria-label="Сносно">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="3" aria-label="Нормально">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="4" aria-label="Хорошо">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="5" aria-label="Отлично">
                         </div>
                     </fieldset>
                 </td>
