@@ -50,9 +50,15 @@ $array = array(
             <td class="td_1"><h4 class="card-title pricing-card-title">Тест № <?php echo $j ?></h4></td>
           <td class="td_2"><button type="button" class="btn btn-lg btn-block btn-outline-primary" onClick='location.href="<?php echo $array[$i][$j] ?>"'>Перейти по посиланню</button></td>
                 <td>
-                    <div class="container">
-                        <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2">
-                    </div>
+                    <fieldset class="rating">
+                        <div class="rating__group">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="1" aria-label="Ужасно" checked>
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="2" aria-label="Сносно">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="3" aria-label="Нормально">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="4" aria-label="Хорошо">
+                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" value="5" aria-label="Отлично">
+                        </div>
+                    </fieldset>
                 </td>
             </table>
         </div>
