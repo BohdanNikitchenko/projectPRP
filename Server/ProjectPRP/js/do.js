@@ -78,21 +78,26 @@ $("#SaveEditBtn").on("click",function () {
     let selectSubj1=$("#selectSubj1").val().trim();
     let selectSubj2=$("#selectSubj2").val().trim();
     let selectSubj3=$("#selectSubj3").val().trim();
+    let Subj1Mark=$("#Subj1Mark").val().trim();
+    let Subj2Mark=$("#Subj2Mark").val().trim();
+    let Subj3Mark=$("#Subj3Mark").val().trim();
+
 
 
     $.ajax({
         url: 'ajax/Edition.php',
         type: 'POST',
         cache: false,
-        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3},
+        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3, 'Subj1Mark': Subj1Mark,'Subj2Mark': Subj2Mark, 'Subj3Mark': Subj3Mark},
         beforeSend: function () {
             $("#sendBtn").prop("disabled",true);
         },
         success:function (data) {
-
+            document.getElementById('p1').innerText=SerName+" "+name+" "+ThirdName;
             if(data == "fail"){
                 alert("db insert error");
             }else{
+
                 document.location.href = data;
             }
 
