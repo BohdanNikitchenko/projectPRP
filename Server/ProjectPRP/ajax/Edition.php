@@ -15,6 +15,7 @@ $Subj1Mark=($_POST['Subj1Mark']);
 $Subj2Mark=($_POST['Subj2Mark']);
 $Subj3Mark=($_POST['Subj3Mark']);
 
+
  $id=$user['Id'];
 
 
