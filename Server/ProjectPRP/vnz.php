@@ -23,13 +23,14 @@ $counter = 5;
 <div id="scores">
 <body>
 
+<form method="post">
 <div class="container emp-search">
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="input-group" id="adv-search">
-                    <input type="text" class="form-control" placeholder="Search for snippets" />
+                    <input type="text" class="form-control" placeholder="Search for snippets" name="search" />
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
                             <div class="dropdown dropdown-lg">
@@ -39,28 +40,27 @@ $counter = 5;
                                         <div class="form-group">
                                             <label for="filter">Filter by</label>
                                             <select class="form-control">
-                                                <option value="0" selected>All Snippets</option>
-                                                <option value="1">Most popular</option>
-                                                <option value="2">Top rated</option>
+                                                <option value="0" selected>Назва</option>
+                                                <option value="1">Область</option>
+                                                <option value="2">Населений пункт</option>
+                                                <option value="3">Тип ВНЗ</option>
                                             </select>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option value="0" selected>All Snippets</option>
-                                                <option value="1">Count specialties</option>
-                                                <option value="2">Just do it!!!</option>
-                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="contain">Contains the words</label>
                                             <input class="form-control" type="text" />
                                         </div>
-                                        <button type="submit" class="btn btn-success">Search</button>
+                                        <button type="submit"  class="btn btn-success">Search</button>
                                     </form>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                            <button type="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"><i class="fa fa-search" aria-hidden="true"></i></span></button>
+                            <?php
+                            if (!empty($_POST['submit'])) {
+                                echo ($_POST['search']);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ $counter = 5;
         </div>
     </div>
 </div>
-
+</form>
 
 <?php
 
@@ -100,7 +100,37 @@ $index_last=5;
                                   </div>
                               </div>
                               <div class="form-group col-md">
+                                  <div class="form-row">
+                                      <div class="form-group col-md-12">
+<div id="favorite">
+    <style>
+        #favorite{
+            width: 100%;
+            text-align: right;
+            align-content: center;
+        }
+        .fa {
 
+            font-size: 100px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .fa:hover {
+            color: #5cb85c;
+        }
+    </style>
+
+
+    <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x" ></i>
+
+    <script>
+        function myFunction(x) {
+            x.classList.toggle("fa-thumbs-down");
+        }
+    </script>
+</div>
+                                      </div>
                               </div>
                           </div>
                           <div class="form-row">
@@ -160,35 +190,21 @@ $index_last=5;
 
                               </div>
                           </div>
-                          <div class="form-row">
-                              <div class="form-group col-md-6">
-                                  <label for="inputCity">Рейтинг:
-                                      <fieldset class="rating">
-                                          <div class="rating__group">
-                                              <input class="rating__star" type="radio" name="1" id="1" value="1"
-                                                     aria-label="Ужасно">
-                                              <input class="rating__star" type="radio" name="2" id="2" value="2"
-                                                     aria-label="Сносно">
-                                              <input class="rating__star" type="radio" name="3" id="3" value="3"
-                                                     aria-label="Нормально">
-                                              <input class="rating__star" type="radio" name="4" id="4" value="4"
-                                                     aria-label="Хорошо">
-                                              <input class="rating__star" type="radio" name="5" id="5" value="5"
-                                                     aria-label="Отлично">
-                                          </div>
-                                      </fieldset>
-                                  </label>
+<style>
+    #info_button{
+        width: 100%;
+    }
+    #buttoninfo{
+        width: 100%;
+    }
+</style>
+<div id="info_button">
 
-                              </div>
-                              <div class="form-group col-md-4">
-
-
-                              </div>
-                              <div class="form-group col-md-2">
                                   <a href="univer.php?id=<?php echo $univer['id'] ?>"
                                      class="btn btn-success  active" role="button" aria-pressed="true"
                                      id="buttoninfo"><em>Детальніше</em></a>
-                              </div>
+
+</div>
                           </div>
                       </form>
                   </div>
