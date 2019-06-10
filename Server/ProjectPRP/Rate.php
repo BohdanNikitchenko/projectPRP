@@ -19,7 +19,7 @@
 </header>
 <main role="main">
     <div class="container">
-        <div class="modal-body mt-5 row">
+        <div class="modal-body row">
             <div class="col-md-6">
                 <a href="#zag">Загальний рейтинг ЗВО України</a>
                 <a href="#spec">Рейтинг ЗВО України за вказаною спеціальністю</a>
@@ -54,6 +54,7 @@
         </div>
 
         <div class="input-group mb-5 mt-5">
+            <p><b>*</b>Оберіть бажану спеціальність зі списку, інакше буде показаний рейтинг за першою спеціальністю в списку</p>
             <input class="select" type="text" placeholder="Оберіть спеціальність зі списку" name="city" list="inputGroupSelect01">
             <datalist class="select" id="inputGroupSelect01">
                 <!--  ЦИКЛЫ  -->
