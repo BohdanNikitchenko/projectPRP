@@ -62,10 +62,12 @@ $("#Sbut").on("click",function () {
 $("#ex").on("click",function(){
     document.location.href = "http://localhost/dashboard/projectPRP/autorization.php";
 });
-//Редактирование
 
+
+
+//Редактирование
 $("#SaveEditBtn").on("click",function () {
-    let SerName=$("#SerName").val().trim();
+        let SerName=$("#SerName").val().trim();
     let name =$("#name").val().trim();
     let ThirdName=$("#ThirdName").val().trim();
     let email=$("#email").val().trim();
@@ -102,130 +104,153 @@ $("#SaveEditBtn").on("click",function () {
         }
     });
 });
+
+
+//Редактирования фото
+var files; // переменная. будет содержать данные файлов
+files = this.files;
+// заполняем переменную данными, при изменении значения поля file
+// обработка и отправка AJAX запроса при клике на кнопку upload_files
+$('input[type=file]').on('change', function( event ){
+
+    files = this.files;
+
+    event.stopPropagation(); // остановка всех текущих JS событий
+    event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+
+    // ничего не делаем если files пустой
+    if( typeof files == 'undefined' ) return;
+
+    // создадим объект данных формы
+    var data = new FormData();
+
+    // заполняем объект данных файлами в подходящем для отправки формате
+    $.each( files, function( key, value ){
+        data.append( key, value );
+    });
+    let filePath;
+    // добавим переменную для идентификации запроса
+    data.append( 'my_file_upload', 1 );
+
+    // AJAX запрос
+    $.ajax({
+        url         : 'ajax/changePhoto.php',
+        type        : 'POST', // важно!
+        data        : data,
+        cache       : false,
+        dataType    : 'json',
+        // отключаем обработку передаваемых данных, пусть передаются как есть
+        processData : false,
+        // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+        contentType : false,
+        // функция успешного ответа сервера
+        success     : function( respond, status, jqXHR ){
+
+            // ОК - файлы загружены
+            if( typeof respond.error === 'undefined' ){
+                // выведем пути загруженных файлов в блок '.ajax-reply'
+                var files_path = respond.files;
+                filePath = files_path;
+                var html = '';
+                $.each( files_path, function( key, val ){
+                    html += val +'<br>';
+                } )
+                $('.ajax-reply').html( html );
+                window.location.reload();
+            }
+
+            // ошибка
+            else {
+                console.log('ОШИБКА: ' + respond.error );
+            }
+        },
+        // функция ошибки ответа сервера
+        error: function( jqXHR, status, errorThrown ){
+            console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
+        }
+
+    });
+});
+
+
+/*$('#ChangePhotoBtn').on( 'click', function( event ){
+
+    event.stopPropagation(); // остановка всех текущих JS событий
+    event.preventDefault();  // остановка дефолтного события для текущего элемента - клик для <a> тега
+
+    // ничего не делаем если files пустой
+    if( typeof files == 'undefined' ) return;
+
+    // создадим объект данных формы
+    var data = new FormData();
+
+    // заполняем объект данных файлами в подходящем для отправки формате
+    $.each( files, function( key, value ){
+        data.append( key, value );
+    });
+    let filePath;
+    // добавим переменную для идентификации запроса
+    data.append( 'my_file_upload', 1 );
+
+    // AJAX запрос
+    $.ajax({
+        url         : 'ajax/changePhoto.php',
+        type        : 'POST', // важно!
+        data        : data,
+        cache       : false,
+        dataType    : 'json',
+        // отключаем обработку передаваемых данных, пусть передаются как есть
+        processData : false,
+        // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
+        contentType : false,
+        // функция успешного ответа сервера
+        success     : function( respond, status, jqXHR ){
+
+            // ОК - файлы загружены
+            if( typeof respond.error === 'undefined' ){
+                // выведем пути загруженных файлов в блок '.ajax-reply'
+                var files_path = respond.files;
+                filePath = files_path;
+                var html = '';
+                $.each( files_path, function( key, val ){
+                    html += val +'<br>';
+                } )
+                $('.ajax-reply').html( html );
+                window.location.reload();
+            }
+
+            // ошибка
+            else {
+                console.log('ОШИБКА: ' + respond.error );
+            }
+        },
+        // функция ошибки ответа сервера
+        error: function( jqXHR, status, errorThrown ){
+            console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
+        }
+
+    });
+});*/
+
+
+
+
 //Тесты Рейтинг
 
-// Starrr plugin (https://github.com/dobtco/starrr)
-var __slice = [].slice;
+if(document.getElementById("01").cheked){
+    alert("fdtuyujlkjhjhj");
+}
 
-(function($, window) {
-    var Starrr;
-
-    Starrr = (function() {
-        Starrr.prototype.defaults = {
-            rating: void 0,
-            numStars: 5,
-            change: function(e, value) {}
-        };
-
-        function Starrr($el, options) {
-            var i, _, _ref,
-                _this = this;
-
-            this.options = $.extend({}, this.defaults, options);
-            this.$el = $el;
-            _ref = this.defaults;
-            for (i in _ref) {
-                _ = _ref[i];
-                if (this.$el.data(i) != null) {
-                    this.options[i] = this.$el.data(i);
-                }
-            }
-            this.createStars();
-            this.syncRating();
-            this.$el.on('mouseover.starrr', 'span', function(e) {
-                return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
-            });
-            this.$el.on('mouseout.starrr', function() {
-                return _this.syncRating();
-            });
-            this.$el.on('click.starrr', 'span', function(e) {
-                return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
-            });
-            this.$el.on('starrr:change', this.options.change);
-        }
-
-        Starrr.prototype.createStars = function() {
-            var _i, _ref, _results;
-
-            _results = [];
-            for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
-                _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
-            }
-            return _results;
-        };
-
-        Starrr.prototype.setRating = function(rating) {
-            if (this.options.rating === rating) {
-                rating = void 0;
-            }
-            this.options.rating = rating;
-            this.syncRating();
-            return this.$el.trigger('starrr:change', rating);
-        };
-
-        Starrr.prototype.syncRating = function(rating) {
-            var i, _i, _j, _ref;
-
-            rating || (rating = this.options.rating);
-            if (rating) {
-                for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
-                    this.$el.find('span').eq(i).removeClass('glyphicon-star-empty').addClass('glyphicon-star');
-                }
-            }
-            if (rating && rating < 5) {
-                for (i = _j = rating; rating <= 4 ? _j <= 4 : _j >= 4; i = rating <= 4 ? ++_j : --_j) {
-                    this.$el.find('span').eq(i).removeClass('glyphicon-star').addClass('glyphicon-star-empty');
-                }
-            }
-            if (!rating) {
-                return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
-            }
-        };
-
-        return Starrr;
-
-    })();
-    return $.fn.extend({
-        starrr: function() {
-            var args, option;
-
-            option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-            return this.each(function() {
-                var data;
-
-                data = $(this).data('star-rating');
-                if (!data) {
-                    $(this).data('star-rating', (data = new Starrr($(this), option)));
-                }
-                if (typeof option === 'string') {
-                    return data[option].apply(data, args);
-                }
-            });
-        }
-    });
-})(window.jQuery, window);
-
-$(function() {
-    return $(".starrr").starrr();
-});
-
-$( document ).ready(function() {
-
-    $('#stars').on('starrr:change', function(e, value){
-        $('#count').html(value);
-    });
-
-    $('#stars-existing').on('starrr:change', function(e, value){
-        $('#count-existing').html(value);
+//VNZ
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+        e.preventDefault();
+        var param = $(this).attr("href").replace("#","");
+        var concept = $(this).text();
+        $('.search-panel span#search_concept').text(concept);
+        $('.input-group #search_param').val(param);
     });
 });
-
-
-
-
-
-
-
 
 
 

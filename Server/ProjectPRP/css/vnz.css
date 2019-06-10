@@ -2,12 +2,35 @@ body{
     background: #f1b0b7;
 }
 .emp-profile{
+<<<<<<< HEAD
     padding: 3%;
     margin-top: 3%;
+=======
+
+    padding: 3%;
+    margin-top: 0;
+>>>>>>> master
     margin-bottom: 3%;
     border-radius: 0.5rem;
     background: #fff;
 }
+<<<<<<< HEAD
+=======
+.emp-search{
+    padding: 3%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.emp-more{
+    padding: 3%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+>>>>>>> master
 .profile-img{
     text-align: center;
 }
@@ -248,4 +271,63 @@ body{
 .rating__star:nth-of-type(5) {
     z-index: 1;
     width: 10em;
+<<<<<<< HEAD
+=======
+}
+
+/* searchbar */
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;!important;
+    padding: 6px 20px;!important;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;!important;
+    margin-left: -1px;!important;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;!important;
+    border-bottom-right-radius: 4px;!important;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+    border-top-left-radius: 4px;!important;
+    border-bottom-left-radius: 4px;!important;
+}
+.form-horizontal .form-group {
+    margin-left: 0;!important;
+    margin-right: 0;!important;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;!important;
+    border-bottom-left-radius: 4px;!important;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 100%;!important;
+        margin: 0 auto;!important;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;!important;
+    }
+}
+
+.input-group{
+    border: 20px;!important;
+}
+
+#buttoninfo{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.box-hidden{
+    display: none;!important;
+>>>>>>> master
 }
