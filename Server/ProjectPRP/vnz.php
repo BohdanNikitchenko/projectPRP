@@ -112,8 +112,7 @@ $index_last=5;
         .fa {
 
             font-size: 100px;
-            cursor: pointer;
-            user-select: none;
+
         }
 
         .fa:hover {
@@ -122,11 +121,46 @@ $index_last=5;
     </style>
 
 
-    <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x" ></i>
+    <i onclick="myFunction(this,<?php echo $univer["favorite"]; ?>)" class="fa <?php
+
+    if($univer["favorite"]=="1"){
+
+        echo "fa-thumbs-up";
+    } else {
+        echo "fa-thumbs-down";}
+
+    ?> fa-3x " ></i>
 
     <script>
-        function myFunction(x) {
-            x.classList.toggle("fa-thumbs-down");
+
+        function myFunction(x,y) {
+
+            if (y == 1) {
+                x.classList.toggle("fa-thumbs-down");
+                x.classList.toggle("fa-thumbs-up");
+                <?php
+                    echo 0;
+                if(isset($_POST['fa'])) {
+                    global $db;
+                    $id = $univer["id"];
+                    $sql = "UPDATE universite SET favorite='0' WHERE id = $id";
+                    $query = $db->query($sql);
+                }
+                ?>
+            }else{
+                x.classList.toggle("fa-thumbs-down");
+                x.classList.toggle("fa-thumbs-up");
+                <?php
+                    echo 1;
+                if(isset($_POST['fa'])) {
+                    global $db;
+                    $id = $univer["id"];
+                    $sql = "UPDATE universite SET favorite='1' WHERE id = '$id'";
+                    $query = $db->query($sql);
+                }
+                ?>
+            }
+
         }
     </script>
 </div>
