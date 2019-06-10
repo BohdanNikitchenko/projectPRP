@@ -17,3 +17,12 @@ function get_universities_all() {
     $universities = $db->query("SELECT * FROM universities");
     return $universities;
 }
+
+
+function get_universities_by_id($id) {
+    global $db;
+    $universities = $db->query("SELECT * FROM universities WHERE id=$id");
+    foreach ($universities as $univer){
+    return $univer;
+}
+}

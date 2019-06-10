@@ -173,7 +173,7 @@ $counter = 5;
 
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <button type="submit" class="btn btn-success">Детальніше</button>
+                                    <a href="univer.php?id=<?php echo $univer['id']?>" class="btn btn-success  active" role="button" aria-pressed="true" id="buttoninfo"><em>Детальніше</em></a>
                                 </div>
                             </div>
                         </form>
@@ -188,7 +188,7 @@ $counter = 5;
 
 <div class="container emp-more">
     <div class="card mb-4 shadow-sm">
-       
+
     <button type="button" class="btn btn-outline-success" id="loadmore" onclick="myFunction()">More</button>
     </div>
 </div>
