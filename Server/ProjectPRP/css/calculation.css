@@ -1,0 +1,22 @@
+.card-header{
+    color: #fff;
+    background: #5cb85c !important;
+}
+.col {
+    font-size: 16pt !important;
+}
+#btn{
+    color: #fff;
+    background: #5cb85c !important;
+    width: 230px;
+}
+.select{
+    width: 80%;
+    border-radius: 5px 0px 0px 5px;
+    border-width: 1px;
+    border-color: #eeeeee;
+}
+.input-group-append {
+    width: 19%;
+    padding-right: 1%;
+}

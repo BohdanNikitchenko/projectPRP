@@ -10,30 +10,38 @@ $user=$_SESSION["loggedUser"];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/account.css">
-
+    <link rel="stylesheet" href="css/style.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
 </head>
 <header>
     <?php require "header.php";?>
 </header>
 <body>
 
-<div class="container emp-profile">
+<div class="container emp-profile" style="background-color: #f2f2f2">
     <form method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                    <div class="file btn btn-lg btn-primary">
+                    <?php if ($user["img"] == null) { ?>
+                        <img src="img/student.png" class="rounded" style="width: 250px; height: 170px" alt="...">
+                    <?php } else { ?>
+                        <img src="ajax/user_image/<?php echo  $user['img']?>" class="rounded" style="width: 250px; height: 170px" alt="...">
+                    <?php } ?>
+                    <button class="file btn btn-lg btn-primary">
+                        Виберіть фото
+                        <input type="file" name="user_image" accept="image/jpeg,image/png"/>
+                    </button>
+                    <!--<button class="file btn-lg btn-primary" id="ChangePhotoBtn">
                         Змінити фото
-                        <input type="file" name="file"/>
-                    </div>
+                    </button>-->
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
                     <?php
-                    echo"<h4>";
+                    echo"<h4 id='SurNameh'>";
                     echo $user["SurName"];
                     echo "</h4>";
 
@@ -52,8 +60,7 @@ $user=$_SESSION["loggedUser"];
                 </div>
             </div>
             <div class="col-md-2">
-
-                <input type="button" class="profile-edit-btn " data-toggle="modal" data-target="#exampleModal" id="EditBtn" name="btnAddMore" value="Редагувати профіль"/>
+                <input type="button" class="profile-edit-btn"  data-toggle="modal" data-target="#exampleModal" id="EditBtn" name="btnAddMore" value="Редагувати профіль"/>
             </div>
         </div>
             <div class="col-md-8 ml-5 ">
@@ -62,17 +69,17 @@ $user=$_SESSION["loggedUser"];
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label>ФІО:</label>
+                                <label>ФІО</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo"<p>".$user["SurName"]." ".$user["Name"]." ".$user["ThierdName"]."</p>";
+                                echo"<p id='p1'>".$user["SurName"]." ".$user["Name"]." ".$user["ThierdName"]."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <label>Email</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
@@ -82,7 +89,7 @@ $user=$_SESSION["loggedUser"];
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Телефон:</label>
+                                <label>Телефон</label>
                             </div>
                             <div class="col-md-6">
                                 <?php
@@ -92,31 +99,37 @@ $user=$_SESSION["loggedUser"];
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj1']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj1Mark']."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj2']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj2Mark']."</p>";
                                 ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Email:</label>
+                                <?php
+                                echo "<label>".$user['Subj3']."</label>";
+                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                echo "<p>".$user['Email']."</p>";
+                                echo "<p>".$user['Subj3Mark']."</p>";
                                 ?>
                             </div>
                         </div>
@@ -291,7 +304,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj1Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
@@ -314,7 +327,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj2Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
@@ -338,7 +351,7 @@ $user=$_SESSION["loggedUser"];
                                         <option value="Географія">Географія</option>
                                         <option value="Хімія">Хімія</option>
                                     </select>
-                                    <input type="number" value="100" width="200" height="10px" id="replyNumber" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                    <input type="number" value="100" width="200" height="10px" id="Subj3Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
                             </div>
                         </div>
                     </div>
