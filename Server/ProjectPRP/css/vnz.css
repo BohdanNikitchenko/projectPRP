@@ -1,0 +1,322 @@
+body{
+    background: #f1b0b7;
+}
+.emp-profile{
+
+    padding: 3%;
+    margin-top: 0;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.emp-search{
+    padding: 3%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.emp-more{
+    padding: 3%;
+    margin-top: 5%;
+    margin-bottom: 0;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #333;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 200px;
+
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+.selectSubj{
+    width: 100%;
+    max-width: 330px;
+    padding: 10px;
+
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.image{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.teg{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    padding: 1%;
+    padding-left: 2%;
+    margin-left: -21px;
+    margin-top: -13px;
+    border-radius: 1px 0px 20px 0px;
+}
+
+
+.image{
+    border: 1px solid #7a7b7e; /* Параметры рамки */
+    width: 500px; /* Ширина кнопки */
+    height: 300px; /* Высота */
+    border-radius: 10px;
+    width: 100%;
+}
+
+ li {
+    margin-top:-10px;
+}
+
+/* Rating */
+
+.rating {
+    margin: 0 0 1em 0;
+    padding: 0;
+    border: none;
+}
+
+/* Caption */
+
+.rating__caption {
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+
+/* Group */
+
+.rating__group {
+    position: relative;
+    width: 10em;
+    height: 2em;
+    background-image: url(https://cdn.glitch.com/be154eac-f8a7-4b55-9350-27cb2d6ff6c0%2Foff.svg);
+    background-size: 2em auto;
+    background-repeat: repeat-x;
+}
+
+.rating__group:focus-within {
+    outline: 0.2em solid #4a90e2;
+    outline-offset: 0.2em;
+}
+
+/* Rating */
+
+.rating {
+    margin: 0 0 1em 0;
+    padding: 0;
+    border: none;
+}
+
+/* Caption */
+
+.rating__caption {
+    margin-bottom: 0.5em;
+    padding: 0;
+}
+
+/* Group */
+
+.rating__group {
+    position: relative;
+    width: 10em;
+    height: 2em;
+    background-image: url(https://cdn.glitch.com/be154eac-f8a7-4b55-9350-27cb2d6ff6c0%2Foff.svg);
+    background-size: 2em auto;
+    background-repeat: repeat-x;
+}
+
+.rating__group:focus-within {
+    outline: 0.2em solid #4a90e2;
+    outline-offset: 0.2em;
+}
+
+/* Star */
+
+.rating__star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 2em;
+    font-size: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-size: 2em auto;
+    background-repeat: repeat-x;
+}
+
+.rating__star:focus {
+    outline: none;
+}
+
+.rating__star:hover,
+.rating__star:checked {
+    background-image: url(https://cdn.glitch.com/be154eac-f8a7-4b55-9350-27cb2d6ff6c0%2Fon.svg);
+}
+
+.rating__star:hover ~ .rating__star {
+    background-image: url(https://cdn.glitch.com/be154eac-f8a7-4b55-9350-27cb2d6ff6c0%2Foff.svg);
+}
+
+/* Options */
+
+.rating__star:nth-of-type(1) {
+    z-index: 5;
+    width: 2em;
+}
+
+.rating__star:nth-of-type(2) {
+    z-index: 4;
+    width: 4em;
+}
+
+.rating__star:nth-of-type(3) {
+    z-index: 3;
+    width: 6em;
+}
+
+.rating__star:nth-of-type(4) {
+    z-index: 2;
+    width: 8em;
+}
+
+.rating__star:nth-of-type(5) {
+    z-index: 1;
+    width: 10em;
+}
+
+/* searchbar */
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;!important;
+    padding: 6px 20px;!important;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;!important;
+    margin-left: -1px;!important;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;!important;
+    border-bottom-right-radius: 4px;!important;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+    border-top-left-radius: 4px;!important;
+    border-bottom-left-radius: 4px;!important;
+}
+.form-horizontal .form-group {
+    margin-left: 0;!important;
+    margin-right: 0;!important;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;!important;
+    border-bottom-left-radius: 4px;!important;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 100%;!important;
+        margin: 0 auto;!important;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;!important;
+    }
+}
+
+.input-group{
+    border: 20px;!important;
+}
+
+#buttoninfo{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.box-hidden{
+    display: none;!important;
+}
