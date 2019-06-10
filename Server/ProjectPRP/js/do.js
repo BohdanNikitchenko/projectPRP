@@ -253,3 +253,24 @@ $(document).ready(function(e){
 });
 
 
+
+//Редактирование на внз(favorite)
+$("#like").on("click",function () {
+    alert("123");
+    let favorite=$("#like_button").val().trim();
+    let id=$("#getId").val().trim();
+    $.ajax({
+        url: 'ajax/favorite.php',
+        type: 'POST',
+        cache: false,
+        data: {'favorite' : favorite , 'id' : id},
+        success:function (data) {
+            if(data == "fail"){
+                alert("db insert error");
+            }
+
+            alert(data);
+        }
+    });
+});
+

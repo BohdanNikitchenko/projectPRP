@@ -129,8 +129,8 @@ $index_last=5;
     } else {
         echo "fa-thumbs-down";}
 
-    ?> fa-3x " ></i>
-
+    ?> fa-3x " id="like_button" value="<?php echo $univer["favorite"]; ?>"></i>
+    <div value="<?php  echo $univer['id']?>" id="getId"></div>
     <script>
 
         function myFunction(x,y) {
@@ -138,27 +138,10 @@ $index_last=5;
             if (y == 1) {
                 x.classList.toggle("fa-thumbs-down");
                 x.classList.toggle("fa-thumbs-up");
-                <?php
-                    echo 0;
-                if(isset($_POST['fa'])) {
-                    global $db;
-                    $id = $univer["id"];
-                    $sql = "UPDATE universite SET favorite='0' WHERE id = $id";
-                    $query = $db->query($sql);
-                }
-                ?>
+
             }else{
                 x.classList.toggle("fa-thumbs-down");
                 x.classList.toggle("fa-thumbs-up");
-                <?php
-                    echo 1;
-                if(isset($_POST['fa'])) {
-                    global $db;
-                    $id = $univer["id"];
-                    $sql = "UPDATE universite SET favorite='1' WHERE id = '$id'";
-                    $query = $db->query($sql);
-                }
-                ?>
             }
 
         }
@@ -171,7 +154,7 @@ $index_last=5;
                               <div class="form-group col-md-6 ">
                                   <div>
                                       <img class="image"
-                                           src="https://media3.mensxp.com/media/content/2017/Dec/header-3-copy-1513352222_1100x513.jpg"
+                                           src="https://t.fakku.net/images/upload/heartpupils-tag.png"
                                            alt="Generic placeholder thumbnail">
                                   </div>
                               </div>
@@ -282,6 +265,11 @@ if($index_last==$finish){
 
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/do.js"></script>
+<form method="post">
+<button type="submit" id="like">head</button>
+</form>
 </body>
 </div>
 <footer>
