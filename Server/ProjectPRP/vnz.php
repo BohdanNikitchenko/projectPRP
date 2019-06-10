@@ -71,125 +71,151 @@ $counter = 5;
 
 <?php
 
+    $index =0;
+    $index_last=5;
     $universities = get_universities_all();
 
-        foreach ($universities as $univer):
+    get_content();
+    function loadmore()
+    {
+        global $index_last;
+        $index_last+=1;
+        get_content();
+    }
+function insert(){
+    echo "The insert function is called.";
+}
+    function get_content()
+    {
+        global $index_last;
+        global $index;
+        while ($index<$index_last):
+            if ($index < $index_last):
+                $index++;
+            $univer=get_universities_by_id($index);
+                ?>
 
-            ?>
 
+                <div class="container emp-profile">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 ">
+                                        <div class="teg">
+                                            <h5><em><?php echo $univer["Name_Universities"] ?></em></h5>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md">
 
-            <div class="container emp-profile">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6 ">
-                                    <div class="teg">
-                                        <h5><em><?php echo $univer["Name_Universities"] ?></em></h5>
                                     </div>
                                 </div>
-                                <div class="form-group col-md">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 ">
+                                        <div>
+                                            <img class="image"
+                                                 src="https://media3.mensxp.com/media/content/2017/Dec/header-3-copy-1513352222_1100x513.jpg"
+                                                 alt="Generic placeholder thumbnail">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6" id="info" name="info">
 
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6 ">
-                                    <div>
-                                        <img class="image"
-                                             src="https://media3.mensxp.com/media/content/2017/Dec/header-3-copy-1513352222_1100x513.jpg"
-                                             alt="Generic placeholder thumbnail">
+
+                                        <label for="inputPassword4">
+                                            <h5>Область, населений пункт:
+                                                <small>
+                                                    <em><?php echo $univer["Region_U"], ", ", $univer["City_U"] ?></em>
+                                                </small>
+                                            </h5>
+                                        </label><br>
+                                        <label for="inputPassword4">
+                                            <h5>Адреса:
+                                                <small><em><?php echo $univer["Address_U"] ?></small>
+                                                </em></h5>
+                                        </label><br>
+                                        <label for="inputPassword4">
+                                            <h5>Телефони:
+                                                <small><em><?php echo $univer["Phone_U"] ?></small>
+                                                </em></h5>
+                                        </label><br>
+                                        <label for="inputPassword4">
+                                            <h5>Веб-сайт:
+                                                <small>
+                                                    <em><a href="<?php echo $univer["Web_U"] ?>"><?php echo $univer["Web_U"] ?></a>
+                                                </small>
+                                                </em></h5>
+                                        </label><br>
+                                        <label for="inputPassword4"><h5>Опис ВНЗ: </h5></label><br>
+                                        <label for="inputPassword4">
+                                            <h7>
+                                                <ul>
+                                                    <li>Тип ВНЗ:
+                                            </h7>
+                                            <em><?php echo $univer["Type_U"] ?></em></label><br>
+                                        <label for="inputPassword4">
+                                            <h7>
+                                                <li>Форма власності:
+                                            </h7>
+                                            <em>
+                                                <h7><?php echo $univer["Control_Form_U"] ?></em></label><br>
+                                        <label for="inputPassword4">
+                                            <h7>
+                                                <li>Керівник:
+                                            </h7>
+                                            <em><?php echo $univer["Director_U"] ?></em></ul></label><br>
+
+
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6" id="info" name="info">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Рейтинг:
+                                            <fieldset class="rating">
+                                                <div class="rating__group">
+                                                    <input class="rating__star" type="radio" name="1" id="1" value="1"
+                                                           aria-label="Ужасно">
+                                                    <input class="rating__star" type="radio" name="2" id="2" value="2"
+                                                           aria-label="Сносно">
+                                                    <input class="rating__star" type="radio" name="3" id="3" value="3"
+                                                           aria-label="Нормально">
+                                                    <input class="rating__star" type="radio" name="4" id="4" value="4"
+                                                           aria-label="Хорошо">
+                                                    <input class="rating__star" type="radio" name="5" id="5" value="5"
+                                                           aria-label="Отлично">
+                                                </div>
+                                            </fieldset>
+                                        </label>
+
+                                    </div>
+                                    <div class="form-group col-md-4">
 
 
-                                    <label for="inputPassword4">
-                                        <h5>Область, населений пункт:
-                                            <small><em><?php echo $univer["Region_U"], ", ", $univer["City_U"] ?></em>
-                                            </small>
-                                        </h5>
-                                    </label><br>
-                                    <label for="inputPassword4">
-                                        <h5>Адреса:
-                                            <small><em><?php echo $univer["Address_U"] ?></small>
-                                            </em></h5>
-                                    </label><br>
-                                    <label for="inputPassword4">
-                                        <h5>Телефони:
-                                            <small><em><?php echo $univer["Phone_U"] ?></small>
-                                            </em></h5>
-                                    </label><br>
-                                    <label for="inputPassword4">
-                                        <h5>Веб-сайт:
-                                            <small>
-                                                <em><a href="<?php echo $univer["Web_U"] ?>"><?php echo $univer["Web_U"] ?></a>
-                                            </small>
-                                            </em></h5>
-                                    </label><br>
-                                    <label for="inputPassword4"><h5>Опис ВНЗ: </h5></label><br>
-                                    <label for="inputPassword4">
-                                        <h7>
-                                            <ul>
-                                                <li>Тип ВНЗ:
-                                        </h7>
-                                        <em><?php echo $univer["Type_U"] ?></em></label><br>
-                                    <label for="inputPassword4">
-                                        <h7>
-                                            <li>Форма власності:
-                                        </h7>
-                                        <em>
-                                            <h7><?php echo $univer["Control_Form_U"] ?></em></label><br>
-                                    <label for="inputPassword4">
-                                        <h7>
-                                            <li>Керівник:
-                                        </h7>
-                                        <em><?php echo $univer["Director_U"] ?></em></ul></label><br>
-
-
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <a href="univer.php?id=<?php echo $univer['id'] ?>"
+                                           class="btn btn-success  active" role="button" aria-pressed="true"
+                                           id="buttoninfo"><em>Детальніше</em></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputCity">Рейтинг:
-                                        <fieldset class="rating">
-                                            <div class="rating__group">
-                                                <input class="rating__star" type="radio" name="1" id="1" value="1"
-                                                       aria-label="Ужасно">
-                                                <input class="rating__star" type="radio" name="2" id="2" value="2"
-                                                       aria-label="Сносно">
-                                                <input class="rating__star" type="radio" name="3" id="3" value="3"
-                                                       aria-label="Нормально">
-                                                <input class="rating__star" type="radio" name="4" id="4" value="4"
-                                                       aria-label="Хорошо">
-                                                <input class="rating__star" type="radio" name="5" id="5" value="5"
-                                                       aria-label="Отлично">
-                                            </div>
-                                        </fieldset>
-                                    </label>
-
-                                </div>
-                                <div class="form-group col-md-4">
-
-
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <a href="univer.php?id=<?php echo $univer['id']?>" class="btn btn-success  active" role="button" aria-pressed="true" id="buttoninfo"><em>Детальніше</em></a>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        <?php
-        endforeach;
-
+            <?php
+            endif;
+        endwhile;
+    }
 ?>
 
 <div class="container emp-more">
     <div class="card mb-4 shadow-sm">
+        <form action="functioncalling.php">
+            <input type="text" name="txt" />
+            <input type="submit" name="insert" value="insert" onclick="insert()" />
+            <input type="submit" name="select" value="select" onclick="select()" />
+        </form>
 
-    <button type="button" class="btn btn-outline-success" id="loadmore" onclick="myFunction()">More</button>
     </div>
 </div>
 </body>
