@@ -26,3 +26,9 @@ function get_universities_by_id($id) {
     return $univer;
 }
 }
+
+function get_num_rows() {
+    global $db;
+    $num_uni = $db->query("SELECT * FROM universities");
+    return $num_uni->num_rows;
+}

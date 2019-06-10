@@ -13,8 +13,26 @@ $counter = 5;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/univer.css">
 
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
 
-    </head>
+        var myMap;
+
+        function initMap() {
+            var element = document.getElementById('map');
+            var options = {
+                zoom: 17,
+                center: {lat:55.7558, lng:37.6173}
+            };
+            myMap = new ymaps.Map(element,options);
+
+
+
+        }
+
+    </script>
+</head>
 <header>
     <?php require "db.php";?>
     <?php require "header.php";?>
@@ -155,24 +173,7 @@ $univer = get_universities_by_id($_GET['id']);
         </style>
         <div id="map"></div>
 
-        <script>
-            function initMap() {
-                var element = document.getElementById('map');
-                var options = {
-                    zoom: 5,
-                    center: {lat:55.7558, lng:37.6173}
-                };
-                var myMap = new google.maps.Map(element,options);
 
-                var marker = new google.maps.Marker({
-                    position{lat:55.7558, lng:37.6173},
-                    map: myMap
-                });
-            }
-
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCDctQ06PR8jsgsvM-WKtgY-lKC34Gzh4&callback=initMap"
-                type="text/javascript"></script>
     </div>
 </div>
 <footer>
