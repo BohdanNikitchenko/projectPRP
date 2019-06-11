@@ -15,9 +15,7 @@
 
 <body>
 <header>
-
-    <?php require "Calculation_features.php";
-    require "header.php";?>
+    <?php require "header.php";?>
 </header>
 <main role="main">
     <div class="container">
@@ -29,15 +27,11 @@
             <input class="select" type="text" name="city" list="inputGroupSelect01">
             <datalist class="select" id="inputGroupSelect01">
                 <!--  ЦИКЛЫ  -->
-                <?php
-
-                $universities = get_universities_all();
-
-                foreach ($universities as $univer):
-
-                ?>
-                <option value=<?php echo $univer?>></option>
-
+                <option value="dtgj"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="33"></option>
             </datalist>
             <div class="input-group-append">
                 <input type="button" class="input-group-text" for="inputGroupSelect02" value="Обрати"/>
