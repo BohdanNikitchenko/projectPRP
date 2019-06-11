@@ -6,20 +6,29 @@ $password="";
 
 $connect = mysqli_connect($dbhost,$username,$password,$dbname);
 $connect->query("SET CHARACTER SET 'utf8'");
-$output = '';
-$id_list = '';
-$sql = $_POST['sql'];
-$id = $_POST['id'];
+$query= $_POST['search_inp'];
+
+$output='';
+$sql = "SELECT *
+                  FROM `universities` WHERE `Name_Universities` LIKE '%$query%'
+                  OR `Region_U` LIKE '%$query%' OR `City_U` LIKE '%$query%'
+                  OR `Address_U` LIKE '%$query%'
+            OR `Type_U` LIKE '%$query%' OR `Control_Form_U` LIKE '%$query%'
+            OR `Director_U` LIKE '%$query%'
+            OR `Phone_U` LIKE '%$query%' OR `Web_U` LIKE '%$query%'  LIMIT 30";
+
 $result = mysqli_query($connect, $sql);
 
 if(mysqli_num_rows($result)>0){
     while ($row = mysqli_fetch_array($result))
     {
-        global $id_list;
-        $id_list=$row['id'];
+
+
+$id_list=$row['id'];
 
         $output .= '<tbody>'
-?>
+        ?>
+<div id="load_div">
         <div class="container emp-profile" id="contain_prof">
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
@@ -167,27 +176,16 @@ if(mysqli_num_rows($result)>0){
                 </div>
             </div>
         </div>
-
-         <?php
-        '<tbody>';
+    <div>
+        <?php
+        '</div><tbody>';
     }
-    $sql =substr($sql, 0,-10).$id_list."' LIMIT 2";
-    $output .= '<tbody>'
-        ?>
-    <div class="container emp-more" id="conteiner_more">
-        <div class="card mb-4 shadow-sm">
-
-            <button id="btn_more" name="btn_more"  value="<?php echo $sql?>" class="btn btn-success form-control"  >Load All</button>
-            <button id="button_value" value="<?php echo $id_list;?>" hidden >
-            </button>
-        </div>
-    </div>
+        $sql =substr($sql, 0,-10).$id_list."' LIMIT 2";
 
 
-<?php
-    '<tbody>';
 
 
-    echo $output;
+
+        echo $output;
 }
 ?>

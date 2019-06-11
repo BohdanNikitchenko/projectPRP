@@ -64,10 +64,6 @@ let id =$("#getId").val();
 
 });
 
-
-
-
-
 //авторизация
 $("#Sbut").on("click",function () {
     let login=$("#inputEmail").val().trim();

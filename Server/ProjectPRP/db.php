@@ -18,6 +18,12 @@ function get_universities_all() {
     return $universities;
 }
 
+function get_universities_with_sql($q) {
+    global $db;
+    $universities = $db->query($q);
+    return $universities;
+}
+
 
 function get_universities_by_id($id) {
     global $db;
