@@ -34,6 +34,40 @@ $("#sendBtn").on("click", function () {
         }
     });
 });
+// Favorite button
+$("#like_button").on("click", function () {
+
+let finger =$("#like_button").val();
+let id =$("#getId").val();
+
+    $.ajax({
+        url: 'ajax/favorite.php',
+        type: 'POST',
+        cache: false,
+        data: {'finger_val' : finger,'finger_id' : id},
+        beforeSend: function () {
+            $("#like_button").prop("disabled",true);
+        },
+        success:function (data) {
+
+            if(data == "fail"){
+                alert("db insert error");
+            }else{
+
+            }
+
+            $("#like_button").prop("disabled",false);
+        }
+    });
+
+
+
+});
+
+
+
+
+
 //авторизация
 $("#Sbut").on("click",function () {
     let login=$("#inputEmail").val().trim();
@@ -253,24 +287,4 @@ $(document).ready(function(e){
 });
 
 
-
-//Редактирование на внз(favorite)
-$("#like").on("click",function () {
-    alert("123");
-    let favorite=$("#like_button").val().trim();
-    let id=$("#getId").val().trim();
-    $.ajax({
-        url: 'ajax/favorite.php',
-        type: 'POST',
-        cache: false,
-        data: {'favorite' : favorite , 'id' : id},
-        success:function (data) {
-            if(data == "fail"){
-                alert("db insert error");
-            }
-
-            alert(data);
-        }
-    });
-});
 

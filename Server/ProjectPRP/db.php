@@ -14,7 +14,7 @@ $db->query("SET CHARACTER SET 'utf8'");
 
 function get_universities_all() {
     global $db;
-    $universities = $db->query("SELECT * FROM universities");
+    $universities = $db->query("SELECT * FROM universities LIMIT 2");
     return $universities;
 }
 

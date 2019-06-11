@@ -1,18 +1,20 @@
 <?php
 session_start();
-$mysql = new mysqli("localhost","root","","users");
+$dbhost = "localhost";
+$dbname="users";
+$username="root";
+$password="";
 
-$favorite = intval($_POST['favorite']);
-$id = intval($_POST['id']);
+$favorite = intval($_POST['finger_val']);
+$id = intval($_POST['finger_id']);
 
-if($favorite) {
-    $mysql->query("SET NAMES 'utf-8");
-    $mysql->query("UPDATE universite SET favorite='1' WHERE id = '$id'");
-    $message = "Ok";
+
+$mysql = new mysqli("localhost", "root", "", "users");
+if ($mysql->connect_errno) {
+    printf("Не удалось подключиться: %s\n", $mysql->connect_error);
+    exit();
 }
-else{
-    $message="bad";
-}
+$mysql->query("SET NAMES 'utf-8");
+$result = $mysql->query("UPDATE universities SET favorite=1 WHERE id =$id");
 
-return $message;
 ?>
