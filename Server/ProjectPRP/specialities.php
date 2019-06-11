@@ -78,6 +78,7 @@ $user=$_SESSION["loggedUser"];
         </div>
 
     </div>
+    <div id="bottom"></div>
 
 
 

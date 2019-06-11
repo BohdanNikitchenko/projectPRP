@@ -263,12 +263,12 @@ $("#Search_btn").click(function(){
             alert('Старт');
             $.ajax({
                url: 'ajax/specialities.php',
-               type: 'GET',
+               type: 'POST',
                cache: false,
-               data: {'spec' : encodeURIComponent(spec)},
+               data: {'spec' : spec},
                success:function (data) {
-                    
-                   alert(data);
+                   $('#bottom').html(data);
+                  // alert(data);
                }
             });
         }
