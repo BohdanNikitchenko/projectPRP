@@ -1,6 +1,5 @@
 //Регестрация
 $("#sendBtn").on("click", function () {
-
     let email = $("#inputEmail").val().trim();
     let pass= $("#inputPassword").val().trim();
     let name =$("#inputName").val().trim();
@@ -23,6 +22,7 @@ $("#sendBtn").on("click", function () {
             $("#sendBtn").prop("disabled",true);
         },
         success:function (data) {
+
 
             if(data == "fail"){
                 alert("db insert error");
@@ -285,6 +285,3 @@ $(document).ready(function(e){
         $('.input-group #search_param').val(param);
     });
 });
-
-
-
