@@ -55,7 +55,34 @@ $univer = get_universities_by_id($_GET['id']);
                             </div>
                         </div>
                         <div class="form-group col-md">
+                            <div id="favorite">
+                                <style>
+                                    #favorite{
+                                        width: 100%;
+                                        text-align: right;
+                                        align-content: center;
+                                    }
+                                    .fa {
 
+                                        font-size: 100px;
+                                        cursor: pointer;
+                                        user-select: none;
+                                    }
+
+                                    .fa:hover {
+                                        color: #5cb85c;
+                                    }
+                                </style>
+
+
+                                <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x" ></i>
+
+                                <script>
+                                    function myFunction(x) {
+                                        x.classList.toggle("fa-thumbs-down");
+                                    }
+                                </script>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -114,26 +141,6 @@ $univer = get_universities_by_id($_GET['id']);
 
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Рейтинг:
-                                <fieldset class="rating">
-                                    <div class="rating__group">
-                                        <input class="rating__star" type="radio" name="1" id="1" value="1"
-                                               aria-label="Ужасно">
-                                        <input class="rating__star" type="radio" name="2" id="2" value="2"
-                                               aria-label="Сносно">
-                                        <input class="rating__star" type="radio" name="3" id="3" value="3"
-                                               aria-label="Нормально">
-                                        <input class="rating__star" type="radio" name="4" id="4" value="4"
-                                               aria-label="Хорошо">
-                                        <input class="rating__star" type="radio" name="5" id="5" value="5"
-                                               aria-label="Отлично">
-                                    </div>
-                                </fieldset>
-                            </label>
-
-                        </div>
                         <div class="form-group col-md-4">
 
 

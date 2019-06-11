@@ -4,7 +4,7 @@ $(function () {
     $("loadMore").on('click', function (e) {
         e.preventDefault();
 
-        $(".box:hidden").slice(0,5).slideDown();
+        $(".box:hidden").slice(0,2).slideDown();
         if ($(".box:hidden").length == 0){
             $("#load").fadeOut('slow');
         }
