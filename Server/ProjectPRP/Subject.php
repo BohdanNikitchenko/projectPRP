@@ -42,7 +42,7 @@
         <a name="en"></a>
         <div class="card mt-5">
             <h5 class="card-header">Англійська мова</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab1">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -55,7 +55,7 @@
                     <td>1</td>
                     <td>Розуміння мови на слух(аудіювання), читання і письмо.</td>
                     <td>
-                        <a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf</a>
+                        <a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">Детальніше...</a>
                     </td>
                 </tr>
                 </tbody>
@@ -65,7 +65,7 @@
         <a name="bio"></a>
         <div class="card mt-5">
             <h5 class="card-header">Біологія</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab2">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -86,7 +86,7 @@
                     for ($col = 0; $col < 2; $col++) {
                         echo "<td>".$ist[$row][$col]."</td>";
                     }
-                    echo "<td><a href='".$ist[$row][2]."'>".$ist[$row][2]."</a></td>";
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -97,12 +97,12 @@
         <a name="geo"></a>
         <div class="card mt-5">
             <h5 class="card-header">Географія</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab3">
                 <thead>
-                <tr>
-                    <th class="number">№</th>
-                    <th class="nam">Тема</th>
-                    <th class="lin">Корисне посилання</th>
+                <tr >
+                    <th>№</th>
+                    <th>Тема</th>
+                    <th>Корисне посилання</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -118,7 +118,7 @@
                     echo "<tr>";
                     echo "<td>".$ist[$row][0]."</td>";
                     echo "<td>".$ist[$row][1]."</td>";
-                    echo "<td><div class='link'><a href='".$ist[$row][2]."'>".$ist[$row][2]."</a></div></td>";
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -129,7 +129,7 @@
         <a name="isp"></a>
         <div class="card mt-5">
             <h5 class="card-header">Іспанська мова</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab4">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -141,7 +141,7 @@
                 <tr>
                     <td>1</td>
                     <td>Розуміння мови на слух(аудіювання), читання і письмо.</td>
-                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf</a></td>
+                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">Детальніше...</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -150,7 +150,7 @@
         <a name="ist"></a>
         <div class="card mt-5">
             <h5 class="card-header">Історія України</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab5">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -198,7 +198,7 @@
                         for ($col = 0; $col < 2; $col++) {
                             echo "<td>".$ist[$row][$col]."</td>";
                         }
-                        echo "<td><a href='".$ist[$row][2]."'>".$ist[$row][2]."</a></td>";
+                        echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                         echo "</tr>";
                     }
                     ?>
@@ -209,7 +209,7 @@
         <a name="mat"></a>
         <div class="card mt-5">
             <h5 class="card-header">Математика</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab6">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -220,18 +220,19 @@
                 <tbody>
                 <?php
                 $ist=array(
-                    array(1,"ЧИСЛА І ВИРАЗИ ",""),
-                    array(2,"РІВНЯННЯ, НЕРІВНОСТІ ТА ЇХНІ СИСТЕМИ",""),
-                    array(3," ФУНКЦІЇ ",""),
-                    array(4,"ЕЛЕМЕНТИ КОМБІНАТОРИКИ,ПОЧАТКИ ТЕОРІЇ ЙМОВІРНОСТЕЙ ТА ЕЛЕМЕНТИ МАТЕМАТИЧНОЇ СТАТИСТИКИ",""),
-                    array(5,"ПЛАНІМЕТРІЯ ",""),
-                    array(6,"СТЕРЕОМЕТРІЯ","")
+                    array(1,"Числа і вирази","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiQuO7lkeDiAhWQpYsKHUmNAvoQFjAAegQIBhAB&url=http%3A%2F%2Fznaniya.znonline.org%2Fcourse%2Fview.php%3Fid%3D22%26section%3D1%26lang%3Dru&usg=AOvVaw11qtKUGYhcq7kxqWWOR5qN"),
+                    array(2,"Рівняння, нерівності та їхні системи","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjPnoDukeDiAhUMp4sKHXI_AeUQFjAAegQIABAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Ftool%2Fprint%2Findex.php%3Fid%3D3052&usg=AOvVaw3CgCc1zcFC82rb1jzU59AB"),
+                    array(3,"Функції","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=14&cad=rja&uact=8&ved=2ahUKEwiDwrz0keDiAhUNuIsKHdj0DoQQFjANegQICRAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Ftool%2Fprint%2Findex.php%3Fid%3D3054&usg=AOvVaw2C_VQtE1czh8rQgJZ7K1sq"),
+                    array(4,"Елементи комбінаторики,початки теорії ймовірностей та елементи математичної статистики","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiPi9SAkuDiAhUniIsKHXQLBFcQFjAAegQIABAB&url=http%3A%2F%2Foipopp.ed-sp.net%2F%3Fq%3Dtaxonomy%2Fterm%2F658&usg=AOvVaw2DL41fT0lFcrD60mkexOrI"),
+                    array(5,"Планіметрія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=2ahUKEwiSnKivkuDiAhWJ_CoKHYmTBl4QFjAFegQICRAB&url=https%3A%2F%2Fstudfiles.net%2Fpreview%2F2303107%2F&usg=AOvVaw0PhhJ0KQlod3oNTIw-OAH0"),
+                    array(6,"Стереометрія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=2ahUKEwj13Zu3kuDiAhWr-ioKHXK5B0UQFjAFegQIBxAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Fview.php%3Fid%3D3207&usg=AOvVaw3dv1_1jKLxVH3AJXy8Q-FJ")
                 );
                 for($row=0;$row<6;$row++){
                     echo "<tr>";
-                    for ($col = 0; $col < 3; $col++) {
+                    for ($col = 0; $col < 2; $col++) {
                         echo "<td>".$ist[$row][$col]."</td>";
                     }
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -242,7 +243,7 @@
         <a name="nim"></a>
         <div class="card mt-5">
             <h5 class="card-header">Німецька мова</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab7">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -254,7 +255,7 @@
                 <tr>
                     <td>1</td>
                     <td>Розуміння мови на слух(аудіювання), читання і письмо.</td>
-                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf</a></td>
+                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">Детальніше...</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -263,7 +264,7 @@
         <a name="ukr"></a>
         <div class="card mt-5">
             <h5 class="card-header">Українська мова та література</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab8">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -274,25 +275,26 @@
                 <tbody>
                 <?php
                 $ist=array(
-                    array(1,"Фонетика. Графіка. Орфоепія. Орфографія",""),
-                    array(2,"Лексикологія. Фразеологія",""),
-                    array(3,"Будова слова. Словотвір",""),
-                    array(4,"Морфологія",""),
-                    array(5,"Синтаксис",""),
-                    array(6,"Стилістика",""),
-                    array(7,"Розвиток мовлення",""),
-                    array(8,"Усна народна творчість",""),
-                    array(9,"Давня українська література",""),
-                    array(10,"Література кінця XVIII - початку XX ст.",""),
-                    array(11,"Література XX ст.",""),
-                    array(12,"Твори українських письменників-емігрантів",""),
-                    array(13,"Сучасний літературний процес (кінець ХХ - початок ХХІ ст.)","")
+                    array(1,"Фонетика. Графіка. Орфоепія. Орфографія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwi5zqnJkuDiAhUvl4sKHR22DX0QFjAAegQIAhAB&url=https%3A%2F%2Fschool.home-task.com%2Ffonetika-orfoepiya-grafika-orfografiya%2F&usg=AOvVaw220Mv6yhHjJpPAMMaKecYV"),
+                    array(2,"Лексикологія. Фразеологія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwi8q-_QkuDiAhWNo4sKHQdNCyAQFjAAegQIAhAB&url=https%3A%2F%2Fpidruchniki.com%2F1957041140538%2Fdokumentoznavstvo%2Fleksikologiya_frazeologiya_leksikografiya&usg=AOvVaw00R3maxGTvBDPSH1_-JH6A"),
+                    array(3,"Будова слова. Словотвір","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjIkrrWkuDiAhXuxIsKHVVCCtMQFjAAegQIBBAB&url=http%3A%2F%2Fschoollit.com.ua%2Fbudova-slova-slovotvir%2F&usg=AOvVaw0Ux8-1QHgZOc9EOPal3W3C"),
+                    array(4,"Морфологія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=2ahUKEwjj75rckuDiAhVnkIsKHUiDCT8QFjAFegQIBBAB&url=https%3A%2F%2Fpidruchniki.com%2F68671%2Fdokumentoznavstvo%2Fmorfologiya_rozdil_gramatiki&usg=AOvVaw2o4EOG2t8Dh3LHoVedUbdo"),
+                    array(5,"Синтаксис","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjKjfPnkuDiAhUhlIsKHQsmB_kQFjABegQIAhAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Fview.php%3Fid%3D1381&usg=AOvVaw3RN1keVJ74x4N62OtCYjYI"),
+                    array(6,"Стилістика","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwihoPDxkuDiAhVhkIsKHeRsD0IQFjAAegQIAxAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Fview.php%3Fid%3D1390&usg=AOvVaw2XFom3c9potqovtp6eHaqo"),
+                    array(7,"Розвиток мовлення","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiUiej_kuDiAhXusYsKHaCkCRgQFjAAegQIBBAB&url=http%3A%2F%2Fschoollit.com.ua%2Fstilistika-rozvitok-movlennya%2F&usg=AOvVaw1wR_9o28FI0qaw0MRye6My"),
+                    array(8,"Усна народна творчість","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&cad=rja&uact=8&ved=2ahUKEwj865GRk-DiAhWEp4sKHVEtDwMQFjAHegQIARAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fcourse%2Fview.php%3Fid%3D14&usg=AOvVaw3eY4s2Cw6UfVuoUpnapWmp"),
+                    array(9,"Давня українська література","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=2ahUKEwiEhYSek-DiAhVGxosKHQjAB2QQFjALegQIABAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fmod%2Fbook%2Fview.php%3Fid%3D1585&usg=AOvVaw0Vgnv5f5KmdaJplTVVMRc4"),
+                    array(10,"Література кінця XVIII - початку XX ст.","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&cad=rja&uact=8&ved=2ahUKEwiPxr-nk-DiAhXyl4sKHWhqCgwQFjAEegQIAhAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fcourse%2Fview.php%3Fid%3D14&usg=AOvVaw3eY4s2Cw6UfVuoUpnapWmp"),
+                    array(11,"Література XX ст.","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjz_Nezk-DiAhVhtIsKHScwB4gQFjABegQIBBAB&url=https%3A%2F%2Fukrlit.net%2Fdovidnik_zno%2F33.html&usg=AOvVaw0a4GZwCqfWEzDZ_8Kvz1Rb"),
+                    array(12,"Твори українських письменників-емігрантів","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjix_q9k-DiAhVFlIsKHaV1A-kQFjABegQIAhAB&url=http%3A%2F%2Ftsdazu.gov.ua%2Findex.php%2Fua%2Fonline%2F47-all%2F524-2015-01-20-09-49-30.html&usg=AOvVaw17Hs8pw6-9dgZBpgKL1VgB"),
+                    array(13,"Сучасний літературний процес (кінець ХХ - початок ХХІ ст.)","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjq7KPGk-DiAhXQwosKHSDqDv8QFjAAegQIBBAB&url=http%3A%2F%2Fukrclassic.com.ua%2Fkatalog%2Fteoriya-literaturi%2F2666-ukrajinska-literatura-kintsya-xx-pochatku-xxi-st-na-shlyakhu-do-novogo-vidrodzhennya&usg=AOvVaw22HJDKpY4Jo2dH0kDKunss")
                 );
                 for($row=0;$row<13;$row++){
                     echo "<tr>";
-                    for ($col = 0; $col < 3; $col++) {
+                    for ($col = 0; $col < 2; $col++) {
                         echo "<td>".$ist[$row][$col]."</td>";
                     }
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -303,7 +305,7 @@
         <a name="phis"></a>
         <div class="card mt-5">
             <h5 class="card-header">Фізика</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab9">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -314,16 +316,17 @@
                 <tbody>
                 <?php
                 $ist=array(
-                    array(1,"Механіка",""),
-                    array(2,"Молекулярна фізика і термодинаміка",""),
-                    array(3,"Електродинаміка",""),
-                    array(4,"Коливання і хвилі. Оптика",""),
-                    array(5,"Квантова фізика. Елементи теорії відносності",""));
+                    array(1,"Механіка","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&cad=rja&uact=8&ved=2ahUKEwjKornRk-DiAhVnsosKHQ-BDiUQFjACegQIAxAB&url=https%3A%2F%2Fwww.zno200.com%2Ffizyka%2F24-mekh%2F4-mekhanika&usg=AOvVaw2gYO_s7BzkZXHMECafhSqv"),
+                    array(2,"Молекулярна фізика і термодинаміка","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwi--9HYk-DiAhWL-yoKHXnjBCIQFjAAegQIBRAB&url=http%3A%2F%2Fphysics.kpi.ua%2Fmoodlephysics%2Fmod%2Fbook%2Fview.php%3Fid%3D519%26chapterid%3D24&usg=AOvVaw1c8wWw6TAF1XzyPUOhHcuW"),
+                    array(3,"Електродинаміка","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjU59zlk-DiAhVslYsKHV2GA88QFjABegQIBRAB&url=https%3A%2F%2Fsubject.com.ua%2Fphysics%2Fzno%2F99.html&usg=AOvVaw3Mcv0_j46_Kl3lGixgl87x"),
+                    array(4,"Коливання і хвилі. Оптика","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwi6h_Hwk-DiAhUxi8MKHfioA-4QFjABegQIAhAB&url=https%3A%2F%2Fallbest.ru%2Fo-3c0a65635b2ac78b5d53b89421306d26.html&usg=AOvVaw2aZMwxGPZmwa9SMHV_vndO"),
+                    array(5,"Квантова фізика. Елементи теорії відносності","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiw7Lz4k-DiAhUBxosKHY9pCE4QFjAAegQIBRAB&url=https%3A%2F%2Fsubject.com.ua%2Fphysics%2Fzno%2F188.html&usg=AOvVaw2pu2iKWLfkKU9rCcRGUsqr"));
                 for($row=0;$row<5;$row++){
                     echo "<tr>";
-                    for ($col = 0; $col < 3; $col++) {
+                    for ($col = 0; $col < 2; $col++) {
                         echo "<td>".$ist[$row][$col]."</td>";
                     }
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>
@@ -334,7 +337,7 @@
         <a name="fr"></a>
         <div class="card mt-5">
             <h5 class="card-header">Французька мова</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab10">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -346,7 +349,7 @@
                 <tr>
                     <td>1</td>
                     <td>Розуміння мови на слух(аудіювання), читання і письмо.</td>
-                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf</a></td>
+                    <td><a href="http://testportal.gov.ua//wp-content/uploads/2016/12/Programa_2020_inozemni.pdf">Детальніше...</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -355,7 +358,7 @@
         <a name="chim"></a>
         <div class="card mt-5">
             <h5 class="card-header">Хімія</h5>
-            <table class="table table-striped" id="tab">
+            <table class="table table-striped" id="tab11">
                 <thead>
                 <tr>
                     <th>№</th>
@@ -366,15 +369,16 @@
                 <tbody>
                 <?php
                 $ist=array(
-                    array(1,"Загальна хімія ",""),
-                    array(2,"Неорганічна хімія ",""),
-                    array(3,"Органічна хімія",""),
-                    array(4,"Обчислення в хімії ",""));
+                    array(1,"Загальна хімія ","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwijpLKKlODiAhWwAxAIHf65DAAQFjAAegQIARAB&url=http%3A%2F%2Fzno.academia.in.ua%2Fcourse%2Fview.php%3Fid%3D11&usg=AOvVaw2MOCo42yjrT7tiPlJHbHE2"),
+                    array(2,"Неорганічна хімія ","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjA39GQlODiAhVjsYsKHfxuDv4QFjAAegQIBBAB&url=https%3A%2F%2Fznohimbio.jimdo.com%2F%25D0%25BF%25D1%2596%25D0%25B4%25D0%25B3%25D0%25BE%25D1%2582%25D0%25BE%25D0%25B2%25D0%25BA%25D0%25B0-%25D0%25B4%25D0%25BE-%25D0%25B7%25D0%25BD%25D0%25BE-%25D0%25B7-%25D1%2585%25D1%2596%25D0%25BC%25D1%2596%25D1%2597%2F&usg=AOvVaw0FUy4xFrEMTeEl0HS4fZwH"),
+                    array(3,"Органічна хімія","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=2ahUKEwjQjYCelODiAhVDw4sKHeMzC_wQFjADegQIARAB&url=http%3A%2F%2Fznochem407.blogspot.com%2Fp%2F3.html&usg=AOvVaw2S-PZg9OojU60mn7tEJ8mR"),
+                    array(4,"Обчислення в хімії ","https://www.google.com.ua/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiZpqimlODiAhVpsYsKHctEANsQFjAAegQIAxAB&url=https%3A%2F%2Fsubject.com.ua%2Fchemistry%2Fzno1%2F9.html&usg=AOvVaw0ai5OrIHlMEVHz0w5B76_v"));
                 for($row=0;$row<4;$row++){
                     echo "<tr>";
-                    for ($col = 0; $col < 3; $col++) {
+                    for ($col = 0; $col < 2; $col++) {
                         echo "<td>".$ist[$row][$col]."</td>";
                     }
+                    echo "<td><a href=".$ist[$row][2].">Детальніше...</a></td>";
                     echo "</tr>";
                 }
                 ?>

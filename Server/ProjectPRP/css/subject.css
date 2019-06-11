@@ -13,29 +13,17 @@
 .col a:hover{
     color: #5cb85c;
 }
+.container{
+    margin-bottom: 30px;
+}
 .modal-body{
     background: #ffffff;
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-#tab{
+#tab11{
     margin-bottom: 5px !important;
-}
-#tab thead tr{
-    width: 100% !important;
-}
-.number{
-    width: 5% !important;
-}
-.nam{
-    width: 45% !important;
-}
-.lin{
-    width: 50% !important;
-}
-.lin p{
-    display: block;
 }
 .predm{
     text-align: center;
@@ -46,8 +34,4 @@
     width: 48%;
     height: 33px;
     padding-left: 1px;
-}
-.bg-warning{
-    width: 24%;
-    height: 33px;
 }
