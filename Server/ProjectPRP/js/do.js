@@ -34,6 +34,32 @@ $("#sendBtn").on("click", function () {
         }
     });
 });
+// Рейтинг специальностей
+$("#Rate").on("click", function () {
+    let SpecNum = $("#SpecInput").val().trim().substring(0, 3);
+
+    $.ajax({
+        url: 'ajax/rating.php',
+        type: 'POST',
+        cache: false,
+        data: {'SpecNum' : SpecNum},
+        beforeSend: function () {
+            $("#Rate").prop("disabled",true);
+        },
+        success:function (data) {
+        alert(data);
+            if(data == "fail"){
+                alert("db insert error");
+            }else{
+                document.location.href = data;
+            }
+
+            $("#Rate").prop("disabled",false);
+        }
+    });
+});
+
+
 //авторизация
 $("#Sbut").on("click",function () {
     let login=$("#inputEmail").val().trim();
@@ -251,6 +277,10 @@ $(document).ready(function(e){
         $('.input-group #search_param').val(param);
     });
 });
+
+
+
+
 
 
 
