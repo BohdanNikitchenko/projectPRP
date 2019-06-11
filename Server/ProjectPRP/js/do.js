@@ -228,31 +228,6 @@ $( document ).ready(function() {
 
 //поиск специальностей
 
-/*$("#Search_btn").on("click", function () {
-    if($("#Search_spec")){
-        let spec = $("#Search_spec").val().trim();
-        if(spec === ""){
-            return 0;
-        }
-        else{
-            alert('start');
-            //Поиск в базе данных
-            $.ajax({
-                url: 'ajax/specialities.php',
-                type: 'POST',
-                cache: false,
-                data: {'spec' : spec},
-                beforeSend: function(){
-
-                },
-                success: function (data) {
-                    //Отображение результатов поиска
-                    alert(data);
-                }
-            });
-        }
-    }
-});*/
 $("#Search_btn").click(function(){
     if($("#Search_spec")) {
         let spec = $("#Search_spec").val().trim();
@@ -260,7 +235,6 @@ $("#Search_btn").click(function(){
             return 0;
         }
         else {
-            alert('Старт');
             $.ajax({
                url: 'ajax/specialities.php',
                type: 'POST',
@@ -268,12 +242,13 @@ $("#Search_btn").click(function(){
                data: {'spec' : spec},
                success:function (data) {
                    $('#bottom').html(data);
-                  // alert(data);
+
                }
             });
         }
     }
 });
+//Подбор специальностей
 $("#Selection_btn").on("click", function f(){
    $ukr_lang = document.getElementById('ukr_lang');
    $math = document.getElementById('math');

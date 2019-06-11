@@ -22,7 +22,7 @@ $user=$_SESSION["loggedUser"];
 
     <div class="main">
         <div class="input-group">
-            <div class="a"><input type="text" class="form-control" id="Search_spec" placeholder="Пошук спеціальностей"></div>
+            <div class="a"><input type="text" class="form-control" id="Search_spec" placeholder="Пошук спеціальностей" autofocus></div>
             <div class="input-group-append" ><button class="btn btn-secondary" type="button" id="Search_btn"><i class="fa fa-search"></i></button></div>
             <div class="card">
                 <div class="card-body">
