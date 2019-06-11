@@ -1,4 +1,9 @@
 <?php
+session_start();
+$user=$_SESSION["loggedUser"];
+$calc=$_SESSION["calc"];
+$univer = $_SESSION["SpecRate"];
+print_r($univer);
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,27 +25,31 @@
     require "header.php";?>
 </header>
 <main role="main">
+    <form method="post">
     <div class="container">
 <div class="card mt-5 ">
     <h5 class="card-header">ЗВО</h5>
     <div class="card-body">
         <h5 class="card-title">Оберіть ЗВО із запропонованого списку</h5>
         <div class="input-group mb-3">
-            <input class="select" type="text" name="city" list="inputGroupSelect01">
-            <datalist class="select" id="inputGroupSelect01">
+            <input class="select" type="text" name="city" id="inputUniver" list="inputGroupSelect01">
+            <datalist class="select" id="inputGroupSelect01" style="width: 25%" >
                 <!--  ЦИКЛЫ  -->
+
                 <?php
-
                 $universities = get_universities_all();
-
+                //$count = 0;
                 foreach ($universities as $univer):
-
+                /*if($count == 0){
+                    echo '<script type="text/javascript">alert("' . $univer["Name_Universities"] . '")</script>';
+                    $count++;
+                }*/
                 ?>
-                <option value=<?php echo $univer?>></option>
-
+                <option><?php echo $univer["Name_Universities"]?></option>
+                <?php endforeach; ?>
             </datalist>
             <div class="input-group-append">
-                <input type="button" class="input-group-text" for="inputGroupSelect02" value="Обрати"/>
+                <input type="button" class="input-group-text" id="elem"  for="inputGroupSelect02" value="Обрати"/>
             </div>
         </div>
     </div>
@@ -50,14 +59,20 @@
     <div class="card-body">
         <h5 class="card-title">Оберіть спеціальність із запропонованого списку</h5>
         <div class="input-group mb-3">
-            <input class="select" type="text" name="city" list="inputGroupSelect02">
-            <datalist class="select" id="inputGroupSelect02">
+            <input class="select" type="text" name="city" id="inputSpec" list="inputGroupSelect02">
+            <datalist class="select" id="inputGroupSelect02" >
                 <!--  ЦИКЛЫ  -->
-                <option value="dtgj"></option>
-                <option value="111"></option>
-                <option value="02"></option>
-                <option value="3"></option>
-                <option value="303"></option>
+                <?php
+                $specialtyes = get_specialty_all();
+                //$count = 0;
+                foreach ($specialtyes as $specialty):
+                    /*if($count == 0){
+                        echo '<script type="text/javascript">alert("' . $univer["Name_Universities"] . '")</script>';
+                        $count++;
+                    }*/
+                    ?>
+                    <option value=<?php echo $specialty["Id_specialty"]?>><?php echo $specialty["Name_Specialty"]?></option>
+                <?php endforeach; ?>
             </datalist>
             <div class="input-group-append">
                 <input type="button" class="input-group-text" for="inputGroupSelect02" value="Обрати"/>
@@ -93,15 +108,22 @@
                         <p>100</p>
                     </div>
                 </div>
-                <input type="button" id="btn" class="btn btn-primary" value="Розрахувати вірогідність" />
+                <input type="button"  class="btn btn-primary" id="btnRes" value="Розрахувати вірогідність" />
             </div>
         </div>
     </div>
-
+    </form>
+    <div id="result" style="display: none">
+        <?php foreach ($calc as $c):?>
+        <p><?php echo $c?></p>
+        <?php endforeach;?>
+    </div>
 </main>
     <footer>
         <?php require "footer.php";?>
     </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/calculation.js"></script>
 </body>
 
 </html>

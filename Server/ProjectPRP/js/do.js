@@ -67,7 +67,7 @@ $("#ex").on("click",function(){
 
 //Редактирование
 $("#SaveEditBtn").on("click",function () {
-        let SerName=$("#SerName").val().trim();
+    let SerName=$("#SerName").val().trim();
     let name =$("#name").val().trim();
     let ThirdName=$("#ThirdName").val().trim();
     let email=$("#email").val().trim();
@@ -96,8 +96,8 @@ $("#SaveEditBtn").on("click",function () {
             if(data == "fail"){
                 alert("db insert error");
             }else{
-
-                document.location.href = data;
+                alert(data);
+                //document.location.href = data;
             }
 
             $("#sendBtn").prop("disabled",false);
@@ -251,3 +251,8 @@ $(document).ready(function(e){
         $('.input-group #search_param').val(param);
     });
 });
+
+
+
+
+

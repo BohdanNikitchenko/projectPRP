@@ -36,7 +36,7 @@ if ($mysql1->connect_errno) {
 }
 $mysql1->query("SET NAMES 'utf-8");
 $result1 = $mysql1->query("SELECT * FROM users");
-
+echo mysqli_num_rows($result1);
 $flag=false;
 foreach ($result1 as $user){
     if($id==$user['Id']){

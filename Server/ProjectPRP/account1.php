@@ -341,7 +341,6 @@ $user=$_SESSION["loggedUser"];
                                 <p><strongChoose Subject</strong></p>
                                 <p>
                                     <select id="selectSubj3" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
-
                                         <option value="Українська мова та література" selected="">Українська мова та література</option>
                                         <option value="Математика">Математика</option>
                                         <option value="Історія України">Історія України</option>
