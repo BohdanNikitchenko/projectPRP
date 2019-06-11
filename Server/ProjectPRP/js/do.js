@@ -228,7 +228,7 @@ $( document ).ready(function() {
 
 //поиск специальностей
 
-$("#Search_btn").on("click", function () {
+/*$("#Search_btn").on("click", function () {
     if($("#Search_spec")){
         let spec = $("#Search_spec").val().trim();
         if(spec === ""){
@@ -247,8 +247,29 @@ $("#Search_btn").on("click", function () {
                 },
                 success: function (data) {
                     //Отображение результатов поиска
-                    alert(data)
+                    alert(data);
                 }
+            });
+        }
+    }
+});*/
+$("#Search_btn").click(function(){
+    if($("#Search_spec")) {
+        let spec = $("#Search_spec").val().trim();
+        if (spec === "") {
+            return 0;
+        }
+        else {
+            alert('Старт');
+            $.ajax({
+               url: 'ajax/specialities.php',
+               type: 'GET',
+               cache: false,
+               data: {'spec' : encodeURIComponent(spec)},
+               success:function (data) {
+                    
+                   alert(data);
+               }
             });
         }
     }

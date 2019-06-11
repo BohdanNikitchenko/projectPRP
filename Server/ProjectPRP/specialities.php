@@ -12,6 +12,7 @@ $user=$_SESSION["loggedUser"];
     <link rel="stylesheet" href="css/specialities.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta charset="utf-8" />
 </head>
 <header>
     <?php require "header.php";?>
