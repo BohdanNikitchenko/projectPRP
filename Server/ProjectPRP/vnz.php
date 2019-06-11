@@ -23,14 +23,13 @@ $counter = 5;
 <div id="scores">
 <body>
 
-<form method="post">
 <div class="container emp-search">
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="input-group" id="adv-search">
-                    <input type="text" class="form-control" placeholder="Search for snippets" name="search" />
+                    <input type="text" class="form-control" placeholder="Search for snippets" />
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
                             <div class="dropdown dropdown-lg">
@@ -40,27 +39,28 @@ $counter = 5;
                                         <div class="form-group">
                                             <label for="filter">Filter by</label>
                                             <select class="form-control">
-                                                <option value="0" selected>Назва</option>
-                                                <option value="1">Область</option>
-                                                <option value="2">Населений пункт</option>
-                                                <option value="3">Тип ВНЗ</option>
+                                                <option value="0" selected>All Snippets</option>
+                                                <option value="1">Most popular</option>
+                                                <option value="2">Top rated</option>
                                             </select>
 
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option value="0" selected>All Snippets</option>
+                                                <option value="1">Count specialties</option>
+                                                <option value="2">Just do it!!!</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="contain">Contains the words</label>
                                             <input class="form-control" type="text" />
                                         </div>
-                                        <button type="submit"  class="btn btn-success">Search</button>
+                                        <button type="submit" class="btn btn-success">Search</button>
                                     </form>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"><i class="fa fa-search" aria-hidden="true"></i></span></button>
-                            <?php
-                            if (!empty($_POST['submit'])) {
-                                echo ($_POST['search']);
-                            }
-                            ?>
+                            <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"><i class="fa fa-search" aria-hidden="true"></i></span></button>
                         </div>
                     </div>
                 </div>
@@ -68,219 +68,173 @@ $counter = 5;
         </div>
     </div>
 </div>
-</form>
-<div id="load_div">
+
+
 <?php
 
-    $id_list ='';
-
+$index =0;
+$index_last=5;
     $universities = get_universities_all();
-function write($row)
-{
-    global $id_list;
-    $id_list=$row['id'];
-    ?>
+    $finish = get_num_rows();
+    get_content();
+
+  function get_content()
+  {
+
+      global $index_last;
+      global $index;
+      while ($index < $index_last):
+          $index++;
+          $univer = get_universities_by_id($index);
+          ?>
 
 
-    <div class="container emp-profile">
-        <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6 ">
-                            <div class="teg">
-                                <h5><em><?php echo $row["Name_Universities"] ?></em></h5>
-                            </div>
-                        </div>
-                        <div class="form-group col-md">
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <div id="favorite">
-                                        <style>
-                                            #favorite {
-                                                width: 100%;
-                                                text-align: right;
-                                                align-content: center;
-                                            }
+          <div class="container emp-profile">
+              <div class="card mb-4 shadow-sm">
+                  <div class="card-header">
+                      <form>
+                          <div class="form-row">
+                              <div class="form-group col-md-6 ">
+                                  <div class="teg">
+                                      <h5><em><?php echo $univer["Name_Universities"] ?></em></h5>
+                                  </div>
+                              </div>
+                              <div class="form-group col-md">
 
-                                            .fa {
-
-                                                font-size: 100px;
-
-                                            }
-
-                                            .fa:hover {
-                                                color: #5cb85c;
-                                            }
-                                        </style>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-6 ">
+                                  <div>
+                                      <img class="image"
+                                           src="https://media3.mensxp.com/media/content/2017/Dec/header-3-copy-1513352222_1100x513.jpg"
+                                           alt="Generic placeholder thumbnail">
+                                  </div>
+                              </div>
+                              <div class="form-group col-md-6" id="info" name="info">
 
 
-                                        <i onclick="myFunction(this,<?php echo $row["favorite"]; ?>)"
-                                           class="fa <?php
-
-                                           if ($row["favorite"] == "1") {
-
-                                               echo "fa-thumbs-up";
-                                           } else {
-                                               echo "fa-thumbs-down";
-                                           }
-
-                                           ?>
-                                           fa-3x " id="like_button"
-                                           value="<?php echo $row["favorite"]; ?>"></i>
-
-
-
-                                        <div value="<?php echo $row['id'] ?>" id="getId"></div>
-                                        <script>
-
-                                            function myFunction(x, y) {
-
-                                                if (y == 1) {
-                                                    x.classList.toggle("fa-thumbs-down");
-                                                    x.classList.toggle("fa-thumbs-up");
-
-                                                } else {
-                                                    x.classList.toggle("fa-thumbs-down");
-                                                    x.classList.toggle("fa-thumbs-up");
-                                                }
-
-                                            }
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6 ">
-                                <div>
-                                    <img class="image"
-                                         src="https://t.fakku.net/images/upload/heartpupils-tag.png"
-                                         alt="Generic placeholder thumbnail">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6" id="info" name="info">
+                                  <label for="inputPassword4">
+                                      <h5>Область, населений пункт:
+                                          <small>
+                                              <em><?php echo $univer["Region_U"], ", ", $univer["City_U"] ?></em>
+                                          </small>
+                                      </h5>
+                                  </label><br>
+                                  <label for="inputPassword4">
+                                      <h5>Адреса:
+                                          <small><em><?php echo $univer["Address_U"] ?></small>
+                                          </em></h5>
+                                  </label><br>
+                                  <label for="inputPassword4">
+                                      <h5>Телефони:
+                                          <small><em><?php echo $univer["Phone_U"] ?></small>
+                                          </em></h5>
+                                  </label><br>
+                                  <label for="inputPassword4">
+                                      <h5>Веб-сайт:
+                                          <small>
+                                              <em><a href="<?php echo $univer["Web_U"] ?>"><?php echo $univer["Web_U"] ?></a>
+                                          </small>
+                                          </em></h5>
+                                  </label><br>
+                                  <label for="inputPassword4"><h5>Опис ВНЗ: </h5></label><br>
+                                  <label for="inputPassword4">
+                                      <h7>
+                                          <ul>
+                                              <li>Тип ВНЗ:
+                                      </h7>
+                                      <em><?php echo $univer["Type_U"] ?></em></label><br>
+                                  <label for="inputPassword4">
+                                      <h7>
+                                          <li>Форма власності:
+                                      </h7>
+                                      <em>
+                                          <h7><?php echo $univer["Control_Form_U"] ?></em></label><br>
+                                  <label for="inputPassword4">
+                                      <h7>
+                                          <li>Керівник:
+                                      </h7>
+                                      <em><?php echo $univer["Director_U"] ?></em></ul></label><br>
 
 
-                                <label for="inputPassword4">
-                                    <h5>Область, населений пункт:
-                                        <small>
-                                            <em><?php echo $row["Region_U"], ", ", $row["City_U"] ?></em>
-                                        </small>
-                                    </h5>
-                                </label><br>
-                                <label for="inputPassword4">
-                                    <h5>Адреса:
-                                        <small><em><?php echo $row["Address_U"] ?></small>
-                                        </em></h5>
-                                </label><br>
-                                <label for="inputPassword4">
-                                    <h5>Телефони:
-                                        <small><em><?php echo $row["Phone_U"] ?></small>
-                                        </em></h5>
-                                </label><br>
-                                <label for="inputPassword4">
-                                    <h5>Веб-сайт:
-                                        <small>
-                                            <em><a href="<?php echo $row["Web_U"] ?>"><?php echo $row["Web_U"] ?></a>
-                                        </small>
-                                        </em></h5>
-                                </label><br>
-                                <label for="inputPassword4"><h5>Опис ВНЗ: </h5></label><br>
-                                <label for="inputPassword4">
-                                    <h7>
-                                        <ul>
-                                            <li>Тип ВНЗ:
-                                    </h7>
-                                    <em><?php echo $row["Type_U"] ?></em></label><br>
-                                <label for="inputPassword4">
-                                    <h7>
-                                        <li>Форма власності:
-                                    </h7>
-                                    <em>
-                                        <h7><?php echo $row["Control_Form_U"] ?></em></label><br>
-                                <label for="inputPassword4">
-                                    <h7>
-                                        <li>Керівник:
-                                    </h7>
-                                    <em><?php echo $row["Director_U"] ?></em></ul></label><br>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="form-group col-md-6">
+                                  <label for="inputCity">Рейтинг:
+                                      <fieldset class="rating">
+                                          <div class="rating__group">
+                                              <input class="rating__star" type="radio" name="1" id="1" value="1"
+                                                     aria-label="Ужасно">
+                                              <input class="rating__star" type="radio" name="2" id="2" value="2"
+                                                     aria-label="Сносно">
+                                              <input class="rating__star" type="radio" name="3" id="3" value="3"
+                                                     aria-label="Нормально">
+                                              <input class="rating__star" type="radio" name="4" id="4" value="4"
+                                                     aria-label="Хорошо">
+                                              <input class="rating__star" type="radio" name="5" id="5" value="5"
+                                                     aria-label="Отлично">
+                                          </div>
+                                      </fieldset>
+                                  </label>
+
+                              </div>
+                              <div class="form-group col-md-4">
 
 
-                            </div>
-                        </div>
-                        <style>
-                            #info_button {
-                                width: 100%;
-                            }
+                              </div>
+                              <div class="form-group col-md-2">
+                                  <a href="univer.php?id=<?php echo $univer['id'] ?>"
+                                     class="btn btn-success  active" role="button" aria-pressed="true"
+                                     id="buttoninfo"><em>Детальніше</em></a>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
 
-                            #buttoninfo {
-                                width: 100%;
-                            }
-                        </style>
-                        <div id="info_button">
+      <?php
 
-                            <a href="univer.php?id=<?php echo $row['id'] ?>"
-                               class="btn btn-success  active" role="button" aria-pressed="true"
-                               id="buttoninfo"><em>Детальніше</em></a>
-
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <?php
-
-}
-
-      while ($row = mysqli_fetch_array($universities)){
-write($row);
-
-}
-
+      endwhile;
+  }
 ?>
-</div>
 
-<div class="container emp-more" id="conteiner_more">
-    <div class="card mb-4 shadow-sm">
+<?php
 
-<div id="buttonfuck" ><button id="btn_more" name="btn_more" data-vid="<?php echo $id_list; ?>" value="<?php echo $id_list?>" class="btn btn-success form-control"  >Load All</button></div>
+if(isset($_POST['loadmore'])){
+    global $index_last;
+    global $finish;
+    $index_last = $finish;
+
+    get_content();
+}
+?>
+<div class="container emp-more" id="buttonfuck" >
+    <div class="card mb-4 shadow-sm" >
+        <style>
+            #buttonfuck{
+                visibility: <?php
+if($index_last==$finish){
+    echo "hidden";
+}
+?>;
+            }
+
+            button#loadmore{
+                width: 100%;
+            }
+        </style>
+        <form action="vnz.php" method="post"  id="loadmore" >
+            <button type="sub" name="loadmore" class="btn btn-outline-success"  id="loadmore" >Load All</button>
+        </form>
 
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/do.js"></script>
 </body>
 </div>
 <footer>
     <?php require "footer.php";?>
 </footer>
 </html>
-
-<script>
-$(document).ready(function () {
-    $(document).on('click', '#btn_more', function () {
-        var last_id_list = $('#btn_more').val();
-        $('#btn_more').html("Loading...");
-        $.ajax({
-            url: "load_data_more.php",
-            method: "POST",
-            data: {last_id_list: last_id_list},
-
-            success: function (data) {
-                if (data != '') {
-                    $('#conteiner_more').remove();
-                    $('#load_div').append(data);
-                } else {
-                    $('#btn_more').html("no Data");
-                }
-            }
-        })
-    })
-})
-
-
-
-    
-</script>
