@@ -157,22 +157,23 @@ $univer = $_SESSION["SpecRate"];
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Харківський національний університет радіоелектроніки</td>
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Київський національний університет "Києво-Могилянська Академія"</td>
-                    <td>180</td>
-                </tr>
+                <?php
+                $min_budj=get_min_budjet_univer();
+                $j=1;
+                foreach ($min_budj as $minb) {
+                    echo "<tr>";
+                    echo "<td>".$j++."</td>";
+                    echo "<td>".$minb['Name_Universities']."</td>";
+                    echo "<td>".$minb['Min_Budget']."</td>";
+                    echo "</tr>";
+                }
+                ?>
                 </tbody>
             </table>
         </div>
 
         <a name="k"></a>
-        <div class="card mt-5">
+        <div class="card mt-5 mb-5">
             <h5 class="card-header">Рейтинг ЗВО України за найвищим мінімальним балом на контракт</h5>
             <table class="table table-striped">
                 <thead>
