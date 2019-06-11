@@ -1,8 +1,9 @@
 <?php
 session_start();
+global $array;
 $user = $_SESSION["loggedUser"];
 $univer = $_SESSION["SpecRate"];
-echo $univer;
+//print_r($univer)
 ?>
 <!DOCTYPE html>
 <html>
@@ -91,28 +92,28 @@ echo $univer;
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <?php foreach ($univer as $un) {
-                        echo "<td>" . $un['Name_Universities'] . "</td>";
-                    }
+
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td ><input value="" id="1" type="text" readonly="" style="outline: none; border: none; background: #f2f2f2"></input></td>-->
+<!--                    <td>200</td>-->
+<!--                </tr>-->
+
+
+                <?php
+                $i=0;
+                foreach ($univer as $un) {
+
+                    echo "<tr>";
+                    echo "<td>".$i+=1;"</td>";
+                    echo "<td id='$i'> " . $un['Name_Universities'] . "</td>";
+
+                    echo "<td>".$un['Min_Budget']."</td>";
+                    echo "</tr>";
+
+                }
+
                     ?>
-
-
-
-
-
-
-
-
-
-                    <td>200</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Київський національний університет "Києво-Могилянська Академія"</td>
-                    <td>180</td>
-                </tr>
                 </tbody>
             </table>
         </div>

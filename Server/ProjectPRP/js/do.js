@@ -43,19 +43,23 @@ $("#Rate").on("click", function () {
         type: 'POST',
         cache: false,
         data: {'SpecNum' : SpecNum},
-        beforeSend: function () {
-            $("#Rate").prop("disabled",true);
-        },
         success:function (data) {
-        alert(data);
+
             if(data == "fail"){
                 alert("db insert error");
             }else{
-                document.location.href = data;
+
+                // var unarr = data.split('SPLITHERE');
+                // for(let i=1;i<=unarr.length;i++){
+                //     document.getElementById('i').value=data;
+                // }
+
+            document.location.href=data;
             }
 
-            $("#Rate").prop("disabled",false);
+            $("#sendBtn").prop("disabled",false);
         }
+
     });
 });
 

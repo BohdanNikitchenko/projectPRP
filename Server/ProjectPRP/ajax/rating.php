@@ -13,12 +13,32 @@ if ($db->connect_errno) {
     exit();
 }
 $db->query("SET CHARACTER SET 'utf8'");
-$i=0;
-$result = $db->query("SELECT DISTINCT Name_Universities FROM specialty_in_universities WHERE Id_specialty=$specnum ORDER by Min_Budget DESC");
-foreach ($result as $res){
-   $arr[$i]=res;
-   $i++;
+
+$result = $db->query("SELECT DISTINCT Name_Universities, Min_Budget FROM specialty_in_universities WHERE Min_Budget<=200 AND Min_Budget>=100 and Id_specialty=$specnum GROUP BY Name_Universities   ORDER by Min_Budget DESC");
+$arr=array();
+if (mysqli_num_rows($result)>0){
+    while ($row=mysqli_fetch_assoc($result)){
+        $arr[]=$row;
+    }
 }
+
 $_SESSION["SpecRate"] = $arr;
+$flag=false;
+if($result == false){
+    echo "fail";
+}else{
+//    foreach ($arr as $a) {
+//        if ($flag == false) {
+//            $flag = true;
+//            echo $a['Name_Universities'];
+//        } else {
+//            echo "SPLITHERE" . $a['Name_Universities'];
+//        }
+//    }
+    echo "http://localhost/projectPRP/Rate.php";
+}
+
+
+
 
 ?>
