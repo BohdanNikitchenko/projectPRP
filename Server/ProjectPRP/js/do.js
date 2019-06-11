@@ -235,7 +235,21 @@ $("#Search_btn").on("click", function () {
             return 0;
         }
         else{
+            alert('start');
+            //Поиск в базе данных
+            $.ajax({
+                url: 'ajax/specialities.php',
+                type: 'POST',
+                cache: false,
+                data: {'spec' : spec},
+                beforeSend: function(){
 
+                },
+                success: function (data) {
+                    //Отображение результатов поиска
+                    alert(data)
+                }
+            });
         }
     }
 });

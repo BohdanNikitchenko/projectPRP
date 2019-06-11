@@ -7,8 +7,6 @@ $surname= ($_POST['surname']);
 $thirdname = ($_POST['thirdname']);
 $phone = ($_POST['phone']);
 
-
-
 $mysql = new mysqli("localhost","root","","users");
 if ($mysql->connect_errno) {
     printf("Не удалось подключиться: %s\n", $mysql->connect_error);
@@ -22,5 +20,4 @@ if($result == false){
 }else{
     echo"http://localhost/projectPRP/autorization.php";
 }
-
 ?>
