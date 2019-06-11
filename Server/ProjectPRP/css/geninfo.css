@@ -1,0 +1,13 @@
+.card{
+    padding: 3% 3% 3% 3%;
+}
+.card h4{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.card p{
+    text-indent: 3%;
+}
+.container{
+    margin-bottom: 30px !important;
+}

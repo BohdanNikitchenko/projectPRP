@@ -37,3 +37,9 @@
 #tab{
     margin-bottom: 5px !important;
 }
+.input-group p b{
+    color: red;
+}
+.input-group p{
+    font-weight: bold;
+}

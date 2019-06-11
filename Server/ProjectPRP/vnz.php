@@ -245,8 +245,7 @@ write($row);
 <div class="container emp-more" id="conteiner_more">
     <div class="card mb-4 shadow-sm">
 
-<div id="buttonfuck" ><button id="btn_more" name="btn_more" data-vid="<?php echo $id_list; ?>" value="<?php echo $id_list?>" class="btn btn-success form-control"  >Load All</button></div>
-
+    <button type="button" class="btn btn-outline-success" id="loadmore" onclick="myFunction()">More</button>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -282,5 +281,5 @@ $(document).ready(function () {
 
 
 
-    
+
 </script>
