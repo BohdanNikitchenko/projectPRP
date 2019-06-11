@@ -1,6 +1,5 @@
 //Регестрация
 $("#sendBtn").on("click", function () {
-
     let email = $("#inputEmail").val().trim();
     let pass= $("#inputPassword").val().trim();
     let name =$("#inputName").val().trim();
@@ -24,6 +23,7 @@ $("#sendBtn").on("click", function () {
         },
         success:function (data) {
 
+
             if(data == "fail"){
                 alert("db insert error");
             }else{
@@ -34,6 +34,9 @@ $("#sendBtn").on("click", function () {
         }
     });
 });
+
+
+
 //авторизация
 $("#Sbut").on("click",function () {
     let login=$("#inputEmail").val().trim();
@@ -223,7 +226,77 @@ $( document ).ready(function() {
     });
 });
 
+//поиск специальностей
 
+$("#Search_btn").on("click", function () {
+    if($("#Search_spec")){
+        let spec = $("#Search_spec").val().trim();
+        if(spec === ""){
+            return 0;
+        }
+        else{
+
+        }
+    }
+});
+$("#Selection_btn").on("click", function f(){
+   $ukr_lang = document.getElementById('ukr_lang');
+   $math = document.getElementById('math');
+   $history = document.getElementById('history');
+   $english = document.getElementById('english');
+   $chemistry = document.getElementById('chemistry');
+   $biology = document.getElementById('biology');
+   $phyz = document.getElementById('phyz');
+   $geo = document.getElementById('geo');
+   $franc = document.getElementById('franc');
+   $spanish = document.getElementById('spanish');
+   $deutsch = document.getElementById('deutsch');
+   $counter = 0;
+
+   if($ukr_lang.checked){
+       $counter++;
+   }
+   if($math.checked){
+       $counter++;
+   }
+   if($history.checked){
+        $counter++;
+   }
+   if($english.checked){
+        $counter++;
+   }
+   if($chemistry.checked){
+        $counter++;
+   }
+   if($biology.checked){
+        $counter++;
+   }
+   if($phyz.checked){
+        $counter++;
+   }
+   if($geo.checked){
+        $counter++;
+   }
+   if($franc.checked){
+        $counter++;
+   }
+   if($spanish.checked){
+       $counter++;
+   }
+   if($deutsch.checked){
+        $counter++;
+   }
+
+   if($counter !== 3){
+       alert("Оберіть 3 предмети");
+   }
+   else{
+       alert("Хорошо, молодец");
+   }
+
+
+
+});
 
 
 
