@@ -17,22 +17,102 @@ $user=$_SESSION["loggedUser"];
 <header>
     <?php require "header.php";?>
 </header>
+<style>
+#search_group{
+    width: 100%;
+margin-bottom: 5%;
+    margin-top: 5%;
+}
+    #text{
 
+       margin-left: 12%;
+        width: 70%;
+        border-radius: 20px 0px 0px 20px;
+    }
+
+    #Search_spec{
+        border-radius: 20px 0px 0px 20px;
+    }
+    #Search_btn{
+        width: 40px;
+        border-radius: 0px 20px 20px 0px;
+    }
+
+    #card_all{
+
+        align-content: center;
+        border-radius: 20px;
+        width: 90%;
+    }
+    #card_body{
+        margin-left: 15%;
+    }
+
+    #selected{
+        width: 100%;
+    }
+
+    #Selection_btn{
+
+        margin-left: 10% ;
+        width: 100%;
+    }
+
+    #bottom{
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+
+    }
+
+    #tr_head{
+        border-radius: 20px 20px 0px 0px;
+    }
+    th{
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+
+    #body_table{
+        border-radius: 20px 20px 0px 0px;
+        text-align: center;
+        background-color: #ffffff;
+        width: 100%;
+    }
+
+    #table_info{
+        width: 100%;
+        align-content: center;
+        text-align: center;
+
+    }
+    #main{
+        margin-bottom: 5%;
+        margin-top: 12%;
+    }
+</style>
 <body>
 
-    <div class="main">
-        <div class="input-group">
-            <div class="a"><input type="text" class="form-control" id="Search_spec" placeholder="Пошук спеціальностей" autofocus></div>
-            <div class="input-group-append" ><button class="btn btn-secondary" type="button" id="Search_btn"><i class="fa fa-search"></i></button></div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Підбір спеціальностей за предметами ЗНО</h5>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="ukr_lang" value="Ukrainian_LanguageU" checked disabled>
-                        <label class="form-check-label" for="ukr_lang">Українська мова та література</label>
-                        <br/>
+    <div class="main" id="main">
 
-                        <input type="checkbox" class="form-check-input" id="math" value="MathsU">
+
+
+            <div class="card" id="card_all">
+                <div class="card-body" id="card_body">
+                    <div id="text_teg"><h5 class="card-title"><h1><em>Підбір спеціальностей за предметами ЗНО</em></h1></h5></div>
+
+                        <table id="selected">
+                           <tr> <td>
+                                   <div class="form-check">
+                                       <br>
+                        <h5><input type="checkbox" class="form-check-input" id="ukr_lang" value="Ukrainian_LanguageU" checked disabled>
+                            <label class="form-check-label" for="ukr_lang">Українська мова та література</label></h5>
+
+
+                         <h5>  <input type="checkbox" class="form-check-input" id="math" value="MathsU">
                         <label class="form-check-label" for="math" >Математика</label>
                         <br/>
 
@@ -50,9 +130,10 @@ $user=$_SESSION["loggedUser"];
 
                         <input type="checkbox" class="form-check-input" id="biology" value="BiologyU">
                         <label class="form-check-label" for="biology">Біологія</label>
-                        <br/>
-
-                        <input type="checkbox" class="form-check-input" id="phyz" value="PhysicsU">
+                                       <br/></h5></div>
+                            </td>
+                            <td>
+                        <h5><input type="checkbox" class="form-check-input" id="phyz" value="PhysicsU">
                         <label class="form-check-label" for="phyz">Фізика</label>
                         <br/>
 
@@ -69,13 +150,20 @@ $user=$_SESSION["loggedUser"];
                         <br/>
 
                         <input type="checkbox" class="form-check-input" id="deutsch" value="Німецька мова">
-                        <label class="form-check-label" for="deutsch">Німецька мова</label>
-                        <br/>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg" id="Selection_btn">Підбір</button>
+                        <label class="form-check-label" for="deutsch">Німецька мова</label></h5>
+                    </div> </td></tr>
+
+
+                    <tr><td>
+                    <button type="button" class="btn btn-success btn-lg" id="Selection_btn">Підбір</button>
+                        </td>  </tr>
+                    </table>
                 </div>
             </div>
-        </div>
+    <div class="input-group" id="search_group">
+        <div class="a" id="text"><input type="text" class="form-control" id="Search_spec" placeholder="Пошук спеціальностей" autofocus></div>
+        <div class="input-group-append" ><button class="btn btn-success" type="button" id="Search_btn"><i class="fa fa-search"></i></button></div>
+    </div>
 
     </div>
 

@@ -12,8 +12,8 @@ if ($mysql->connect_errno) {
 
 $mysql->query("SET NAMES 'utf8'");
 
-echo "<table border='2px'>
-<tr>
+echo "<div id='table_info'><table border='2px' id='body_table'>
+<tr id='tr_head'>
     <th bgcolor='#a9a9a9'>Номер спеціальності</th>
     <th bgcolor='#a9a9a9'>Назва спеціальності</th>
     <th bgcolor='#a9a9a9'>Університет</th>
@@ -37,4 +37,4 @@ if (mysqli_num_rows($result) > 0) {
         echo "</tr>";
     }
 }
-echo "</table>";
+echo "</table></div>";
