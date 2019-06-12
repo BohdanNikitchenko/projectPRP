@@ -365,7 +365,15 @@ function exit() {
             //alert(data);
         }
     });
-    location.reload();
+    //alert(window.location);
+    if(window.location == "http://localhost/projectPRP/account1.php"){
+        //alert(1);
+        document.location.href = 'index.php';
+    }else {
+        location.reload();
+    }
+
+    //alert(window.location);
 }
 
 
