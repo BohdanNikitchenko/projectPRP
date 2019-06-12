@@ -10,6 +10,7 @@
 </head>
 <body>
 <form action="index.php" method="post" class="form-signin">
+
     <h1 class="h3 mb-3  font-weight-normal">Regestration:</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
     <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -29,11 +30,15 @@
     <label for="inputPhone" class="sr-only">Телефон</label>
     <input type="text" name="Phone" id="inputPhone" class="form-control" placeholder="Телефон" required="">
 
-        <button class="btn btn-lg btn-primary btn-block mt-5" id="sendBtn" name="send" type="button">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block mt-5" id="sendBtn" name="send" type="button">Sign in</button>
+
+
+
     <p class="mt-5 mb-3 text-muted">© 2019</p>
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/do.js"></script>
+
 </body>
 </html>
