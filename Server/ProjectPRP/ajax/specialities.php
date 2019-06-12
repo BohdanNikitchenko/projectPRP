@@ -5,7 +5,7 @@ $spec = $_POST["spec"];
 
 $mysql = new mysqli("localhost", "root", "", "users");
 if ($mysql->connect_errno) {
-    printf("Не удалось подключиться: %s\n", $mysql->connect_error);
+    printf("Не вдається з'єднатися: %s\n", $mysql->connect_error);
     exit();
 }
 $mysql->query("SET NAMES 'utf8'");

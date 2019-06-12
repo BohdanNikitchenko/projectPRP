@@ -28,35 +28,35 @@ $user=$_SESSION["loggedUser"];
                 <div class="card-body">
                     <h5 class="card-title">Підбір спеціальностей за предметами ЗНО</h5>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="ukr_lang" value="Українська мова та література" checked disabled>
+                        <input type="checkbox" class="form-check-input" id="ukr_lang" value="Ukrainian_LanguageU" checked disabled>
                         <label class="form-check-label" for="ukr_lang">Українська мова та література</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="math" value="Математика">
+                        <input type="checkbox" class="form-check-input" id="math" value="MathsU">
                         <label class="form-check-label" for="math" >Математика</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="history" value="Історія України">
+                        <input type="checkbox" class="form-check-input" id="history" value="HistoryU">
                         <label class="form-check-label" for="history">Історія України</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="english" value="Англійська мова">
+                        <input type="checkbox" class="form-check-input" id="english" value="EnglishU">
                         <label class="form-check-label" for="english">Англійська мова</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="chemistry" value="Хімія">
+                        <input type="checkbox" class="form-check-input" id="chemistry" value="ChemistryU">
                         <label class="form-check-label" for="chemistry">Хімія</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="biology" value="Біологія">
+                        <input type="checkbox" class="form-check-input" id="biology" value="BiologyU">
                         <label class="form-check-label" for="biology">Біологія</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="phyz" value="Фізика">
+                        <input type="checkbox" class="form-check-input" id="phyz" value="PhysicsU">
                         <label class="form-check-label" for="phyz">Фізика</label>
                         <br/>
 
-                        <input type="checkbox" class="form-check-input" id="geo" value="Географія">
+                        <input type="checkbox" class="form-check-input" id="geo" value="GeographyU">
                         <label class="form-check-label" for="geo">Географія</label>
                         <br/>
 
@@ -78,6 +78,7 @@ $user=$_SESSION["loggedUser"];
         </div>
 
     </div>
+
     <div id="bottom"></div>
 
 

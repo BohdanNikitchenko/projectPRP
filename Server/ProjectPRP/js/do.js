@@ -248,64 +248,70 @@ $("#Search_btn").click(function(){
         }
     }
 });
+
 //Подбор специальностей
 $("#Selection_btn").on("click", function f(){
-   $ukr_lang = document.getElementById('ukr_lang');
-   $math = document.getElementById('math');
-   $history = document.getElementById('history');
-   $english = document.getElementById('english');
-   $chemistry = document.getElementById('chemistry');
-   $biology = document.getElementById('biology');
-   $phyz = document.getElementById('phyz');
-   $geo = document.getElementById('geo');
-   $franc = document.getElementById('franc');
-   $spanish = document.getElementById('spanish');
-   $deutsch = document.getElementById('deutsch');
-   $counter = 0;
+        let ukr_lang = document.getElementById('ukr_lang');
+        let math = document.getElementById('math');
+        let history = document.getElementById('history');
+        let english = document.getElementById('english');
+        let chemistry = document.getElementById('chemistry');
+        let biology = document.getElementById('biology');
+        let phyz = document.getElementById('phyz');
+        let geo = document.getElementById('geo');
+        let franc = document.getElementById('franc');
+        let spanish = document.getElementById('spanish');
+        let deutsch = document.getElementById('deutsch');
+        let arr = [];
 
-   if($ukr_lang.checked){
-       $counter++;
-   }
-   if($math.checked){
-       $counter++;
-   }
-   if($history.checked){
-        $counter++;
-   }
-   if($english.checked){
-        $counter++;
-   }
-   if($chemistry.checked){
-        $counter++;
-   }
-   if($biology.checked){
-        $counter++;
-   }
-   if($phyz.checked){
-        $counter++;
-   }
-   if($geo.checked){
-        $counter++;
-   }
-   if($franc.checked){
-        $counter++;
-   }
-   if($spanish.checked){
-       $counter++;
-   }
-   if($deutsch.checked){
-        $counter++;
-   }
+        if (ukr_lang.checked) {
+            arr.push(ukr_lang.value);
+        }
+        if (math.checked) {
+            arr.push(math.value);
+        }
+        if (history.checked) {
+            arr.push(history.value);
+        }
+        if (english.checked) {
+            arr.push(english.value);
+        }
+        if (chemistry.checked) {
+            arr.push(chemistry.value);
+        }
+        if (biology.checked) {
+            arr.push(biology.value);
+        }
+        if (phyz.checked) {
+            arr.push(phyz.value);
+        }
+        if (geo.checked) {
+            arr.push(geo.value);
+        }
+        if (franc.checked) {
+            arr.push(franc.value);
+        }
+        if (spanish.checked) {
+            arr.push(spanish.value);
+        }
+        if (deutsch.checked) {
+            arr.push(deutsch.value);
+        }
 
-   if($counter !== 3){
-       alert("Оберіть 3 предмети");
-   }
-   else{
-       alert("Хорошо, молодец");
-   }
+        if (arr.length !== 3) {
+            alert("Оберіть 3 предмети");
+        } else {
+            $.ajax({
+                url: 'ajax/specialities_select.php',
+                type: 'POST',
+                cache: false,
+                data: {'subj_0': arr[0], 'subj_1': arr[1], 'subj_2': arr[2]},
+                success: function (data) {
+                    $('#bottom').html(data);
+                },
 
-
-
+            });
+        }
 });
 
 
