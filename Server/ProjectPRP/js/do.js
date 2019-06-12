@@ -34,6 +34,36 @@ $("#sendBtn").on("click", function () {
         }
     });
 });
+// Favorite button
+$("#like_button").on("click", function () {
+
+let finger =$("#like_button").val();
+let id =$("#getId").val();
+
+    $.ajax({
+        url: 'ajax/favorite.php',
+        type: 'POST',
+        cache: false,
+        data: {'finger_val' : finger,'finger_id' : id},
+        beforeSend: function () {
+            $("#like_button").prop("disabled",true);
+        },
+        success:function (data) {
+
+            if(data == "fail"){
+                alert("db insert error");
+            }else{
+
+            }
+
+            $("#like_button").prop("disabled",false);
+        }
+    });
+
+
+
+});
+
 //авторизация
 $("#Sbut").on("click",function () {
     let login=$("#inputEmail").val().trim();

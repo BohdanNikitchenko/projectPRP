@@ -55,7 +55,58 @@ $univer = get_universities_by_id($_GET['id']);
                             </div>
                         </div>
                         <div class="form-group col-md">
+                            <div id="favorite">
+                                <style>
+                                    #favorite{
+                                        width: 100%;
+                                        text-align: right;
+                                        align-content: center;
+                                    }
+                                    .fa {
 
+                                        font-size: 100px;
+                                        cursor: pointer;
+                                        user-select: none;
+                                    }
+
+                                    .fa:hover {
+                                        color: #5cb85c;
+                                    }
+                                </style>
+
+                                <i onclick="myFunction(this,<?php echo $univer["favorite"]; ?>)"
+                                   class="fa <?php
+
+                                   if ($univer["favorite"] == "1") {
+
+                                       echo "fa-thumbs-up";
+                                   } else {
+                                       echo "fa-thumbs-down";
+                                   }
+
+                                   ?>
+                                           fa-3x " id="like_button" name="like_button"
+                                   value="<?php echo $univer["favorite"]; ?>"></i>
+
+
+
+                                <div value="<?php echo $univer['id'] ?>" id="getId" name="getId"></div>
+                                <script>
+
+                                    function myFunction(x, y) {
+
+                                        if (y == 1) {
+                                            x.classList.toggle("fa-thumbs-down");
+                                            x.classList.toggle("fa-thumbs-up");
+
+                                        } else {
+                                            x.classList.toggle("fa-thumbs-down");
+                                            x.classList.toggle("fa-thumbs-up");
+                                        }
+
+                                    }
+                                </script>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -114,26 +165,6 @@ $univer = get_universities_by_id($_GET['id']);
 
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Рейтинг:
-                                <fieldset class="rating">
-                                    <div class="rating__group">
-                                        <input class="rating__star" type="radio" name="1" id="1" value="1"
-                                               aria-label="Ужасно">
-                                        <input class="rating__star" type="radio" name="2" id="2" value="2"
-                                               aria-label="Сносно">
-                                        <input class="rating__star" type="radio" name="3" id="3" value="3"
-                                               aria-label="Нормально">
-                                        <input class="rating__star" type="radio" name="4" id="4" value="4"
-                                               aria-label="Хорошо">
-                                        <input class="rating__star" type="radio" name="5" id="5" value="5"
-                                               aria-label="Отлично">
-                                    </div>
-                                </fieldset>
-                            </label>
-
-                        </div>
                         <div class="form-group col-md-4">
 
 
@@ -148,6 +179,7 @@ $univer = get_universities_by_id($_GET['id']);
 <?php
 
 ?>
+<script src="js/favorite.js"></script>
 </body>
 <div class="container emp-profile">
 
