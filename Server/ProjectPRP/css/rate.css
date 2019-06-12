@@ -1,0 +1,45 @@
+.card-header{
+    color: #fff !important;
+    background: #5cb85c !important;
+}
+.col-md-6 a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block !important;
+    text-decoration: none !important;
+    font-size: 14pt;
+    color: #000000;
+}
+.col-md-6 a:hover{
+    color: #5cb85c;
+}
+.col-md-6{
+    width: 50%;
+}
+.modal-body{
+    background: #ffffff;
+    margin: 20px;
+}
+.select{
+    width: 80%;
+    border-radius: 5px 0px 0px 5px;
+    border-width: 1px;
+    border-color: #eeeeee;
+}
+.input-group-append {
+    width: 19%;
+    padding-right: 1%;
+}
+.input-group-text:hover{
+    color: #fff;
+    background: #5cb85c !important;
+}
+#tab{
+    margin-bottom: 5px !important;
+}
+.input-group p b{
+    color: red;
+}
+.input-group p{
+    font-weight: bold;
+}

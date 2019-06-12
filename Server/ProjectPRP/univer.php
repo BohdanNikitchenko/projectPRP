@@ -165,11 +165,26 @@ $univer = get_universities_by_id($_GET['id']);
 
                         </div>
                     </div>
-                        <div class="form-group col-md-4">
-
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">Рейтинг:
+                                <fieldset class="rating">
+                                    <div class="rating__group">
+                                        <input class="rating__star" type="radio" name="1" id="1" value="1"
+                                               aria-label="Ужасно">
+                                        <input class="rating__star" type="radio" name="2" id="2" value="2"
+                                               aria-label="Сносно">
+                                        <input class="rating__star" type="radio" name="3" id="3" value="3"
+                                               aria-label="Нормально">
+                                        <input class="rating__star" type="radio" name="4" id="4" value="4"
+                                               aria-label="Хорошо">
+                                        <input class="rating__star" type="radio" name="5" id="5" value="5"
+                                               aria-label="Отлично">
+                                    </div>
+                                </fieldset>
+                            </label>
 
                         </div>
-
                     </div>
                 </form>
             </div>
@@ -184,7 +199,9 @@ $univer = get_universities_by_id($_GET['id']);
 <div class="container emp-profile">
 
     <div class="card mb-4 shadow-sm">
-        <div id="mapsname"><h1 >MAPS</h1></div>
+        <div id="mapsname">
+            <h1 >MAPS</h1>
+        </div>
         <style>
             #mapsname{
                 color: #fff;
@@ -203,7 +220,9 @@ $univer = get_universities_by_id($_GET['id']);
                 height: 300px;
             }
         </style>
-        <div id="map"></div>
+        <div id="map" style="margin: 1px 1px 1px 1px;">
+                <iframe style="width:100%; height:100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.8647979407397!2d36.22713710881407!3d50.01372456605938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a1243f9e69d1%3A0x6daed05394f03251!2z0KXQsNGA0YzQutC-0LLRgdC60LjQuSDQvdCw0YbQuNC-0L3QsNC70YzQvdGL0Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgiDRgNCw0LTQuNC-0Y3Qu9C10LrRgtGA0L7QvdC40LrQuA!5e0!3m2!1sru!2sua!4v1558460768899!5m2!1sru!2sua" frameborder="0" allowfullscreen></iframe>
+        </div>
 
 
     </div>
