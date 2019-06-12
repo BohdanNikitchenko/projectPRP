@@ -12,22 +12,22 @@
                 <h5>ЗНО</h5>
                 <ul class="list-unstyled quick-links">
                     <li><a href='GenInfo.php'><i class="fa fa-angle-double-right"></i>Загальна інформація</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Предмети</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Тести онлайн</a></li>
+                    <li><a href='Subject.php'><i class="fa fa-angle-double-right"></i>Предмети</a></li>
+                    <li><a href='test.php'><i class="fa fa-angle-double-right"></i>Тести онлайн</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>Спеціальності</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Пошук</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Підбір</a></li>
+                    <li><a href='Calculation.php'><i class="fa fa-angle-double-right"></i>Ймовірність</a></li>
+                    <li><a href='specialities.php'><i class="fa fa-angle-double-right"></i>Підбір</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>ЗВО</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Перелік ЗВО</a></li>
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Рейтинги</a></li>
+                    <li><a href='vnz.php'><i class="fa fa-angle-double-right"></i>Перелік ЗВО</a></li>
+                    <li><a href='Rate.php'><i class="fa fa-angle-double-right"></i>Рейтинги</a></li>
                 </ul>
             </div>
         </div>

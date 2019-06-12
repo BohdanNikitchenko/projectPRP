@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 $counter = 5;
 ?>
 <!DOCTYPE html>

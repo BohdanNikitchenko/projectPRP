@@ -261,7 +261,7 @@ $univer = $_SESSION["SpecRate"];
 
 
                     <tbody id="t_r">
-                    
+
                     </tbody>
             </table></div></div>
         </div>
