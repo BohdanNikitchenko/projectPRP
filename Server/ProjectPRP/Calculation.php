@@ -1,5 +1,6 @@
 <?php
 session_start();
+//session_destroy();
 if(isset($_SESSION["loggedUser"])){
     $user=$_SESSION["loggedUser"];
 }
@@ -33,7 +34,7 @@ $subjects = array('Математика', 'Історія України', 'Ан
 </header>
 <main role="main">
     <form method="post">
-    <div class="container">
+    <div class="container mb-3">
 <div class="card mt-5 ">
     <h5 class="card-header">ЗВО</h5>
     <div class="card-body">
@@ -55,9 +56,9 @@ $subjects = array('Математика', 'Історія України', 'Ан
                 <option><?php echo $univer["Name_Universities"]?></option>
                 <?php endforeach; ?>
             </datalist>
-            <div class="input-group-append">
+            <!--<div class="input-group-append">
                 <input type="button" class="input-group-text" id="elem"  for="inputGroupSelect02" value="Обрати"/>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
@@ -78,12 +79,12 @@ $subjects = array('Математика', 'Історія України', 'Ан
                         $count++;
                     }*/
                     ?>
-                    <option value= <?php echo $specialty["Id_specialty"]?>><?php echo $specialty["Name_Specialty"]?></option>
+                    <option value = <?php echo $specialty["Id_specialty"]?>><?php echo $specialty["Name_Specialty"]?></option>
                 <?php endforeach; ?>
             </datalist>
-            <div class="input-group-append">
+            <!--<div class="input-group-append">
                 <input type="button" class="input-group-text" for="inputGroupSelect02" value="Обрати"/>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
@@ -143,7 +144,7 @@ $subjects = array('Математика', 'Історія України', 'Ан
                                 <?php if(isset($user['Subj3'])){
                                     foreach ($subjects as $subject){
                                         if($user['Subj3'] == $subject){ ?>
-                                            <option selected="" value=<?php echo $subject; ?>><?php echo $subject; ?></option>
+                                            <option value="<?php echo $subject;?>" selected="" ><?php echo $subject; ?></option>
                                         <?php }else{ ?>
                                             <option value=<?php echo $subject; ?>><?php echo $subject; ?></option>
                                         <?php }
@@ -151,9 +152,9 @@ $subjects = array('Математика', 'Історія України', 'Ан
                                 <?php }else{ ?>
                                     <option value="Математика" >Математика</option>
                                     <option value="Історія України">Історія України</option>
-                                    <option value="Англійська мова" selected="">Англійська мова</option>
+                                    <option value="Англійська мова" >Англійська мова</option>
                                     <option value="Фізика">Фізика</option>
-                                    <option value="Біологія">Біологія</option>
+                                    <option value="Біологія" selected="">Біологія</option>
                                     <option value="Географія">Географія</option>
                                     <option value="Хімія">Хімія</option>
                                 <?php } ?>
@@ -168,7 +169,7 @@ $subjects = array('Математика', 'Історія України', 'Ан
                 </div>
                 <div class="form-group">
                     <i class="fa fa-book" aria-hidden="true"></i>
-                    <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть вкажіть бал атестата:</label>
+                    <label for="confirm" class="cols-sm-2 control-label ml-1">Вкажіть бал атестата:</label>
                     <div class="cols-sm-10">
                         <div class="input-group">
                                 <input type="number" value="100" width="200" height="10px" id="Subj4Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
@@ -176,13 +177,28 @@ $subjects = array('Математика', 'Історія України', 'Ан
                     </div>
                 </div>
                 <input type="button" class="btn btn-primary" id="btnRes" value="Розрахувати вірогідність" />
+                <h3 style="color: red" id="error"></h3>
             </div>
         </div>
-    </div>
+
+
+
+
+
     </form>
-    <div id="result" style="display: none">
-    </div>
+    <div class="card mt-5" id="result" style="display: none">
+        <h5 class="card-header">Вірогідність</h5>
+        <div class="card-body">
+            <div class="align-content-center" id="value" style="font-size: 50px; text-align: center"></div>
+            <progress class="progress" aria-describedby="value" id="progress" max="100"></progress>
+            <!--<h3 id="probability"></h3>-->
+            <p id="text" style="font-size: 30px"></p>
+            <p id="min" style="font-size: 20px"></p>
+            <p id="current" style="font-size: 20px"></p>
+        </div>
 </main>
+    </div>
+
     <footer>
         <?php require "footer.php";?>
     </footer>

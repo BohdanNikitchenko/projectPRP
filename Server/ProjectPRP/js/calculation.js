@@ -1,9 +1,46 @@
 $("#btnRes").on("click", function () {
-
+    //let errorMes;
+    let error = document.getElementById("error");
+    error.innerText="";
     var Id_specialty = document.getElementById("inputSpec");
     var Name_Universities = document.getElementById("inputUniver");
+
+    if(Name_Universities.value.length <= 0){
+        error.innerHTML = "Університет не обран";
+        return;
+    }
+    if(Id_specialty.value.length <= 0){
+        error.innerHTML = "Спеціальність не обрана";
+        return;
+    }
+    $.ajax({
+        url: 'ajax/validateSpec.php',
+        type: 'POST',
+        cache: false,
+        data: {'Id_specialty' : Id_specialty.value, 'Name_Universities': Name_Universities.value},
+        beforeSend: function () {
+            $("#btnRes").prop("disabled",true);
+        },
+        success:function (data) {
+            //alert("qweqeqe");
+            //alert(data);
+            if(data == "fail"){
+                alert("db select error");
+            }else{
+                 if(data == "0"){
+                     //alert('error');
+                     $("#btnRes").prop("disabled",false);
+                     error.innerHTML = "Данна спеціальність відсутня в обраному вузі";
+                     return;
+                 }
+                //alert(data);
+                 //alert(data);
+                //alert(b);
+            }
+           // $("#btnRes").prop("disabled",false);
+        }
+    });
     //let result = 0;
-    let success = false;
     if( Name_Universities.value.length > 0 && Id_specialty.value.length > 0){
         $.ajax({
             url: 'ajax/Budjet.php',
@@ -24,13 +61,13 @@ $("#btnRes").on("click", function () {
                     let result = data;
                     $success = true;
                     var b = Probability(result);
-                    alert(b);
+                    //alert(b);
                 }
                 $("#btnRes").prop("disabled",false);
             }
         });
     }else {
-        Id_specialty.style.borderColor = "#FF0000";
+        //Id_specialty.style.borderColor = "#FF0000";
 
     }
     //alert(Name_Specialty.value);
@@ -39,6 +76,7 @@ $("#btnRes").on("click", function () {
 });
 
 function Probability(result) {
+    let error = document.getElementById("error");
     var stringArray = result.split(",");
     let min = stringArray[0];
     let current = 0;
@@ -60,24 +98,30 @@ function Probability(result) {
     let Subj2Mark=document.getElementById("Subj2Mark").value;
     let Subj3Mark=document.getElementById("Subj3Mark").value;
     let SchoolMark = document.getElementById("Subj4Mark").value;
+    //alert(selectSubj3);
     let markArr = new Array();
     markArr[selectSubj1] = Subj1Mark;
     markArr[selectSubj2] = Subj2Mark;
     markArr[selectSubj3] = Subj3Mark;
     markArr["Школа"] = SchoolMark;
+    //alert(selectSubj1);
 /*    if(res.length == 0){
         alert(res);
     }else{
         alert(kArr["Українська мова та література"]*"150");
     }*/
+
     for (var i in markArr){
         if(kArr[i].length > 0){
             current+= markArr[i] * kArr[i];
+            //alert(current);
         }else {
-            alert(i + "не подходит для поступления на эту специальность");
+            error.innerHTML = i + " не підходить для вступу на цю специальність";
+            //alert(i + "не подходит для поступления на эту специальность");
             return false;
         }
     }
+    //alert(current);
     mesProbability(min, current);
     return true;
         //alert("Ключ = " + i + "; Значение = " + array[i]);
@@ -91,62 +135,60 @@ function mesProbability(min, current) {
     let probability = 0;
     let mes;
     let difference = current - min;
-    let color;
+    //alert(difference);
     if(difference > 0 && difference <= 2){
         mes = "Середня вірогідність вступу. Поточний результат приблизно співпадає з прохідним балом попереднього року";
         probability = 60;
-        color = "yellow";
     }
     if(difference > 2 && difference <= 5){
         mes = "Середня вірогідність вступу. Поточний результат трохи більший за прохідний бал попереднього року";
         probability = 65;
-        color = "yellow";
     }
     if(difference > 5 && difference <= 7){
         mes = "Висока вірогідність вступу. Поточний результат більший за прохідний бал попереднього року";
         probability = 70;
-        color = "green";
     }
     if(difference > 7 && difference <= 10){
         mes = "Висока вірогідність вступу. Поточний результат більший за прохідний бал попереднього року";
         probability = 80;
-        color = "green";
     }
     if(difference > 10){
         mes = "Висока вірогідність вступу. Поточний результат значно більший за прохідний бал попереднього року";
         probability = 100;
-        color = "green";
     }
-    if(difference < 0 && difference >= 2){
+    if(difference < 0 && difference >= -2){
         mes = "Вірогідність вступу нижче середнього. Поточний результат трохи менше за прохідний бал попереднього року";
         probability = 45;
-        color = "yellow";
     }
-    if(difference < 2 && difference >= 5){
+    if(difference < -2 && difference >= -5){
         mes = "Вірогідність вступу малоймовірна. Поточний результат менше за прохідний бал попереднього року";
         probability = 40;
-        color = "red";
     }
-    if(difference < 5 && difference >= 10){
+    if(difference < -5 && difference >= -10){
         mes = "Вірогідність вступу низька. Поточний результат менше за прохідний бал попереднього року";
         probability = 20;
-        color = "red";
     }
-    if(difference < 10 && difference >= 20){
+    if(difference < -10 && difference >= -20){
         mes = "Вірогідність вступу дуже низька. Поточний результат значно менше за прохідний бал попереднього року";
         probability = 10;
-        color = "red";
     }
-    if(difference < 20){
+    if(difference < -20){
         mes = "Вступ з поточними балами на данну спеціальність неможливий.";
         probability = 1;
-        color = "red";
     }
+    let res = document.getElementById("result");
+    res.style.display = "block";
+    let val = document.getElementById("value");
+    //let pr = document.getElementById("probability");
+    let tx = document.getElementById("text");
+    let m = document.getElementById("min");
+    let c = document.getElementById("current");
+    let progress = document.getElementById("progress");
+    val.innerHTML = probability.toString() + "%";
+    //pr.innerHTML=probability.toString();
+    tx.innerHTML= mes.toString();
+    m.innerHTML="Мінімальний прохідний бал минулого року: " + min.toString();
+    c.innerHTML = "Поточний бал: " + current.toString();
+    progress.value = probability.toString();
 
-    alert(current);
-    alert(min);
-    alert(difference);
-    alert(probability);
-    alert(mes);
-    alert(color);
 }
