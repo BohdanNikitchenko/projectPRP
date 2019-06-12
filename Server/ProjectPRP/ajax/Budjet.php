@@ -8,23 +8,25 @@ if ($mysql->connect_errno) {
     printf("Не удалось подключиться: %s\n", $mysql->connect_error);
     exit();
 }
-$mysql->query("SET NAMES 'utf-8");
-$result = $mysql->query("SELECT Min_Budget FROM specialty_in_universities WHERE Min_Budget>0 AND Name_Universities = 'Східноєвропейський національний університет імені Лесі Українки' ORDER BY Min_Budget ASC LIMIT 1");
-$counter = 0;
-$res = 0;
-$arr=array();
+$mysql->query("SET NAMES 'utf8'");
+    $result = $mysql->query("SELECT Min_Budget FROM specialty_in_universities WHERE Id_specialty = '$Id_specialty' AND Name_Universities = '$Name_Universities' ORDER BY Min_Budget DESC LIMIT 1");
+
+/*$arr=array();
 if (mysqli_num_rows($result)>0){
     while ($row=mysqli_fetch_assoc($result)){
         $arr[]=$row;
     }
 }
 
-$_SESSION["SpecRate"] = $arr;
-echo mysqli_num_rows($result); //0
-echo mysqli_num_fields($result); //19
+$_SESSION["SpecRate"] = $arr;*/
+/*echo mysqli_num_rows($result); //0
+echo mysqli_num_fields($result); //19*/
+
 if($result == false){
     echo "fail";
 }else{
-    echo "success";
+    //echo "success";
+    $row=mysqli_fetch_row($result);
+    echo $row[0];
 }
 ?>

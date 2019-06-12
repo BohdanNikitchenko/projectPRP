@@ -1,6 +1,7 @@
 <?php
 session_start();
 $user=$_SESSION["loggedUser"];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -291,10 +292,9 @@ $user=$_SESSION["loggedUser"];
                         <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <p><strongChoose Subject</strong></p>
+                                <p><strong>Choose Subject</strong></p>
                                 <p>
                                     <select id="selectSubj1" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
-
                                         <option value="Українська мова та література" selected="">Українська мова та література</option>
                                         <option value="Математика">Математика</option>
                                         <option value="Історія України">Історія України</option>
@@ -314,10 +314,9 @@ $user=$_SESSION["loggedUser"];
                         <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <p><strongChoose Subject</strong></p>
+                                <p><strong>Choose Subject</strong></p>
                                 <p>
                                     <select id="selectSubj2" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
-
                                         <option value="Українська мова та література" selected="">Українська мова та література</option>
                                         <option value="Математика">Математика</option>
                                         <option value="Історія України">Історія України</option>
@@ -338,7 +337,7 @@ $user=$_SESSION["loggedUser"];
                         <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
-                                <p><strongChoose Subject</strong></p>
+                                <p><strong>Choose Subject</strong></p>
                                 <p>
                                     <select id="selectSubj3" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
                                         <option value="Українська мова та література" selected="">Українська мова та література</option>

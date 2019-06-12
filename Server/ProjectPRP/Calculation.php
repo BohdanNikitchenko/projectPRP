@@ -2,8 +2,14 @@
 session_start();
 $user=$_SESSION["loggedUser"];
 $calc=$_SESSION["calc"];
-$univer = $_SESSION["SpecRate"];
-print_r($univer);
+$subjects = array('Математика', 'Історія України', 'Англійська мова', 'Фізика', 'Біологія', 'Географія', 'Хімія');
+    /*$univer = $_SESSION["SpecRate"];*/
+    //print_r($subjects);
+foreach ($subjects as $subject){
+    if($subject == $user['Subj3']){
+        echo $subject;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,7 +77,7 @@ print_r($univer);
                         $count++;
                     }*/
                     ?>
-                    <option value=<?php echo $specialty["Id_specialty"]?>><?php echo $specialty["Name_Specialty"]?></option>
+                    <option value= <?php echo $specialty["Id_specialty"]?>><?php echo $specialty["Name_Specialty"]?></option>
                 <?php endforeach; ?>
             </datalist>
             <div class="input-group-append">
@@ -84,39 +90,96 @@ print_r($univer);
             <h5 class="card-header">Ваші бали ЗНО</h5>
             <div class="card-body">
                 <h5 class="card-title">Предмети для розрахунку</h5>
-                <div class="row">
-                    <div class="col">
-                        <label>srtgdsr</label>
-                    </div>
-                    <div class="col">
-                        <p>100</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>srtgdsr</label>
-                    </div>
-                    <div class="col">
-                        <p>100</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label>srtgdsr</label>
-                    </div>
-                    <div class="col">
-                        <p>100</p>
+                <div class="form-group">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                                <select id="selectSubj1" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
+                                    <option value="Українська мова та література" selected="">Українська мова та література</option>
+                                </select>
+                                <?php if(isset($user['Subj1Mark'])){ ?>
+                                    <input type="number" value=<?php echo $user['Subj1Mark'];?> width="200" height="10px" id="Subj1Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                <?php }else{ ?>
+                                    <input type="number" value="100" width="200" height="10px" id="Subj1Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                                <?php } ?>
+                        </div>
                     </div>
                 </div>
-                <input type="button"  class="btn btn-primary" id="btnRes" value="Розрахувати вірогідність" />
+                <div class="form-group">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                                <select id="selectSubj2" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
+                                    <?php if(isset($user['Subj2'])){
+                                        if($user['Subj2'] == 'Математика'){ ?>
+                                            <option value="Математика" selected="">Математика</option>
+                                            <option value="Історія України">Історія України</option>
+                                        <?php }else{ ?>
+                                            <option value="Математика">Математика</option>
+                                            <option value="Історія України" selected="">Історія України</option>
+                                    <?php }
+                                    }else{ ?>
+                                        <option value="Математика" >Математика</option>
+                                        <option value="Історія України" selected="">Історія України</option>
+                                    <?php } ?>
+                                </select>
+                            <?php if(isset($user['Subj2Mark'])){ ?>
+                                <input type="number" value=<?php echo $user['Subj2Mark'];?> width="200" height="10px" id="Subj2Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                            <?php }else{ ?>
+                                <input type="number" value="100" width="200" height="10px" id="Subj2Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <select id="selectSubj3" style=" width: 500px;  padding: 10px;  border-top-left-radius: 0;border-top-right-radius: 0;" class="selectSubj" name="hero">
+                                <?php if(isset($user['Subj3'])){
+                                    foreach ($subjects as $subject){
+                                        if($user['Subj3'] == $subject){ ?>
+                                            <option selected="" value=<?php echo $subject; ?>><?php echo $subject; ?></option>
+                                        <?php }else{ ?>
+                                            <option value=<?php echo $subject; ?>><?php echo $subject; ?></option>
+                                        <?php }
+                                    } ?>
+                                <?php }else{ ?>
+                                    <option value="Математика" >Математика</option>
+                                    <option value="Історія України">Історія України</option>
+                                    <option value="Англійська мова" selected="">Англійська мова</option>
+                                    <option value="Фізика">Фізика</option>
+                                    <option value="Біологія">Біологія</option>
+                                    <option value="Географія">Географія</option>
+                                    <option value="Хімія">Хімія</option>
+                                <?php } ?>
+                            </select>
+                            <?php if(isset($user['Subj3Mark'])){ ?>
+                                <input type="number" value=<?php echo $user['Subj3Mark'];?> width="200" height="10px" id="Subj3Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                            <?php }else{ ?>
+                                <input type="number" value="100" width="200" height="10px" id="Subj3Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть вкажіть бал атестата:</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                                <input type="number" value="100" width="200" height="10px" id="Subj4Mark" min="100" max="200" step="1" data-bind="value:replyNumber">
+                        </div>
+                    </div>
+                </div>
+                <input type="button" class="btn btn-primary" id="btnRes" value="Розрахувати вірогідність" />
             </div>
         </div>
     </div>
     </form>
     <div id="result" style="display: none">
-        <?php foreach ($calc as $c):?>
-        <p><?php echo $c?></p>
-        <?php endforeach;?>
     </div>
 </main>
     <footer>
@@ -125,5 +188,4 @@ print_r($univer);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/calculation.js"></script>
 </body>
-
 </html>
