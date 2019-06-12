@@ -272,7 +272,7 @@ if(isset($_SESSION["loggedUser"])){
                         </div>
                     </div>
 
-                    <div class="form-group">
+<!--                    <div class="form-group">
                         <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                         <label for="password" class="cols-sm-2 control-label ml-1">Пароль:</label>
                         <div class="cols-sm-10">
@@ -291,7 +291,7 @@ if(isset($_SESSION["loggedUser"])){
                             </div>
                         </div>
                     </div>
-
+-->
                     <div class="form-group">
                         <i class="fa fa-book" aria-hidden="true"></i>
                         <label for="confirm" class="cols-sm-2 control-label ml-1">Обереріть предмет ЗНО та вкажіть бал:</label>

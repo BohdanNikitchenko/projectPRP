@@ -137,8 +137,8 @@ $("#SaveEditBtn").on("click",function () {
     let ThirdName=$("#ThirdName").val().trim();
     let email=$("#email").val().trim();
     let phone=$("#phone").val().trim();
-    let password=$("#password").val().trim();
-    let NewPassword=$("#NewPassword").val().trim();
+    //let password=$("#password").val().trim();
+    //let NewPassword=$("#NewPassword").val().trim();
     let selectSubj1=$("#selectSubj1").val().trim();
     let selectSubj2=$("#selectSubj2").val().trim();
     let selectSubj3=$("#selectSubj3").val().trim();
@@ -152,7 +152,7 @@ $("#SaveEditBtn").on("click",function () {
         url: 'ajax/Edition.php',
         type: 'POST',
         cache: false,
-        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3, 'Subj1Mark': Subj1Mark,'Subj2Mark': Subj2Mark, 'Subj3Mark': Subj3Mark},
+        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3, 'Subj1Mark': Subj1Mark,'Subj2Mark': Subj2Mark, 'Subj3Mark': Subj3Mark},
         beforeSend: function () {
             $("#sendBtn").prop("disabled",true);
         },
@@ -161,7 +161,7 @@ $("#SaveEditBtn").on("click",function () {
             if(data == "fail"){
                 alert("db insert error");
             }else{
-                //alert(data);
+
                 document.location.href = data;
             }
 
