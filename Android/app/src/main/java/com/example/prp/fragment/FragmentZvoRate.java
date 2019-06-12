@@ -74,7 +74,6 @@ public class FragmentZvoRate extends Fragment {
             "ТОП 200 Україна: 57\nScopus: 23",
             "ТОП 200 Україна: 27\nScopus: 17",
             "ТОП 200 Україна: 11\nScopus: 21",
-            "ТОП 200 Україна: 1\nScopus: 6",
             "ТОП 200 Україна: 23\nScopus: 20"
     };
     GridView gridView;

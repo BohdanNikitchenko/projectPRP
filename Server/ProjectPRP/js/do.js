@@ -1,4 +1,4 @@
-//Регестрация
+//Регистрация
 $("#sendBtn").on("click", function () {
     let email = $("#inputEmail").val().trim();
     let pass= $("#inputPassword").val().trim();
@@ -91,7 +91,9 @@ $("#SaveEditBtn").on("click",function () {
         url: 'ajax/Edition.php',
         type: 'POST',
         cache: false,
-        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone, 'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,'selectSubj3' : selectSubj3, 'Subj1Mark': Subj1Mark,'Subj2Mark': Subj2Mark, 'Subj3Mark': Subj3Mark},
+        data: {'SerName' : SerName, 'name': name, 'ThirdName' : ThirdName, 'email' : email,'phone' : phone,
+            'password' : password, 'NewPassword' : NewPassword,'selectSubj1' : selectSubj1,'selectSubj2' : selectSubj2,
+            'selectSubj3' : selectSubj3, 'Subj1Mark': Subj1Mark,'Subj2Mark': Subj2Mark, 'Subj3Mark': Subj3Mark},
         beforeSend: function () {
             $("#sendBtn").prop("disabled",true);
         },
