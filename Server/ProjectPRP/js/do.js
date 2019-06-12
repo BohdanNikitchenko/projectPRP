@@ -1,6 +1,5 @@
 //Регестрация
 $("#sendBtn").on("click", function () {
-
     let email = $("#inputEmail").val().trim();
     let pass= $("#inputPassword").val().trim();
     let name =$("#inputName").val().trim();
@@ -23,6 +22,7 @@ $("#sendBtn").on("click", function () {
             $("#sendBtn").prop("disabled",true);
         },
         success:function (data) {
+
 
             if(data == "fail"){
                 alert("db insert error");
@@ -220,47 +220,95 @@ $('input[type=file]').on('change', function( event ){
     });
     let filePath;
     // добавим переменную для идентификации запроса
-    data.append( 'my_file_upload', 1 );
+    data.append( 'my_file_upload', 1 );*/
 
-    // AJAX запрос
-    $.ajax({
-        url         : 'ajax/changePhoto.php',
-        type        : 'POST', // важно!
-        data        : data,
-        cache       : false,
-        dataType    : 'json',
-        // отключаем обработку передаваемых данных, пусть передаются как есть
-        processData : false,
-        // отключаем установку заголовка типа запроса. Так jQuery скажет серверу что это строковой запрос
-        contentType : false,
-        // функция успешного ответа сервера
-        success     : function( respond, status, jqXHR ){
+//поиск специальностей
 
-            // ОК - файлы загружены
-            if( typeof respond.error === 'undefined' ){
-                // выведем пути загруженных файлов в блок '.ajax-reply'
-                var files_path = respond.files;
-                filePath = files_path;
-                var html = '';
-                $.each( files_path, function( key, val ){
-                    html += val +'<br>';
-                } )
-                $('.ajax-reply').html( html );
-                window.location.reload();
-            }
+$("#Search_btn").click(function(){
+    if($("#Search_spec")) {
+        let spec = $("#Search_spec").val().trim();
+        if (spec === "") {
+            return 0;
+        }
+        else {
+            $.ajax({
+               url: 'ajax/specialities.php',
+               type: 'POST',
+               cache: false,
+               data: {'spec' : spec},
+               success:function (data) {
+                   $('#bottom').html(data);
 
-            // ошибка
-            else {
-                console.log('ОШИБКА: ' + respond.error );
-            }
-        },
-        // функция ошибки ответа сервера
-        error: function( jqXHR, status, errorThrown ){
-            console.log( 'ОШИБКА AJAX запроса: ' + status, jqXHR );
+               }
+            });
+        }
+    }
+});
+
+//Подбор специальностей
+$("#Selection_btn").on("click", function f(){
+        let ukr_lang = document.getElementById('ukr_lang');
+        let math = document.getElementById('math');
+        let history = document.getElementById('history');
+        let english = document.getElementById('english');
+        let chemistry = document.getElementById('chemistry');
+        let biology = document.getElementById('biology');
+        let phyz = document.getElementById('phyz');
+        let geo = document.getElementById('geo');
+        let franc = document.getElementById('franc');
+        let spanish = document.getElementById('spanish');
+        let deutsch = document.getElementById('deutsch');
+        let arr = [];
+
+        if (ukr_lang.checked) {
+            arr.push(ukr_lang.value);
+        }
+        if (math.checked) {
+            arr.push(math.value);
+        }
+        if (history.checked) {
+            arr.push(history.value);
+        }
+        if (english.checked) {
+            arr.push(english.value);
+        }
+        if (chemistry.checked) {
+            arr.push(chemistry.value);
+        }
+        if (biology.checked) {
+            arr.push(biology.value);
+        }
+        if (phyz.checked) {
+            arr.push(phyz.value);
+        }
+        if (geo.checked) {
+            arr.push(geo.value);
+        }
+        if (franc.checked) {
+            arr.push(franc.value);
+        }
+        if (spanish.checked) {
+            arr.push(spanish.value);
+        }
+        if (deutsch.checked) {
+            arr.push(deutsch.value);
         }
 
-    });
-});*/
+        if (arr.length !== 3) {
+            alert("Оберіть 3 предмети");
+        } else {
+            $.ajax({
+                url: 'ajax/specialities_select.php',
+                type: 'POST',
+                cache: false,
+                data: {'subj_0': arr[0], 'subj_1': arr[1], 'subj_2': arr[2]},
+                success: function (data) {
+                    $('#bottom').html(data);
+                },
+
+            });
+        }
+});
 
 
 

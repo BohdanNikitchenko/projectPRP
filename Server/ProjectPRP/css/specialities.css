@@ -1,0 +1,52 @@
+
+/* Styles for wrapping the search box */
+
+.aaa{
+    background-color: #95999c;
+}
+.a{
+    width: 46.2%;
+}
+.btn-lg{
+    width: 20%;
+    margin-left: 75%;
+}
+.input-group-append{
+    height: 3.8%;
+    width: 3.8%;
+
+
+}
+.input-group{
+    width: 90%; !important;
+}
+.card{
+    margin-left: 3% !important;
+    width: 40%; !important;
+}
+
+.main {
+
+    width: 100%;
+    margin-left: 3%;
+    margin-top: 6%;
+
+    margin-bottom: 3%;
+}
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
