@@ -89,12 +89,13 @@ $univer = get_universities_by_id($_GET['id']);
                                    }
 
                                    ?>
-                                           fa-3x " id="like_button" name="like_button"
-                                   value="<?php echo $univer["favorite"]; ?>"></i>
+                                           fa-3x "
+                                   value="<?php echo $univer["favorite"]; ?>" id="like_button" name="like_button"></i>
 
 
 
-                                <div value="<?php echo $univer['id'] ?>" id="getId" name="getId"></div>
+                                <input value="<?php echo $univer['id'] ?>" id="getId" name="getId" hidden></input>
+                                <input  value="<?php echo $univer["favorite"]; ?>" id="like_btn" name="like_btn" hidden></input>
                                 <script>
 
                                     function myFunction(x, y) {
@@ -117,7 +118,7 @@ $univer = get_universities_by_id($_GET['id']);
                         <div class="form-group col-md-6 ">
                             <div>
                                 <img class="image"
-                                     src="https://media3.mensxp.com/media/content/2017/Dec/header-3-copy-1513352222_1100x513.jpg"
+                                     src="https://youruniversityguide.files.wordpress.com/2012/06/c-170.jpg"
                                      alt="Generic placeholder thumbnail">
                             </div>
                         </div>

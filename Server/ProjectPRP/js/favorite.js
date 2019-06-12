@@ -1,26 +1,15 @@
 $("#like_button").on('click', function (e) {
-    let id =$('#getId').val();
-    let value=document.getElementById("like_button").value;
-    alert(id);
-alert(value.innerHTML);
+    let id =$("#getId").val();
+    let value =$("#like_btn").val();
+
     $.ajax({
         url: 'ajax/favorite.php',
         type: 'POST',
         cache: false,
-        data: {id: id, value:value},
-        beforeSend: function () {
-            $("#sendBtn").prop("disabled",true);
-        },
+        data: {id: id,value:value},
+
         success:function (data) {
-            document.getElementById('p1').innerText=SerName+" "+name+" "+ThirdName;
-            if(data == "fail"){
-                alert("db insert error");
-            }else{
 
-                document.location.href = data;
-            }
-
-            $("#sendBtn").prop("disabled",false);
         }
     });
 })

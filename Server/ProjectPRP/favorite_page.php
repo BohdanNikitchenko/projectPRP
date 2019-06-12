@@ -34,16 +34,7 @@ $q="SELECT * FROM universities WHERE favorite=1";
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="input-group" id="adv-search">
-                        <input type="text" class="form-control"   name="query" placeholder="Поиск" id="search_inp"/>
-                        <div class="input-group-btn">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-success " data-toggle="dropdown" aria-expanded="false" onclick='location.href="vnz.php"'><i class="fa fa-refresh fa-spin  fa-fw"></i></button>
-
-                                <button id="search_btn" name="search_btn" class="btn btn-success form-control">Найти</button>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -95,7 +86,11 @@ $q="SELECT * FROM universities WHERE favorite=1";
                                                         }
                                                     </style>
 
-
+                                                    <style>
+                                                        #like_button{
+                                                            pointer-events: none;
+                                                        }
+                                                    </style>
                                                     <i onclick="myFunction(this,<?php echo $row["favorite"]; ?>)"
                                                        class="fa <?php
 
@@ -136,7 +131,7 @@ $q="SELECT * FROM universities WHERE favorite=1";
                                         <div class="form-group col-md-6 ">
                                             <div>
                                                 <img class="image"
-                                                     src="https://t.fakku.net/images/upload/heartpupils-tag.png"
+                                                     src="https://youruniversityguide.files.wordpress.com/2012/06/c-170.jpg"
                                                      alt="Generic placeholder thumbnail">
                                             </div>
                                         </div>

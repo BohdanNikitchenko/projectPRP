@@ -16,7 +16,7 @@ $sql = "SELECT *
             OR `Type_U` LIKE '%$query%' OR `Control_Form_U` LIKE '%$query%'
             OR `Director_U` LIKE '%$query%'
             OR `Phone_U` LIKE '%$query%' OR `Web_U` LIKE '%$query%' and `favorite`='1' LIMIT 30";
-echo(sql);
+
 $result = mysqli_query($connect, $sql);
 
 if(mysqli_num_rows($result)>0){
@@ -102,7 +102,7 @@ $output .= '<tbody>'
                             <div class="form-group col-md-6 ">
                                 <div>
                                     <img class="image"
-                                         src="https://t.fakku.net/images/upload/heartpupils-tag.png"
+                                         src="https://youruniversityguide.files.wordpress.com/2012/06/c-170.jpg"
                                          alt="Generic placeholder thumbnail">
                                 </div>
                             </div>
