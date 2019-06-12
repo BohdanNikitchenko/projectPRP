@@ -126,8 +126,8 @@ $("#SaveEditBtn").on("click",function () {
             if(data == "fail"){
                 alert("db insert error");
             }else{
-                alert(data);
-                //document.location.href = data;
+                //alert(data);
+                document.location.href = data;
             }
 
             $("#sendBtn").prop("disabled",false);
@@ -330,6 +330,43 @@ $(document).ready(function(e){
     });
 });
 
+
+$("#btn_exit").on("click", function () {
+    alert("1");
+    /*$.ajax({
+        url: 'ajax/unlogin.php',
+        /!*type: 'POST',
+        cache: false,
+        //data: {'email' : email, 'pass': pass, 'name' : name, 'surname' : surname, 'thirdname' : thirdname, 'phone' : phone},
+        beforeSend: function () {
+            $("#btn_exit").prop("disabled",true);
+        },
+        success:function () {
+            location.reload();
+
+            $("#btn_exit").prop("disabled",false);
+        }*!/
+    });*/
+    $.ajax({ url: 'ajax/unlogin.php',
+        data: {action: 'test'},
+        type: 'post',
+        success: function(data) {
+            alert(data);
+        }
+    });
+    //location.reload();
+});
+
+function exit() {
+    $.ajax({ url: 'ajax/unlogin.php',
+        data: {action: 'test'},
+        type: 'post',
+        success: function(data) {
+            //alert(data);
+        }
+    });
+    location.reload();
+}
 
 
 

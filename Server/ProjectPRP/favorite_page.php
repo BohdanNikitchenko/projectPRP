@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 $q="SELECT * FROM universities WHERE favorite=1";
 ?>
 <!DOCTYPE html>
@@ -18,7 +20,11 @@ $q="SELECT * FROM universities WHERE favorite=1";
 </head>
 <header>
     <?php require "db.php";?>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <div id="scores">
     <body>

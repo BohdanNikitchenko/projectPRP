@@ -12,7 +12,7 @@ if ($mysql->connect_errno) {
     printf("Не удалось подключиться: %s\n", $mysql->connect_error);
     exit();
 }
-$mysql->query("SET NAMES 'utf-8'");
+$mysql->query("SET NAMES 'utf-8");
 $result = $mysql->query("INSERT INTO users(Email,Password,Name,SurName,ThierdName,PHONE) VALUES('$email','$pass','$name','$surname','$thirdname','$phone');");
 
 if($result == false){

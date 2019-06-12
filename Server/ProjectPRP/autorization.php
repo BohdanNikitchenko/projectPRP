@@ -20,7 +20,7 @@
         </label>
     </div>
     <button id="Sbut" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+    <p class="mt-5 mb-3 text-muted">©2019</p>
 </form>
 
 

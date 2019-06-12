@@ -1,23 +1,28 @@
 $("#btnRes").on("click", function () {
     //let errorMes;
     let error = document.getElementById("error");
+    let res = document.getElementById("result");
     error.innerText="";
     var Id_specialty = document.getElementById("inputSpec");
     var Name_Universities = document.getElementById("inputUniver");
-
+    //var flag = true;
     if(Name_Universities.value.length <= 0){
         error.innerHTML = "Університет не обран";
+        res.style.display = "none";
         return;
     }
     if(Id_specialty.value.length <= 0){
         error.innerHTML = "Спеціальність не обрана";
+        res.style.display = "none";
         return;
     }
-    $.ajax({
+    /*$.ajax({
         url: 'ajax/validateSpec.php',
         type: 'POST',
         cache: false,
         data: {'Id_specialty' : Id_specialty.value, 'Name_Universities': Name_Universities.value},
+        // отключаем обработку передаваемых данных, пусть передаются как есть
+        processData : false,
         beforeSend: function () {
             $("#btnRes").prop("disabled",true);
         },
@@ -26,21 +31,23 @@ $("#btnRes").on("click", function () {
             //alert(data);
             if(data == "fail"){
                 alert("db select error");
-            }else{
-                 if(data == "0"){
+            }
+                 alert(data);
+                 if(data === "bad"){
                      //alert('error');
-                     $("#btnRes").prop("disabled",false);
+
                      error.innerHTML = "Данна спеціальність відсутня в обраному вузі";
-                     return;
+                     $("#btnRes").prop("disabled",false);
                  }
                 //alert(data);
                  //alert(data);
                 //alert(b);
-            }
+
            // $("#btnRes").prop("disabled",false);
         }
-    });
+    });*/
     //let result = 0;
+    //alert(flag);
     if( Name_Universities.value.length > 0 && Id_specialty.value.length > 0){
         $.ajax({
             url: 'ajax/Budjet.php',
@@ -77,6 +84,7 @@ $("#btnRes").on("click", function () {
 
 function Probability(result) {
     let error = document.getElementById("error");
+    let res = document.getElementById("result");
     var stringArray = result.split(",");
     let min = stringArray[0];
     let current = 0;
@@ -110,12 +118,16 @@ function Probability(result) {
     }else{
         alert(kArr["Українська мова та література"]*"150");
     }*/
+    /*for (let i in markArr){
+        alert(i);
+    }*/
 
     for (var i in markArr){
         if(kArr[i].length > 0){
             current+= markArr[i] * kArr[i];
             //alert(current);
         }else {
+            res.style.display = "none";
             error.innerHTML = i + " не підходить для вступу на цю специальність";
             //alert(i + "не подходит для поступления на эту специальность");
             return false;

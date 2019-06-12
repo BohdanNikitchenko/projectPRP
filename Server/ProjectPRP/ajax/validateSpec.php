@@ -20,13 +20,13 @@ if (mysqli_num_rows($result)>0){
 
 
 $_SESSION["SpecRate"] = $arr;*/
-echo mysqli_num_rows($result); //0
+//echo mysqli_num_rows($result); //0
 //echo mysqli_num_fields($result); //19*/
-/*if (mysqli_num_rows($result)>0){
-    echo 1;
+if (mysqli_num_rows($result)>0){
+    echo "good";
 }else{
-    echo 0;
-}*/
+    echo "bad";
+}
 if($result == false) {
     echo "fail";
 }

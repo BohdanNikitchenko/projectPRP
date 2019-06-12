@@ -1,7 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
-
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +17,11 @@ $user=$_SESSION["loggedUser"];
 
 </head>
 <header>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <body>
 
@@ -55,7 +60,7 @@ $user=$_SESSION["loggedUser"];
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Особиста інформація</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Обране</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="favorite_page.php" onclick="document.location.href='favorite_page.php';" role="tab" aria-controls="profile" aria-selected="false">Обране</a>
                         </li>
                     </ul>
                 </div>
@@ -136,7 +141,7 @@ $user=$_SESSION["loggedUser"];
                         </div>
 
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                   <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Experience</label>
@@ -183,7 +188,7 @@ $user=$_SESSION["loggedUser"];
                                 <p>Your detail description</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

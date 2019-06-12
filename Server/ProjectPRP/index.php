@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -93,7 +95,11 @@ $user=$_SESSION["loggedUser"];
 
 <body>
 <header>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -205,5 +211,6 @@ $user=$_SESSION["loggedUser"];
 <footer>
     <?php require "footer.php";?>
 </footer>
+<script src="js/do.js"></script>
 </body>
 </html>

@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +19,11 @@
 
 <body>
 <header>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <main role="main">
     <div class="container">
@@ -390,6 +398,7 @@
 <footer>
     <?php require "footer.php";?>
 </footer>
+<script src="js/do.js"></script>
 </body>
 
 </html>

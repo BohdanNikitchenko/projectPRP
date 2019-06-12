@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,11 @@ $user=$_SESSION["loggedUser"];
     <meta charset="utf-8" />
 </head>
 <header>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <style>
 #search_group{

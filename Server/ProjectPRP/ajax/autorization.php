@@ -21,7 +21,6 @@ $pass = md5($_POST['password']);
     }
 if($flag==true){
     echo "http://localhost/projectPRP/account1.php";
-
 }else {
     echo "fail";
 }

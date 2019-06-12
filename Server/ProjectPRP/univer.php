@@ -35,7 +35,11 @@ $counter = 5;
 </head>
 <header>
     <?php require "db.php";?>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <body>
 
@@ -194,6 +198,7 @@ $univer = get_universities_by_id($_GET['id']);
 <?php
 
 ?>
+<script src="js/do.js"></script>
 <script src="js/favorite.js"></script>
 </body>
 <div class="container emp-profile">

@@ -1,6 +1,8 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 $array = array(
     0 => array("Українська мова і література","https://zno.osvita.ua/ukrainian/299/","https://zno.osvita.ua/ukrainian/309/","https://zno.osvita.ua/ukrainian/281/"),
     1 => array("Математика","https://zno.osvita.ua/mathematics/298/","https://zno.osvita.ua/mathematics/310/","https://zno.osvita.ua/mathematics/290/"),
@@ -28,7 +30,11 @@ $array = array(
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <header>
-    <?php require "header.php";?>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
 </header>
 <body>
 <div class="jumbotron jumbotron-fluid bg-primary" >
@@ -111,4 +117,5 @@ $array = array(
 <footer>
     <?php require "footer.php";?>
 </footer>
+<script src="js/do.js"></script>
 </html>

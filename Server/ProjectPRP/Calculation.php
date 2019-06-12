@@ -1,6 +1,5 @@
 <?php
 session_start();
-//session_destroy();
 if(isset($_SESSION["loggedUser"])){
     $user=$_SESSION["loggedUser"];
 }
@@ -28,9 +27,13 @@ $subjects = array('Математика', 'Історія України', 'Ан
 
 <body>
 <header>
+    <?php if(isset($_SESSION["loggedUser"])){
+        require "header_un.php";
+    }else{
+        require "header.php";
+    } ?>
+    <?php require "Calculation_features.php"?>
 
-    <?php require "Calculation_features.php";
-    require "header.php";?>
 </header>
 <main role="main">
     <form method="post">
@@ -144,17 +147,17 @@ $subjects = array('Математика', 'Історія України', 'Ан
                                 <?php if(isset($user['Subj3'])){
                                     foreach ($subjects as $subject){
                                         if($user['Subj3'] == $subject){ ?>
-                                            <option value="<?php echo $subject;?>" selected="" ><?php echo $subject; ?></option>
+                                            <option value="<?php echo $subject;?>" selected=""><?php echo $subject; ?></option>
                                         <?php }else{ ?>
-                                            <option value=<?php echo $subject; ?>><?php echo $subject; ?></option>
+                                            <option value="<?php echo $subject;?>" selected=""><?php echo $subject; ?></option>
                                         <?php }
                                     } ?>
                                 <?php }else{ ?>
                                     <option value="Математика" >Математика</option>
                                     <option value="Історія України">Історія України</option>
-                                    <option value="Англійська мова" >Англійська мова</option>
+                                    <option value="Англійська мова" selected="">Англійська мова</option>
                                     <option value="Фізика">Фізика</option>
-                                    <option value="Біологія" selected="">Біологія</option>
+                                    <option value="Біологія">Біологія</option>
                                     <option value="Географія">Географія</option>
                                     <option value="Хімія">Хімія</option>
                                 <?php } ?>
@@ -204,5 +207,6 @@ $subjects = array('Математика', 'Історія України', 'Ан
     </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="js/calculation.js"></script>
+<script src="js/do.js"></script>
 </body>
 </html>

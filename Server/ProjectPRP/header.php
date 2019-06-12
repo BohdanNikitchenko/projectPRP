@@ -31,13 +31,19 @@
                         ЗНО
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Загальна информація</a>
-                        <a class="dropdown-item" href="#">Предмети ЗНО</a>
+                        <a class="dropdown-item" href="GenInfo.php">Загальна информація</a>
+                        <a class="dropdown-item" href="Subject.php">Предмети ЗНО</a>
                         <a class="dropdown-item" href="test.php">Тести</a>
                     </div>
                 </li>
-                <li class="nav-item ml-2 ">
-                    <a class="nav-link" href="#">Спеціальності</a>
+                <li class="nav-item dropdown ml-2 ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Спеціальності
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="Calculation.php">Ймовірність вступу</a>
+                        <a class="dropdown-item" href="specialities.php">Підбір спеціальності</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown ml-2 ">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +51,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="vnz.php">Перелік ЗВО</a>
-                    <a class="dropdown-item" href="#">Рейтинги</a>
+                    <a class="dropdown-item" href="Rate.php">Рейтинги</a>
                 </div>
                 </li>
             </ul>
