@@ -63,6 +63,41 @@ let id =$("#getId").val();
 
 
 });
+// Рейтинг специальностей
+$("#Rate").on("click", function () {
+    let SpecNum = $("#SpecInput").val().trim().substring(0, 3);
+if(SpecNum!="") {
+
+
+    $.ajax({
+        url: 'ajax/rating.php',
+        type: 'POST',
+        cache: false,
+        data: {'SpecNum': SpecNum},
+        success: function (data) {
+            $('#id_t2').remove();
+            $('#id_t1').append(data);
+
+            if (data == "fail") {
+                alert("db insert error");
+            } else {
+
+                // var unarr = data.split('SPLITHERE');
+                // for(let i=1;i<=unarr.length;i++){
+                //     document.getElementById('i').value=data;
+                // }
+
+
+            }
+
+            $("#sendBtn").prop("disabled", false);
+        }
+
+    });
+}
+});
+
+
 
 //авторизация
 $("#Sbut").on("click",function () {
@@ -375,6 +410,10 @@ function exit() {
 
     //alert(window.location);
 }
+
+
+
+
 
 
 
