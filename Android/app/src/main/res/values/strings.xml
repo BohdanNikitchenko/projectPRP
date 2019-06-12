@@ -25,6 +25,7 @@
     <string name="spec_rate">Рейтинг спеціальностей</string>
     <string name="zvo_view">Перегляд ЗВО</string>
     <string name="filters">Фільтри:</string>
+    <string name="search_btn">Пошук</string>
 
     <string-array name="fragments">
         <item>FragmentZvoView</item>

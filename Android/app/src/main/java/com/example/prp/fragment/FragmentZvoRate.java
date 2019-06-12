@@ -7,6 +7,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.prp.R;
 
@@ -27,6 +31,54 @@ public class FragmentZvoRate extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private String[] uns = {
+            "Київський національний університет імені Тараса Шевченка\n",
+            "Харківський національний університет імені В.Н. Каразіна\n",
+            "Національний технічний університет України «Київський політехнічний інститут імені ігоря Сікорського»\n",
+            "Львівський національний університет імені Івана Франка\n",
+            "Національний університет «Львівська політехніка»\n",
+            "Національний університет «Києво-Могилянська академія»\n",
+            "Національний медичний університет імені О.О. Богомольця\n",
+            "Дніпровський національний університет імені Олеся Гончара\n",
+            "Одеський національний університет імені І.І. Мечникова\n",
+            "Сумський державний університет\n",
+            "Львівський національний медичний університет імені Данила Галицького\n",
+            "Національний авіаційний університет\n",
+            "Чернівецький національний університет імені Юрія Федьковича\n",
+            "Національний фармацевтичний університет\n",
+            "Харківський національний медичний університет\n",
+            "Національний технічний університет «Харківський політехнічний інститут»\n",
+            "Дніпропетровська медична академія\n",
+            "Донецький національний університет імені Василя Стуса\n",
+            "Національний аерокосмічний університет ім. М.Є. Жуковського «Харківський авіаційний інститут»\n",
+            "Харківський національний університет радіоелектроніки\n",
+    };
+    private String[] rates = {
+            "ТОП 200 Україна: 1\nScopus: 1",
+            "ТОП 200 Україна: 3\nScopus: 2",
+            "ТОП 200 Україна: 1\nScopus: 6",
+            "ТОП 200 Украна: 10\nScopus: 3",
+            "ТОП 200 Україна: 5\nScopus: 9",
+            "ТОП 200 Україна: 12\nScopus: 18",
+            "ТОП 200 Україна: 7\nScopus: 19",
+            "ТОП 200 Україна: 14\nScopus: 8",
+            "ТОП 200 Україна: 18\nScopus: 5",
+            "ТОП 200 Україна: 9\nScopus: 14",
+            "ТОП 200 Україна: 43\nScopus: 11",
+            "ТОП 200 Україна: 19\nScopus: 28",
+            "ТОП 200 Україна: 24\nScopus: 4",
+            "ТОП 200 Україна: 20\nScopus: 31",
+            "ТОП 200 Україна: 31\nScopus: 25",
+            "ТОП 200 Україна: 4\nScopus: 10",
+            "ТОП 200 Україна: 57\nScopus: 23",
+            "ТОП 200 Україна: 27\nScopus: 17",
+            "ТОП 200 Україна: 11\nScopus: 21",
+            "ТОП 200 Україна: 1\nScopus: 6",
+            "ТОП 200 Україна: 23\nScopus: 20"
+    };
+    GridView gridView;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -59,13 +111,30 @@ public class FragmentZvoRate extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_zvo_rate, container, false);
+        final View v = inflater.inflate(R.layout.fragment_fragment_zvo_rate, container, false);
+
+        gridView = (GridView)v.findViewById(R.id.zvo_rate_grid);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this.getActivity(), android.R.layout.simple_list_item_1, uns);
+
+        gridView.setAdapter(arrayAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(view.getContext(), rates[position], Toast.LENGTH_SHORT).show();
+            }
+        });
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

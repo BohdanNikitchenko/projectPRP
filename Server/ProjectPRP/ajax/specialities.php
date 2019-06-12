@@ -25,6 +25,8 @@ echo "<table border='2px'>
 </tr>
 ";
 $result = $mysql->query("SELECT * FROM specialty_in_universities WHERE Name_Specialty LIKE '%".$spec."%';");
+
+
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
         echo "<tr>";
@@ -71,5 +73,6 @@ if (mysqli_num_rows($result) > 0) {
         echo "</tr>";
     }
 }
+
 echo "</table>";
 

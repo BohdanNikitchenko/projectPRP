@@ -7,6 +7,9 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.prp.R;
 
@@ -65,7 +68,26 @@ public class FragmentSpecView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_spec_view, container, false);
+        View v = inflater.inflate(R.layout.fragment_fragment_spec_view, container, false);
+
+
+        Button search_button = (Button)v.findViewById(R.id.search_spec_btn);
+        final EditText editText = v.findViewById(R.id.search_spec_field);
+
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(editText.getText().toString().equals("") || editText.getText().toString().equals(null)){
+                    Toast.makeText(v.getContext(),"Поле пошуку порожнє" , Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(v.getContext(), "Good!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        return v;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,5 +127,16 @@ public class FragmentSpecView extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    public void Search(View v){
+        EditText editText = v.findViewById(R.id.search_spec_field);
+        if(editText.toString().equals("") || editText.toString().equals(null)){
+            Toast.makeText(v.getContext(),"Полк пошуку порожнє" , Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(v.getContext(), "Good!",Toast.LENGTH_SHORT).show();
+        }
     }
 }

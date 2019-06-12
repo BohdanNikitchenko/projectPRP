@@ -91,12 +91,7 @@ public class FragmentZvoView extends Fragment {
     Spinner areaSpinner;
     Spinner townSpinner;
     ArrayAdapter<String> areaAdapter;
-    ArrayAdapter<String> townAdapter; /* = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, townValues);*/
-
-
-
-
-
+    ArrayAdapter<String> townAdapter;
 
 
     public FragmentZvoView() {
@@ -135,7 +130,7 @@ public class FragmentZvoView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //a
+
         final View v = inflater.inflate(R.layout.fragment_fragment_zvo_view, container, false);
 
         areaSpinner = (Spinner)v.findViewById(R.id.areaSpinner);
@@ -161,44 +156,7 @@ public class FragmentZvoView extends Fragment {
             }
         });
 
-        /*areaSpinner = (Spinner)v.findViewById(R.id.areaSpinner);
-        townSpinner = (Spinner)v.findViewById(R.id.townSpinner);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_spinner_item, areaValues);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        areaSpinner.setAdapter(adapter);
-        //a
-
-        areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                townAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, townValues[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        /*areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String item = (String)parent.getItemAtPosition(position);
-                Spinner townSpinner = view.findViewById(R.id.townSpinner);
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(parent.getContext(), android.R.layout.simple_spinner_item, item);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
-
-
         return v;
-
 
     }
 
