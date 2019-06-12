@@ -74,12 +74,36 @@ $univer = get_universities_by_id($_GET['id']);
                                     }
                                 </style>
 
+                                <i onclick="myFunction(this,<?php echo $univer["favorite"]; ?>)"
+                                   class="fa <?php
 
-                                <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-3x" ></i>
+                                   if ($univer["favorite"] == "1") {
 
+                                       echo "fa-thumbs-up";
+                                   } else {
+                                       echo "fa-thumbs-down";
+                                   }
+
+                                   ?>
+                                           fa-3x " id="like_button" name="like_button"
+                                   value="<?php echo $univer["favorite"]; ?>"></i>
+
+
+
+                                <div value="<?php echo $univer['id'] ?>" id="getId" name="getId"></div>
                                 <script>
-                                    function myFunction(x) {
-                                        x.classList.toggle("fa-thumbs-down");
+
+                                    function myFunction(x, y) {
+
+                                        if (y == 1) {
+                                            x.classList.toggle("fa-thumbs-down");
+                                            x.classList.toggle("fa-thumbs-up");
+
+                                        } else {
+                                            x.classList.toggle("fa-thumbs-down");
+                                            x.classList.toggle("fa-thumbs-up");
+                                        }
+
                                     }
                                 </script>
                             </div>
@@ -155,6 +179,7 @@ $univer = get_universities_by_id($_GET['id']);
 <?php
 
 ?>
+<script src="js/favorite.js"></script>
 </body>
 <div class="container emp-profile">
 

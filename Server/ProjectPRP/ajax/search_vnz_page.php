@@ -1,69 +1,34 @@
 <?php
-session_start();
-$user=$_SESSION["loggedUser"];
-$q="";
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <script type="text/javascript" src="jquery.lazy.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/vnz.css">
+$dbhost = "localhost";
+$dbname="users";
+$username="root";
+$password="";
 
+$connect = mysqli_connect($dbhost,$username,$password,$dbname);
+$connect->query("SET CHARACTER SET 'utf8'");
+$query= $_POST['search_inp'];
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-</head>
-<header>
-    <?php require "db.php";?>
-    <?php require "header.php";?>
-</header>
-<div id="scores">
-<body>
+$output='';
+$sql = "SELECT *
+                  FROM `universities` WHERE `Name_Universities` LIKE '%$query%'
+                  OR `Region_U` LIKE '%$query%' OR `City_U` LIKE '%$query%'
+                  OR `Address_U` LIKE '%$query%'
+            OR `Type_U` LIKE '%$query%' OR `Control_Form_U` LIKE '%$query%'
+            OR `Director_U` LIKE '%$query%'
+            OR `Phone_U` LIKE '%$query%' OR `Web_U` LIKE '%$query%' and `favorite`='1' LIMIT 30";
+echo(sql);
+$result = mysqli_query($connect, $sql);
 
-
-<div class="container emp-search">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="input-group" id="adv-search">
-                    <input type="text" class="form-control"   name="query" placeholder="Поиск" id="search_inp"/>
-                    <div class="input-group-btn">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-success " data-toggle="dropdown" aria-expanded="false" onclick='location.href="vnz.php"'><i class="fa fa-refresh fa-spin  fa-fw"></i></button>
-
-                            <button id="search_btn" name="search_btn" class="btn btn-success form-control">Найти</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="load_all">
-<div id="load_div">
-<?php
-
-    $id_list ='';
-
-    $universities = get_universities_all();
-function write($row,$q)
+if(mysqli_num_rows($result)>0){
+while ($row = mysqli_fetch_array($result))
 {
-    if($q!=""){
-        $universities = get_universities_with_sql($q);
-        while ($row = mysqli_fetch_array($universities)){
-            $null="";
-            write($row,$null);
-        }
-           return;
-    }
-    global $id_list;
-    $id_list=$row['id'];
-    ?>
 
 
+$id_list=$row['id'];
+
+$output .= '<tbody>'
+?>
+<div id="load_div">
     <div class="container emp-profile" id="contain_prof">
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
@@ -97,7 +62,7 @@ function write($row,$q)
                                         </style>
 
 
-                                        <i onclick="myFunction(this,<?php echo $row["favorite"]; ?>)" 
+                                        <i onclick="myFunction(this,<?php echo $row["favorite"]; ?>)"
                                            class="fa <?php
 
                                            if ($row["favorite"] == "1") {
@@ -211,58 +176,16 @@ function write($row,$q)
             </div>
         </div>
     </div>
+    <div>
+        <?php
+        '</div><tbody>';
+        }
 
-    <?php
 
-}
 
-      while ($row = mysqli_fetch_array($universities)){
-write($row,$q);
 
-}
 
-?>
-</div>
-</div>
-<div class="container emp-more" id="conteiner_more">
-    <div class="card mb-4 shadow-sm">
 
-<button id="btn_more" name="btn_more"  value="SELECT * FROM universities WHERE id >'<?php echo $id_list?>' LIMIT 2" class="btn btn-success form-control"  >Load All</button>
-<button id="button_value" value="<?php echo $id_list;?>" hidden >
-    </button>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/do.js"></script>
-<script src="js/search.js"></script>
-    <script src="js/favorite.js"></script>
-</body>
-</div>
-<footer>
-    <?php require "footer.php";?>
-</footer>
-</html>
-
-<script>
-$(document).ready(function () {
-    $(document).on('click', '#btn_more', function () {
-
-        var id = $('#button_value').val();
-        var sql = $('#btn_more').val();
-        $('#btn_more').html("Loading...");
-        $.ajax({
-            url: "load_data_more.php",
-            method: "POST",
-            data: {sql:sql,id:id},
-
-            success: function (data) {
-                if (data != '') {
-                    $('#conteiner_more').remove();
-                    $('#load_div').append(data);
-                } else {
-                    $('#btn_more').html("no Data");
-                }
-            }
-        })
-    })
-})
-</script>
+        echo $output;
+        }
+        ?>
