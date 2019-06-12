@@ -14,8 +14,8 @@ $(document).on('click', '#search_btn', function () {
                 $('#conteiner_more').remove();
                 $('#load_all').append(data);
             } else {
-                $('#load_div').remove();
                 $('#conteiner_more').remove();
+
                 $('#search_btn').html("Запит не вірний");
             }
         }
@@ -37,7 +37,7 @@ $(document).on('click', '#search_btn_more', function () {
                 $('#conteiner_more').remove();
                 $('#load_all').append(data);
             } else {
-                $('#load_div').remove();
+
                 $('#conteiner_more').remove();
                 $('#search_btn').html("Запит не вірний");
             }

@@ -32,32 +32,9 @@ $q="";
                     <input type="text" class="form-control"   name="query" placeholder="Поиск" id="search_inp"/>
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
-                            <div class="dropdown dropdown-lg">
-                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                                <div class="dropdown-menu dropdown-menu-right" role="menu">
-
-
-                                            <label for="filter">Filter by</label>
-                                            <select class="form-control">
-                                                <option value="0" selected>Назва</option>
-                                                <option value="1">Область</option>
-                                                <option value="2">Населений пункт</option>
-                                                <option value="3">Тип ВНЗ</option>
-                                            </select>
-
-
-                                        <div class="form-group">
-                                            <label for="contain">Contains the words</label>
-                                            <input class="form-control" type="text" id="search_inp_more" />
-                                        </div>
-                                        <button id="search_btn_more" name="search_btn_more" class="btn btn-success">Search</button>
-
-                                </div>
-                            </div>
-
+                            <button type="button" class="btn btn-success " data-toggle="dropdown" aria-expanded="false" onclick='location.href="vnz.php"'><i class="fa fa-refresh fa-spin  fa-fw"></i></button>
 
                             <button id="search_btn" name="search_btn" class="btn btn-success form-control">Найти</button>
-
                         </div>
                     </div>
                 </div>
