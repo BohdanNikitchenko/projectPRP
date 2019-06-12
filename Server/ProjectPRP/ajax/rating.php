@@ -35,10 +35,38 @@ if($result == false){
 //            echo "SPLITHERE" . $a['Name_Universities'];
 //        }
 //    }
-    echo "http://localhost/projectPRP/Rate.php";
+
 }
 
+$i=0;
+$result = $db->query("SELECT DISTINCT Name_Universities, Min_Budget FROM specialty_in_universities WHERE Min_Budget<=200 AND Min_Budget>=100 and Id_specialty=$specnum GROUP BY Name_Universities   ORDER by Min_Budget DESC");
+echo " <div id=\"id_t2\">
+            <table class=\"table table-striped\">
 
+                <thead>
+                <tr>
+
+                    <th>№</th>
+                    <th>Назва ЗВО</th>
+                    <th>Мінімальний бал для держзамовлення</th>
+
+                </tr>
+                </thead>
+
+
+                    <tbody id=\"t_r\">";
+while ($row=mysqli_fetch_assoc($result)){
+
+    echo "<tr>";
+    echo "<td>".$i+=1;"</td>";
+    echo "<td id='$i'> " . $row['Name_Universities'] . "</td>";
+
+    echo "<td>".$row['Min_Budget']."</td>";
+    echo "</tr>";
+
+}
+echo " </tbody>
+            </table></div>"
 
 
 ?>

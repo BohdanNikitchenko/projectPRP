@@ -83,22 +83,22 @@ $univer = $_SESSION["SpecRate"];
         <a name="spec"></a>
         <div class="card mt-5">
             <h5 class="card-header">Рейтинг ЗВО України за вказаною спеціальністю</h5>
+            <div id="id_t1">
+                <div id="id_t2">
             <table class="table table-striped">
+
                 <thead>
                 <tr>
+
                     <th>№</th>
                     <th>Назва ЗВО</th>
                     <th>Мінімальний бал для держзамовлення</th>
+
                 </tr>
                 </thead>
-                <tbody>
 
-<!--                <tr>-->
-<!--                    <td>1</td>-->
-<!--                    <td ><input value="" id="1" type="text" readonly="" style="outline: none; border: none; background: #f2f2f2"></input></td>-->
-<!--                    <td>200</td>-->
-<!--                </tr>-->
 
+                    <tbody id="t_r">
 
                 <?php
                 $i=0;
@@ -114,8 +114,9 @@ $univer = $_SESSION["SpecRate"];
                 }
 
                     ?>
-                </tbody>
-            </table>
+
+                    </tbody>
+            </table></div></div>
         </div>
 
         <a name="bal"></a>

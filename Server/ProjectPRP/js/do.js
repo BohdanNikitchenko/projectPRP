@@ -37,31 +37,37 @@ $("#sendBtn").on("click", function () {
 // Рейтинг специальностей
 $("#Rate").on("click", function () {
     let SpecNum = $("#SpecInput").val().trim().substring(0, 3);
+if(SpecNum!="") {
+
 
     $.ajax({
         url: 'ajax/rating.php',
         type: 'POST',
         cache: false,
-        data: {'SpecNum' : SpecNum},
-        success:function (data) {
+        data: {'SpecNum': SpecNum},
+        success: function (data) {
+            $('#id_t2').remove();
+            $('#id_t1').append(data);
 
-            if(data == "fail"){
+            if (data == "fail") {
                 alert("db insert error");
-            }else{
+            } else {
 
                 // var unarr = data.split('SPLITHERE');
                 // for(let i=1;i<=unarr.length;i++){
                 //     document.getElementById('i').value=data;
                 // }
 
-            document.location.href=data;
+
             }
 
-            $("#sendBtn").prop("disabled",false);
+            $("#sendBtn").prop("disabled", false);
         }
 
     });
+}
 });
+
 
 
 //авторизация
