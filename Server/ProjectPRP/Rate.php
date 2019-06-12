@@ -261,22 +261,7 @@ $univer = $_SESSION["SpecRate"];
 
 
                     <tbody id="t_r">
-
-                <?php
-                $i=0;
-                foreach ($univer as $un) {
-
-                    echo "<tr>";
-                    echo "<td>".$i+=1;"</td>";
-                    echo "<td id='$i'> " . $un['Name_Universities'] . "</td>";
-
-                    echo "<td>".$un['Min_Budget']."</td>";
-                    echo "</tr>";
-
-                }
-
-                    ?>
-
+                    
                     </tbody>
             </table></div></div>
         </div>

@@ -11,7 +11,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>ЗНО</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Загальна інформація</a></li>
+                    <li><a href='GenInfo.php'><i class="fa fa-angle-double-right"></i>Загальна інформація</a></li>
                     <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Предмети</a></li>
                     <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Тести онлайн</a></li>
                 </ul>
