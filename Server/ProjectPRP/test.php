@@ -23,7 +23,7 @@ $array = array(
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="css/vnz.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
@@ -31,40 +31,81 @@ $array = array(
     <?php require "header.php";?>
 </header>
 <body>
-<div class="container emp-profile">
+<div class="jumbotron jumbotron-fluid bg-primary" >
+    <div class="container" id="p">
+        <h1 class="display-3" > Найкращі тести</h1>
+<p>для підготовки до ЗНО</p>
+        <p><a class="btn btn-success btn-lg" href="https://zno.osvita.ua/" role="button">Підготуватися <i class="fa fa-angle-double-right"></i></a></p>
+    </div>
+</div>
 
-<?php
+<style>
+
+    
+
+    #Name_test{
+        width: 100%;
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        text-align: center;
+        border-radius: 10px;
+        padding: 4px;
+        margin-top: 45px;
+        margin-bottom: 15px;
+    }
+
+    #up_set{
+
+        text-align: center;
+        height: 50%;
+        width: 100%;
+        color: #fff;
+        background-color: #0b2e13;
+        border-color: #4cae4c;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    #card_form{
+        margin: 10px;
+        border-radius: 10px;
+        background-color: #0b2e13;
+    }
+
+    #down_set{
+        height: 50%;
+        width: 100%;
+        border-radius: 0px 0px 10px 10px;
+
+    }
+</style>
+<div class="emp-profile">
+    <div class="container">
+
+        <?php
         for($i=0; $i<count($array); $i++):
             ?>
-    <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-            <h4 class="my-0 font-weight-normal"><?php
+            <hr>
+            <div id="Name_test" width="100%"> <h2><?php echo $array[$i][0] ?> </h2></div>
+            <div class="row">
 
-                echo $array[$i][0] ?></h4>
-        </div>
-        <?php
-        for($j=1; $j<count($array[$i]); $j++):
-        ?>
-        <div class="card-body">
-            <table class = "tests" name = "tests">
-            <td class="td_1"><h4 class="card-title pricing-card-title">Тест № <?php echo $j ?></h4></td>
-          <td class="td_2"><button type="button" class="btn btn-lg btn-block btn-outline-primary" onClick='location.href="<?php echo $array[$i][$j] ?>"'>Перейти по посиланню</button></td>
-                <td>
-                    <fieldset class="rating">
-                        <div class="rating__group">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="1" aria-label="Ужасно" >
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="2" aria-label="Сносно">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="3" aria-label="Нормально">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="4" aria-label="Хорошо">
-                            <input class="rating__star" type="radio" name="<?php echo $i,$j ?>" id="<?php echo $i,$j ?>" value="5" aria-label="Отлично">
+
+                <?php
+                for($j=1; $j<count($array[$i]); $j++):
+                    ?>
+                    <div class="col-md-4">
+                        <div class="card" id="card_form">
+
+                            <h4 class="card-title pricing-card-title" id="up_set">Тест № <?php echo $j ?></h4>
+
+                            <a onClick='location.href="<?php echo $array[$i][$j] ?>"' class="btn btn-danger" id="down_set"><i class="fa fa-eye"></i> View</a>
+
                         </div>
-                    </fieldset>
-                </td>
-            </table>
-        </div>
+                    </div>
+                <?php endfor; ?>
+            </div>
         <?php endfor; ?>
     </div>
-<?php endfor; ?>
 </div>
 </body>
 <footer>

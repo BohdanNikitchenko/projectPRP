@@ -16,7 +16,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js.map"></script>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">AbitPro</a>
+        <a class="navbar-brand" href="index.php">AbitPro</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ml-2 " >
-                    <a class="nav-link" href="#">Новости </a>
+                    <a class="nav-link" href="index.php">Новости </a>
                 </li>
                 <li class="nav-item dropdown ml-2 ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +33,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Загальна информація</a>
                         <a class="dropdown-item" href="#">Предмети ЗНО</a>
-                        <a class="dropdown-item" href="#">Тести</a>
+                        <a class="dropdown-item" href="test.php">Тести</a>
                     </div>
                 </li>
                 <li class="nav-item ml-2 ">
@@ -44,17 +44,33 @@
                     ЗВО
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Перелік ЗВО</a>
+                    <a class="dropdown-item" href="vnz.php">Перелік ЗВО</a>
                     <a class="dropdown-item" href="#">Рейтинги</a>
                 </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="button" onclick='location.href="account.php"'>Особистий кабінет</button>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick='location.href="account.php"'>Вихід</button>
+                <button class="btn btn-outline-success my-2 my-sm-0 mr-5" type="button" onclick='location.href="registration.php"' id="btn_reg">Зареєструватися</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick='location.href="autorization.php"' id="btn">Увійти</button>
             </form>
         </div>
     </nav>
+
+    <style>
+        #btn_reg{
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+
+        #btn{
+            color: #fff;
+            border-color: #4cae4c;
+        }
+
+
+    </style>
+
 
     <script type="text/javascript" src="js/code.js"></script>
 
