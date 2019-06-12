@@ -15,11 +15,11 @@ $("#btnRes").on("click", function () {
             },
             success:function (data) {
                 //alert("qweqeqe");
-                alert(data);
+                //alert(data);
                 if(data == "fail"){
                     alert("db select error");
                 }else{
-                    //alert(data);
+                    alert(data);
                     //document.location.href = data;
                     $result = data;
                     $success = true;
@@ -27,6 +27,9 @@ $("#btnRes").on("click", function () {
                 $("#sendBtn").prop("disabled",false);
             }
         });
+    }else {
+        Id_specialty.style.borderColor = "#FF0000";
+
     }
     //alert(Name_Specialty.value);
     //res.style.display = "block";

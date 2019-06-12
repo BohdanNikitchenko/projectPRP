@@ -1,15 +1,16 @@
 <?php
 session_start();
-$user=$_SESSION["loggedUser"];
-$calc=$_SESSION["calc"];
+if(isset($_SESSION["loggedUser"])){
+    $user=$_SESSION["loggedUser"];
+}
 $subjects = array('Математика', 'Історія України', 'Англійська мова', 'Фізика', 'Біологія', 'Географія', 'Хімія');
     /*$univer = $_SESSION["SpecRate"];*/
     //print_r($subjects);
-foreach ($subjects as $subject){
+/*foreach ($subjects as $subject){
     if($subject == $user['Subj3']){
         echo $subject;
     }
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html>

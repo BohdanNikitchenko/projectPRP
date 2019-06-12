@@ -9,7 +9,7 @@ if ($mysql->connect_errno) {
     exit();
 }
 $mysql->query("SET NAMES 'utf8'");
-    $result = $mysql->query("SELECT Min_Budget FROM specialty_in_universities WHERE Id_specialty = '$Id_specialty' AND Name_Universities = '$Name_Universities' ORDER BY Min_Budget DESC LIMIT 1");
+    $result = $mysql->query("SELECT Min_Budget, MathsU, Ukrainian_LanguageU, EnglishU, PhysicsU, HistoryU, BiologyU, GeographyU, ChemistryU, SchoolU FROM specialty_in_universities WHERE Id_specialty = '$Id_specialty' AND Name_Universities = '$Name_Universities' ORDER BY Min_Budget DESC LIMIT 1");
 
 /*$arr=array();
 if (mysqli_num_rows($result)>0){
@@ -28,5 +28,23 @@ if($result == false){
     //echo "success";
     $row=mysqli_fetch_row($result);
     echo $row[0];
+    echo ',';
+    echo $row[1];
+    echo ',';
+    echo $row[2];
+    echo ',';
+    echo $row[3];
+    echo ',';
+    echo $row[4];
+    echo ',';
+    echo $row[5];
+    echo ',';
+    echo $row[6];
+    echo ',';
+    echo $row[7];
+    echo ',';
+    echo $row[8];
+    echo ',';
+    echo $row[9];
 }
 ?>
